@@ -1,0 +1,15 @@
+---
+title: "Luiz Gustavo dos Santos"
+image: "3x4.jpg"
+links:
+  - label: GitHub
+    url: "https://github.com/"
+  - label: Email
+    url: "Luizinhost47@gmail.com"
+  - label: Relatórios
+    url: "./relatorio/index.html"
+output:
+  postcards::jolla
+---
+ 
+Aluno de engenharia civil!
