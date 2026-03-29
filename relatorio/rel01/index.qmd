@@ -49,8 +49,6 @@ Analisar como as diferentes configurações da catapulta como posição do elás
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
-
 Seguem os dados coletados:
 
 \center
@@ -238,14 +236,48 @@ Seguem os dados coletados:
 
 \center
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+### DADOS CALCULADOS A PARTIR DA COLETA:
+\center
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
+.tg td{background-color:#E0FFEB;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;
+  border-width:0px;color:#594F4F;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;
+  word-break:normal;}
+.tg th{background-color:#9DE0AD;border-bottom-width:1px;border-color:#bbb;border-style:solid;border-top-width:1px;
+  border-width:0px;color:#493F3F;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;
+  padding:10px 5px;word-break:normal;}
+.tg .tg-996f{background-color:#C2FFD6;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-grbc{background-color:#C2FFD6;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 344px"><colgroup>
+<col style="width: 156px">
+<col style="width: 188px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-7btt">MÉDIA</th>
+    <th class="tg-c3ow">1,945 Mts</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-grbc">VARIÂNCIA</td>
+    <td class="tg-996f">0,6445</td>
+  </tr>
+  <tr>
+    <td class="tg-7btt">DESVIO PADRÃO</td>
+    <td class="tg-c3ow">0,254 Mts</td>
+  </tr>
+  <tr>
+    <td class="tg-grbc">AMOSTRAGEM</td>
+    <td class="tg-996f">40</td>
+  </tr>
+</tbody>
+</table>
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+
+\center
 
 ---
 
