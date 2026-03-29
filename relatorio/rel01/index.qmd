@@ -30,8 +30,6 @@ execute:
 
 O experimento baseia-se no lançamento repetido de uma bolinha feito a partir de uma catapulta com diversos parâmetros de configurações, como posição do elástico, posição da bolinha e ângulo de disparo.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
-
 
 
 ## 🎯 Objetivos
@@ -52,6 +50,193 @@ Analisar como as diferentes configurações da catapulta como posição do elás
 ## 📚  Fundamentação Teórica
 
 Apresente os conceitos principais:
+
+Seguem os dados coletados:
+
+\center
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
+.tg td{background-color:#E0FFEB;border-color:#bbb;border-style:solid;border-width:0px;color:#594F4F;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#9DE0AD;border-color:#bbb;border-style:solid;border-width:0px;color:#493F3F;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-996f{background-color:#C2FFD6;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 286px"><colgroup>
+<col style="width: 130px">
+<col style="width: 156px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-c3ow">LANÇAMENTO</th>
+    <th class="tg-c3ow">DISTÂNCIA (Mts)</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-996f">1</td>
+    <td class="tg-996f">1,96</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">2</td>
+    <td class="tg-c3ow">1,95</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">3</td>
+    <td class="tg-996f">1,99</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">4</td>
+    <td class="tg-c3ow">1,93</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">5</td>
+    <td class="tg-996f">2,05</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">6</td>
+    <td class="tg-c3ow">2,13</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">7</td>
+    <td class="tg-996f">2,8</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">8</td>
+    <td class="tg-c3ow">1,99</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">9</td>
+    <td class="tg-996f">2,5</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">10</td>
+    <td class="tg-c3ow">2,8</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">11</td>
+    <td class="tg-996f">1,99</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">12</td>
+    <td class="tg-c3ow">1,88</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">13</td>
+    <td class="tg-996f">2,01</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">14</td>
+    <td class="tg-c3ow">1,97</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">15</td>
+    <td class="tg-996f">2</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">16</td>
+    <td class="tg-c3ow">1,72</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">17</td>
+    <td class="tg-996f">1,86</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">18</td>
+    <td class="tg-c3ow">1,95</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">19</td>
+    <td class="tg-996f">1,92</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">20</td>
+    <td class="tg-c3ow">2,03</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">21</td>
+    <td class="tg-996f">1,71</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">22</td>
+    <td class="tg-c3ow">1,64</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">23</td>
+    <td class="tg-996f">1,87</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">24</td>
+    <td class="tg-c3ow">1,96</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">25</td>
+    <td class="tg-996f">1,93</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">26</td>
+    <td class="tg-c3ow">1,77</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">27</td>
+    <td class="tg-996f">1,95</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">28</td>
+    <td class="tg-c3ow">1,93</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">29</td>
+    <td class="tg-996f">1,98</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">30</td>
+    <td class="tg-c3ow">1,96</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">31</td>
+    <td class="tg-996f">1,98</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">32</td>
+    <td class="tg-c3ow">1,68</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">33</td>
+    <td class="tg-996f">1,82</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">34</td>
+    <td class="tg-c3ow">1,84</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">35</td>
+    <td class="tg-996f">1,9</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">36</td>
+    <td class="tg-c3ow">1,87</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">37</td>
+    <td class="tg-996f">1,67</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">38</td>
+    <td class="tg-c3ow">1,51</td>
+  </tr>
+  <tr>
+    <td class="tg-996f">39</td>
+    <td class="tg-996f">1,68</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">40</td>
+    <td class="tg-c3ow">1,72</td>
+  </tr>
+</tbody></table>
+
+\center
 
 - Média
 - Variância
