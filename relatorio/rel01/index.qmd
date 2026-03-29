@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática 01"
+author: "Luiz Gustavo dos Santos "
+title: "Relatório da Aula Prática 01 - Descrição do experimento da catapulta "
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -28,7 +28,7 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O experimento baseia-se no lançamento repetido de uma bolinha feito a partir de uma catapulta com diversos parâmetros de configurações, como posição do elástico, posição da bolinha e ângulo de disparo.
 
 > Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
 
@@ -38,7 +38,7 @@ Descreva o contexto da prática e sua importância.
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Analisar como as diferentes configurações da catapulta como posição do elástico, posição da bolinha e o ângulo de disparo influenciam na distãncia percoriida pela bolinha.
 
 ### Objetivos específicos
 
@@ -70,9 +70,11 @@ $$
 Descreva como o experimento foi realizado.
 :::
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+- Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa. 
+
+- Procedimento: Foi realizado 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados. 
+
+- Número de repetições: 40 repetições  
 
 ---
 
