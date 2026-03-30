@@ -36,7 +36,7 @@ O experimento baseia-se no lançamento repetido de uma bolinha feito a partir de
 
 ### Objetivo geral
 
-Analisar como as diferentes configurações da catapulta como posição do elástico, posição da bolinha e o ângulo de disparo influenciam na distãncia percoriida pela bolinha.
+Analisar e comparar as distâncias percorrida por uma bolinha ao ser lançada por uma catapulta.
 
 ### Objetivos específicos
 
@@ -49,7 +49,9 @@ Analisar como as diferentes configurações da catapulta como posição do elás
 
 ## 📚  Fundamentação Teórica
 
-Seguem os dados coletados:
+Veja na tabela os dados coletados:
+
+Distância percorrida pela bolinha
 
 \center
 
@@ -236,7 +238,12 @@ Seguem os dados coletados:
 
 \center
 
+
+
 ### DADOS CALCULADOS A PARTIR DA COLETA:
+
+Veja na tabela os dados calculados a partir das amostragem do experimento:
+
 \center
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
@@ -283,13 +290,10 @@ Seguem os dados coletados:
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
 
 - Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa. 
 
-- Procedimento: Foi realizado 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados. 
+- Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados. 
 
 - Número de repetições: 40 repetições  
 
@@ -297,21 +301,12 @@ Descreva como o experimento foi realizado.
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+A distância média dos lançamentos foi de **1,945 metros**, ocorreu uma variância de **0,644 metros**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força. Isso é mostrado pelo desvio padrão de **0,254 metros**.
+ Outro fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lancamentos foram feitos com a catapulta em uma única configuração.
+ A menor distãncia percorrida pela bolinha foi de **1,51 metros** e a maior distância foi de **2,80 metros**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).
+  Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
