@@ -305,36 +305,13 @@ A distância média dos lançamentos foi de **1,945 metros**, ocorreu uma variâ
  Outro fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lancamentos foram feitos com a catapulta em uma única configuração.
  A menor distãncia percorrida pela bolinha foi de **1,51 metros** e a maior distância foi de **2,80 metros**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).
   Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.
+  Todos os calculos foram baseados no livro @triola2008introduccao.
 
-
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
-```
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+ Partindo do princípio que o objetivo do experimento era medir a distância que a catapulta lançava a bolinha e que ocorreu a influência de fatores externos e possíveis erros na execução do experimento, os resultados obtidos estão dentro do esperado, não existindo uma variância tão grande entre as distâncias.
+ Como melhoria para o experimento, sugiro que seja realizado em um lugar no qual fatores como o vento seja minimizado e o elástico da catapulta seja puxado por uma máquina, fazendo com que todos lançamentos sejam com uma mesma intensidade de força.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
-
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
