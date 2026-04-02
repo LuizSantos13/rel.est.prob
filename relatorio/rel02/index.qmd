@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática 02"
+author: "Luiz Gustavo dos Santos"
+title: "Relatório 02 - Introdução ao R"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -28,99 +28,148 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
-
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
-
+Interpretação do curso de linguagem R ministrado pelo professor Ben Dêivide na disciplina de estatística e probabilidade.
 
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Realizar um introdução ao R, fundamentado nas 8 primeiras aulas do curso R Básico 2024.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Breve história do R
+- Passos iniciais para a utilização do R
+- Como o R trabalha
+- Criando e salvando um script: Arquivos r.data e r.history
+- Objetos e estrutura de dados
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚  História da linguagem R
 
-Apresente os conceitos principais:
+ A linguagem R foi desenvolvida no ano de 1991 por Ross Ihaka e Robert Gentleman, professores da Universidade de Aukland,Nova Zelândia, como uma alternativa de código aberto para análise estatística e gráfica, buscando uma alternativa para a linguagem S. foi lançada em 1993 e no ano de 1995 tornou-se software livre. Sua rede de pacotes Cran (Comprehensive R Archive Network) foi lançada em 23 de abril de 1997.
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+### História do R studio
+ O software utilizado no curso para interpretação da linguagem R foi o R.studio, desenvolvido no ano de 2009, por Joseph J. Allaire.
+
+
 
 ---
 
-## ⚙️ Metodologia
+## Passos iniciais para a utilização do R
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+ Precisamos primeiramente fazer o download da interface R e logo após, o download da interface do R studio, que interpretará através de comandos pré estabelecidos por funções, que converterá a sintaxe da linguagem ao que foi almejado.
+ 
+### Como o R trabalha
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
-
+Partindo do princípio que no R tudo é um objeto e que tudo em R é uma chamada de função, para se realizar um trabalho utilizando a linguagem R, dentro do R studio, na aba **Console** utilizamos comandos seja para chamar funções, seja para atribuir valores ao nosso "objeto". Como no exemplo : 
+ 
+  
 ---
-
-## 🔍 Resultados e Discussão
-
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+vetor <- c(4.5, 5, 3.7, 8)
+vetor
+```
+Geralmente os comandos são atribuidos ao nosso objeto utilizando-se o **<-** como sinal de atribuição, tornando assim nosso objeto editável.
+Algumas regras para associação de nomes a objetos baseadas no livro @Rbasico2022:
+
+
+- Letras maiúsculas distinguem das minúsculas.
+- Nomes se iniciam por uma letra ou ponto.
+- Deve conter letras, dígitos ou ". ou _"
+
+
+
+## Criando e salvando um script: Arquivos R.data e R.history
+
+Para armazenar as linhas de código no console, criamos um novo script, onde a extensão está dentro do arquivo de texto "Arquivo.R". Para se criar um novo script, iremos na aba **FILE/ARQUIVO** >  **NEW FILE/NOVO ARQUIVO** > **R SCRIPT/R SCRIPT** e digitamos nossas linhas de código. Utilizamos as teclas **CTRL+ENTER** para executar as linhas de comando. Utiliza-se caracteres especiais(*,$,&) em casos necessários, como impressão de um texto na tela e títulos de gráficos.
+
+
+ O local que o script está armazenado dentro da máquina se chama **Diretório**. Esse diretório guarda todo o projeto editado e executado, tais como linhas de comando, objetos associados, gráficos e imagens. Conseguimos alterar o local desse diretório gigitando o comando **setwd("Local desejado")** na aba **Console**.
+ 
+ 
+ 
+ Ao final de qualquer trabalho, quando clicamos no disquete salvar, a desejo do usuário dois arquivos são criados, o **.RData** que salva os **objetos** criados e o **.Rhistory** que salva todas as linhas de comando do diretório.
+ 
+ 
+
+
+
+
+
+
+## 📊  Objetos e estrutura de dados
+
+### Objeto
+
+
+Objeto: Unidade dentro do R contendo informações com a capacidade de interpretar sua estrutura e conteúdo. Exemplo:
+ 
+```{r}
+ x <- 1:15
+ plot(x+1)
 ```
 
+Para conhecermos os atributos do nosso objeto, utilizamos os seguintes comandos na aba **Console**:
+
+**Modo**
+```{r}
+ mode(x)
+```
+**Tipo**
+```{r}
+typeof(x)
+```
+**Tamanho**
+```{r}
+length(x)
+```
+ Existem diversas outras funções para se determinar diversos atributos de objetos, exploradas no curso do professor Ben Dêivid.
+ 
+### Estrutura de dados
+
+
+ A estrutura de dados relaciona a forma como declaramos o objeto no software (memória interna) com a forma como o objeto é apresentado pelo software para o usuário (memória externa), relação entre o **Código** e a **Compilação**:
+  
+```{r}
+x <- 1:12
+x
+```
+```{r}
+is.vector(x)
+```
+```{r}
+is.matrix(x)
+```
+ 
+
+
+
+```{r}
+y <- matrix(1:12, 3, 4)
+y
+```
+```{r}
+is.vector(y)
+```
+```{r}
+is.matrix(y)
+```
+ 
+ 
+ 
+ Até o presente momento existem 24 tipos de objetos datados.
+
+
+
 ## 🧠 Considerações finais
+ 
+ Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo tambem o curso de Documentaçao em R, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados.
 
-Apresente uma síntese dos principais pontos observados no experimento.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
-
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
