@@ -3,7 +3,7 @@ title: "Luiz Gustavo dos Santos"
 image: "3x4.jpg"
 links:
   - label: GitHub
-    url: "https://github.com/"
+    url: "https://github.com/LuizSantos13"
   - label: Email
     url: "Luizinhost47@gmail.com"
   - label: Relatórios

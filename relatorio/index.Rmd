@@ -31,7 +31,7 @@ Acesse:[Luiz Gustavo dos Santos](https://www.instagram.com/luiz_gsan/){target="_
 
 # Página dos alunos da disciplina
 
-- Acesse: [Página dos alunos da disciplina Estatística e probabilidade](https://bendeivide.github.io/courses/estexp/estexp2025.1/#relat%C3%B3rio-dos-alunos){target="_blank"}
+- Acesse: [Página dos alunos da disciplina Estatística e probabilidade](https://bendeivide.github.io/courses/epaec/normal2026.1/){target="_blank"}
 
 # Visão geral sobre os relatórios {.tabset .tabset-fade}
 
