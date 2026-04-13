@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Mais informações sobre mim
 
-Acesse:[Luiz Gustavo dos Santos](https://www.instagram.com/luiz_gsan/){target="_blank"}
+Acesse:[Luiz Gustavo dos Santos](https://luizsantos13.github.io/rel.est.prob/){target="_blank"}
 
 # Página dos alunos da disciplina
 
