@@ -46,7 +46,8 @@ Analisar e comparar as distâncias percorrida por uma bolinha ao ser lançada po
 
 ## 📚  Fundamentação Teórica
 
-Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro @zatt2009moda
+Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro Introdução a estatística @triola2008introduccao.
+
 
 ---
 
@@ -55,7 +56,7 @@ Para essa primeira análise das distãncias, foi utilizado o cálculo da distân
 
 - Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta,  softwares Excel e R studio.
 
-- Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, Uma pessoa ficou responsável por puxar a alavanca da catapulta e lançar a bolinha, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, função que foi executada por duas pessoas do grupo, afim de se medir as distâncias. A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. Ao final desse processo, montamos este relatório. 
+- Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, Uma pessoa ficou responsável por puxar a alavanca da catapulta e lançar a bolinha, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, função que foi executada por duas pessoas do grupo, afim de se medir as distâncias. A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. Ao final desse processo, montamos este relatório com os aprendizados do livro @Rbasico2022. 
 
 
 - Número de repetições: 40 repetições  
