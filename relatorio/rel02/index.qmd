@@ -138,7 +138,7 @@ typeof(x)
 ```{r}
 length(x)
 ```
- Existem diversas outras funções para se determinar diversos atributos de objetos, exploradas no curso do professor Ben Dêivid.
+ Existem diversas outras funções para se determinar diversos atributos de objetos, exploradas no curso do professor Ben Dêivide.
  
 ### Estrutura de dados
 
