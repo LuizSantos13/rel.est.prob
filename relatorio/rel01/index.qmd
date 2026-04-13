@@ -46,7 +46,7 @@ Analisar e comparar as distâncias percorrida por uma bolinha ao ser lançada po
 
 ## 📚  Fundamentação Teórica
 
-Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro Introdução a estatística @triola2008introduccao.
+Para essa primeira análise das distâncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro Introdução a estatística @triola2008introduccao.
 
 
 ---
@@ -257,15 +257,15 @@ Distância percorrida pela bolinha
 
 
 
-A distância média  dos lançamentos foi de **1,945 m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. 
+A distância média  dos lançamentos foi de **1,945m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. 
  Um fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lançamentos foram feitos com a catapulta em uma única configuração.
- A menor distãncia percorrida pela bolinha foi de **1,51 m** e a maior distância foi de **2,80 m**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).
+ A menor distância percorrida pela bolinha foi de **1,51m** e a maior distância foi de **2,80m**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).
   Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.
  
 
 ## 🧠 Considerações finais
 
- Partindo do princípio que o objetivo do experimento era medir a distância que a catapulta lançava a bolinha e que ocorreu a influência de fatores externos e possíveis erros na execução do experimento, os resultados obtidos estão dentro do esperado, não existindo uma variância tão grande entre as distâncias.
+ Partindo do princípio que o objetivo do experimento era coletar a distância que a catapulta lançava a bolinha, concluimos que o experimento foi bem sucedido.
  Como melhoria para o experimento, sugiro que seja realizado em um lugar no qual fatores como o vento seja minimizado e o elástico da catapulta seja puxado por uma máquina, fazendo com que todos lançamentos sejam com uma mesma intensidade de força.
 
 
