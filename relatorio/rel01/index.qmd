@@ -46,16 +46,16 @@ Analisar e comparar as distâncias percorrida por uma bolinha ao ser lançada po
 
 ## 📚  Fundamentação Teórica
 
-
+Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro @zatt2009moda
 
 ---
 
 ## ⚙️ Metodologia
 
 
-- Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta,  software R studio.
+- Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta,  softwares Excel e R studio.
 
-- Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados.A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. 
+- Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, Uma pessoa ficou responsável por puxar a alavanca da catapulta e lançar a bolinha, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, função que foi executada por duas pessoas do grupo, afim de se medir as distâncias. A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. Ao final desse processo, montamos este relatório. 
 
 
 - Número de repetições: 40 repetições  
@@ -256,7 +256,7 @@ Distância percorrida pela bolinha
 
 
 
-A distância média (média = soma das distâncias/nº de lançamentos) dos lançamentos foi de **1,945 m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. 
+A distância média  dos lançamentos foi de **1,945 m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. 
  Um fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lançamentos foram feitos com a catapulta em uma única configuração.
  A menor distãncia percorrida pela bolinha foi de **1,51 m** e a maior distância foi de **2,80 m**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).
   Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.

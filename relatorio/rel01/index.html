@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">12/04/2026, 20:14</p>
+      <p class="date">12/04/2026, 20:55</p>
     </div>
   </div>
   
@@ -159,13 +159,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
+<p>Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,<strong>média = soma das distâncias/nº de lançamentos</strong>, um conceito básico de estatística descritiva ensinado no livro <span class="citation" data-cites="zatt2009moda">(<a href="#ref-zatt2009moda" role="doc-biblioref"><strong>zatt2009moda?</strong></a>)</span></p>
 <hr>
 </section>
 <section id="metodologia" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
 <ul>
-<li><p>Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta, software R studio.</p></li>
-<li><p>Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados.A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio.</p></li>
+<li><p>Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta, softwares Excel e R studio.</p></li>
+<li><p>Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, Uma pessoa ficou responsável por puxar a alavanca da catapulta e lançar a bolinha, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, função que foi executada por duas pessoas do grupo, afim de se medir as distâncias. A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. Ao final desse processo, montamos este relatório.</p></li>
 <li><p>Número de repetições: 40 repetições</p></li>
 </ul>
 <hr>
@@ -521,7 +522,7 @@ DISTÂNCIA (m)
 </tr>
 </tbody>
 </table>
-<p>A distância média (média = soma das distâncias/nº de lançamentos) dos lançamentos foi de <strong>1,945 m</strong>, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. Um fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lançamentos foram feitos com a catapulta em uma única configuração. A menor distãncia percorrida pela bolinha foi de <strong>1,51 m</strong> e a maior distância foi de <strong>2,80 m</strong>, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta). Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.</p>
+<p>A distância média dos lançamentos foi de <strong>1,945 m</strong>, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. Um fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lançamentos foram feitos com a catapulta em uma única configuração. A menor distãncia percorrida pela bolinha foi de <strong>1,51 m</strong> e a maior distância foi de <strong>2,80 m</strong>, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta). Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.</p>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
@@ -1034,16 +1035,16 @@ DISTÂNCIA (m)
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Para essa primeira análise das distãncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro @zatt2009moda</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta,  software R studio.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados: Catapulta de madeira, trena, bolinha de papel, mesa, caderno, caneta,  softwares Excel e R studio.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, afim de coletar dados.A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento: Foram realizados 40 lançamentos seguidos afim de se coletar a distância percorrida pela bolinha, com a catapulta configurada em determinada posição, Uma pessoa ficou responsável por puxar a alavanca da catapulta e lançar a bolinha, a cada lançamento feito , usava-se a trena para medir a distãncia percorrida pela bolinha, função que foi executada por duas pessoas do grupo, afim de se medir as distâncias. A cada lançamento, o anotador anotava a distância de cada lançamento no caderno. Ao final dos 40 lançamentos, utilizamos o software Excel e colocamos todos os dados dentro de uma planilha, em seguida convertemos para o formato adequado ao qual utilizamos essa planilha dentro do R Studio. Ao final desse processo, montamos este relatório. </span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições: 40 repetições  </span>
@@ -1244,7 +1245,7 @@ DISTÂNCIA (m)
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>A distância média (média = soma das distâncias/nº de lançamentos) dos lançamentos foi de **1,945 m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. </span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>A distância média  dos lançamentos foi de **1,945 m**, devido a fatores extrernos como a ação da gravidade dentro da sala e o desempenho do experimentador ao puxar a alavanca da catapulta, hora colocando mais força e hora colocando menos força, as distâncias sofreram uma certa variação. </span>
 <span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a> Um fator que deixa evidente a influência de fatores externos no experimento é a discrepância entre a distância de alguns lançamentos, visto que todos os lançamentos foram feitos com a catapulta em uma única configuração.</span>
 <span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a> A menor distãncia percorrida pela bolinha foi de **1,51 m** e a maior distância foi de **2,80 m**, o que indica uma provável existência de erro experimental, seja por parte de quem fez o lançamento, ou quem mediu as distâncias, ou quem anotou e lançou os dados no sistema ou até mesmo erro no própio equipamento (trena,catapulta).</span>
 <span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>  Pelas condições que tinhamos para realizar o experimento, os resultados se enquadram no que já esperavamos, visto que não estávamos em um laboratório própio para esse tipo de experimento, onde fatores externos são minimizados, o que resultaria na diminuição dessa variabilidade dos dados.</span>
