@@ -61,7 +61,17 @@ Realizar um introdução ao R, fundamentado nas 8 primeiras aulas do curso R Bá
 
 ## Passos iniciais para a utilização do R
 
- Precisamos primeiramente fazer o download da interface R e logo após, o download da interface do R studio, que interpretará através de comandos pré estabelecidos por funções, que converterá a sintaxe da linguagem ao que foi almejado.
+ Precisamos primeiramente fazer o download da interface R no site **R project** e logo após, o download da interface do R studio no site da **Posit**, que interpretará através de comandos pré estabelecidos por funções e converterá a sintaxe da linguagem ao que foi almejado.Após o download de ambos, primeiro fazemos a instalação do R e logo após, a instalação do R Studio. É indicado um conhecimento prévio em linguagem R, seja por meio de um curso, ou vídeos, afim de uma melhor compreensão da sintaxe do R Studio.
+ Uma vez o software R aberto no computador, pode se abrir o software R Studio, onde o painel de controle do software se divide em quatro quadrantes. A ordem padrão desses quadrantes são:
+ **1º - Script do R**: Onde as linhas de comando são expressas.
+ **2º - Console do R**: onde as linhas de comando são executadas e interpretadas.
+ **3º - Ambiente global**: Nessse quadrante estão localizadas as abas **Environment**, que  mostra todos os objetos que estão criados, e **History**, que mostra todas as linhas de comando executadas no console.
+ **4º - Área de plotagem**: Nesse quadrante encontram-se 5 abas importantes dentro do R Studio:
+  **Files** - Aba onde se encontram os arquivos do projeto, seja em extensão .qmd,.rmd,.html,área de imagens e logo, referências e estrutura da página ou do documento.
+  **Packages** - Aba onde é possível instalar localmente pacotes do R disponíveis para uso livre.
+  **Help** - Aba onde você encontra o manual de ajuda do R, você encontra informações sobre todas as funções e argumentos do R.
+  **Viewer** - Aba onde você visualiza uma prévia projeto no formato desejado.
+  **Plots** - Área de plotagem onde adicionamos imagens ou criamos gráficos e acrescentamos no documento.
  
 ### Como o R trabalha
 
@@ -162,14 +172,19 @@ is.matrix(y)
  
  
  
- Até o presente momento existem 24 tipos de objetos datados.
+ Até o presente momento existem 24 tipos de objetos datados. Em resumo:
+ 
+ **Objeto**: É qualquer utensílio ou ingrediente que você nomeia (o "pote de sal", a "geladeira", a "receita").
 
+ **Estrutura de Dados**: É o formato do recipiente. Um Vetor é como uma cartela de ovos (só cabe ovo).Um Data Frame é como uma prateleira organizada com etiquetas (cada coluna tem sua regra).Uma Lista é como uma caixa de mudança (você joga o que quiser dentro dela).
+ **Dica de ouro**: No RStudio, sempre que quiser saber a estrutura de um objeto, use o comando **str(nome_do_objeto)**. Ele te dará o "raio-x" completo da estrutura.
 
+  
 
 ## 🧠 Considerações finais
  
- Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo tambem o curso de Documentaçao em R, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados.
-
+ Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo tambem o curso de Documentaçao em R, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados dentro do R Studio.
+ 
 
 
 ## 📖 Referências
