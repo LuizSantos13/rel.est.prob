@@ -45,8 +45,22 @@ Analisar e comparar as distâncias percorrida por uma bolinha ao ser lançada po
 ---
 
 ## 📚  Fundamentação Teórica
+O funcionamento da catapulta, parte do príncipio da lei de conservação de energia, onde esse processo se resume em:
 
-Para essa primeira análise das distâncias, foi utilizado o cálculo da distância média dos lançamentos,**média = soma das distâncias/nº de lançamentos**, um conceito básico de estatística descritiva ensinado  no livro Introdução a estatística @triola2008introduccao.
+A) Energia Potencial Elástica ($E_{pe}$): Ao tensionar o braço da catapulta (seja por elásticos, molas ou torção), armazena-se energia.$$E_{pe} = \frac{1}{2} k \Delta x^2$$
+
+B) Energia Cinética ($E_c$): No momento do disparo, a energia potencial é convertida em movimento.$$E_c = \frac{1}{2} m v^2$$
+
+C) Trabalho e Atrito: Na prática, parte da energia é dissipada pelo atrito entre as peças e pela resistência do ar, o que explica por que os alcances não são idênticos em todos os 40 lançamentos.
+
+Quando a bolinha é disparada, ela descreve uma trajetória parabólica resultante da combinação de dois movimentos independentes (Princípio de Galileu):
+
+A) Movimento Horizontal (Eixo X): É um Movimento Uniforme (MU), onde a velocidade é constante (desprezando a resistência do ar).
+
+B) Movimento Vertical (Eixo Y): É um Movimento Uniformemente Variado (MUV), influenciado pela aceleração da gravidade
+
+
+Para essa primeira análise das distâncias, foi utilizado o cálculo da distância média dos lançamentos,média = soma das distâncias/nº de lançamentos, um conceito básico de estatística descritiva ensinado  no livro Introdução a estatística @triola2008introduccao.
 
 
 ---
@@ -253,6 +267,18 @@ Distância percorrida pela bolinha
 </tbody></table>
 
 \center
+
+
+```{r  fig.cap="Distância que a bolinha foi lançada em metros(m)" }
+distância = c(1.96, 1.95, 1.99, 1.93, 2.05, 2.13, 2.80, 1.99, 2.50, 2.80, 
+           1.99, 1.88, 2.01, 1.97, 2.00, 1.72, 1.86, 1.95, 1.92, 2.03, 
+           1.71, 1.64, 1.87, 1.96, 1.93, 1.77, 1.95, 1.93, 1.98, 1.96, 
+           1.98, 1.68, 1.82, 1.84, 1.90, 1.87, 1.67, 1.51, 1.68, 1.72)
+lançamento = (1:40)
+plot(lançamento,distância)
+
+```
+
 
 
 
