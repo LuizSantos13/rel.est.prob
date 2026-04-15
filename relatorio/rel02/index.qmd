@@ -63,15 +63,39 @@ Realizar um introdução ao R, fundamentado nas 8 primeiras aulas do curso R Bá
 
  Precisamos primeiramente fazer o download da interface R no site **R project** e logo após, o download da interface do R studio no site da **Posit**, que interpretará através de comandos pré estabelecidos por funções e converterá a sintaxe da linguagem ao que foi almejado.Após o download de ambos, primeiro fazemos a instalação do R e logo após, a instalação do R Studio. É indicado um conhecimento prévio em linguagem R, seja por meio de um curso, ou vídeos, afim de uma melhor compreensão da sintaxe do R Studio.
  Uma vez o software R aberto no computador, pode se abrir o software R Studio, onde o painel de controle do software se divide em quatro quadrantes. A ordem padrão desses quadrantes são:
- **1º - Script do R**: Onde as linhas de comando são expressas.
- **2º - Console do R**: onde as linhas de comando são executadas e interpretadas.
- **3º - Ambiente global**: Nessse quadrante estão localizadas as abas **Environment**, que  mostra todos os objetos que estão criados, e **History**, que mostra todas as linhas de comando executadas no console.
- **4º - Área de plotagem**: Nesse quadrante encontram-se 5 abas importantes dentro do R Studio:
-  **Files** - Aba onde se encontram os arquivos do projeto, seja em extensão .qmd,.rmd,.html,área de imagens e logo, referências e estrutura da página ou do documento.
-  **Packages** - Aba onde é possível instalar localmente pacotes do R disponíveis para uso livre.
-  **Help** - Aba onde você encontra o manual de ajuda do R, você encontra informações sobre todas as funções e argumentos do R.
-  **Viewer** - Aba onde você visualiza uma prévia projeto no formato desejado.
-  **Plots** - Área de plotagem onde adicionamos imagens ou criamos gráficos e acrescentamos no documento.
+ 
+ 
+ 
+ 
+ **1º - Script do R:** Onde as linhas de comando são expressas.
+
+
+
+ **2º - Console do R:** onde as linhas de comando são executadas e interpretadas.
+ 
+ 
+ 
+ **3º - Ambiente global:** Nessse quadrante estão localizadas as abas **Environment**, que  mostra todos os objetos que estão criados, e **History**, que mostra todas as linhas de comando executadas no console.
+ 
+ 
+ 
+ **4º - Área de plotagem:** Nesse quadrante encontram-se 5 abas importantes dentro do R Studio:
+ 
+ 
+  **Files:**  Aba onde se encontram os arquivos do projeto, seja em extensão .qmd,.rmd,.html,área de imagens e logo, referências e estrutura da página ou do documento.
+  
+  
+  **Packages:**  Aba onde é possível instalar localmente pacotes do R disponíveis para uso livre.
+ 
+ 
+  **Help:**  Aba onde você encontra o manual de ajuda do R, você encontra informações sobre todas as funções e argumentos do R.
+  
+  
+  **Viewer:**  Aba onde você visualiza uma prévia projeto no formato desejado.
+  
+  
+  **Plots:**  Área de plotagem onde adicionamos imagens ou criamos gráficos e acrescentamos no documento.
+
  
 ### Como o R trabalha
 
@@ -99,7 +123,7 @@ Algumas regras para associação de nomes a objetos baseadas no livro @Rbasico20
 Para armazenar as linhas de código no console, criamos um novo script, onde a extensão está dentro do arquivo de texto "Arquivo.R". Para se criar um novo script, iremos na aba **FILE/ARQUIVO** >  **NEW FILE/NOVO ARQUIVO** > **R SCRIPT/R SCRIPT** e digitamos nossas linhas de código. Utilizamos as teclas **CTRL+ENTER** para executar as linhas de comando. Utiliza-se caracteres especiais(*,$,&) em casos necessários, como impressão de um texto na tela e títulos de gráficos.
 
 
- O local que o script está armazenado dentro da máquina se chama **Diretório**. Esse diretório guarda todo o projeto editado e executado, tais como linhas de comando, objetos associados, gráficos e imagens. Conseguimos alterar o local desse diretório gigitando o comando **setwd("Local desejado")** na aba **Console**.
+ O local que o script está armazenado dentro da máquina se chama **Diretório**. Esse diretório guarda todo o projeto editado e executado, tais como linhas de comando, objetos associados, gráficos e imagens. Conseguimos alterar o local desse diretório gigitando o comando ``setwd("Local desejado")`` na aba **Console**.
  
  
  
@@ -112,7 +136,7 @@ Para armazenar as linhas de código no console, criamos um novo script, onde a e
 
 
 
-## 📊  Objetos e estrutura de dados
+## 📊  Objetos, funções e estrutura de dados
 
 ### Objeto
 
@@ -124,7 +148,61 @@ Objeto: Unidade dentro do R contendo informações com a capacidade de interpret
  plot(x+1)
 ```
 
-Para conhecermos os atributos do nosso objeto, utilizamos os seguintes comandos na aba **Console**:
+### Funções no R
+
+
+
+  A Estrutura de uma Função.Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).``Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)``
+  
+  
+  **Nome:** Identifica o que a função faz Exemplo: **mean** para média, **plot** para gráfico.
+ 
+ 
+ **Argumentos:** São os valores ou configurações que a função precisa para trabalhar.
+ 
+ 
+ **Corpo:** O código interno que executa a tarefa ,fica "escondido" quando você apenas usa a função.
+ 
+#### Tipos de Funções no R
+  
+  As funções no R se dividem em 3 subgrupos e elas são fundamentais para evitar que você tenha que repetir o mesmo código várias vezes.Seguem os tipos de funções no R:
+  
+  
+  
+  
+  **A) Funções Nativa (Built-in):** São as que já vêm instaladas no R. Exemplos que você usou ou usará: ``sum(dados)``: Soma valores.
+  
+ 
+  ``mean(dados)``: Calcula a média aritmética.
+  
+  
+  ``read.csv("arquivo.csv")``: Lê um arquivo de dados.
+  
+  
+ 
+  **B) Funções de Pacotes:** Muitas vezes a comunidade cria funções mais avançadas e as agrupa em pacotes como o ``ggplot2`` que usamos para o seu gráfico. Para usá-las, você precisa instalar o pacote e carregá-lo com ``library()``.
+  
+  
+  **C) Funções Criadas pelo Usuário:** Você pode criar sua própria função se precisar de algo muito específico. A sintaxe é:
+
+
+```{r}
+minha_funcao <- function(x) {
+  resultado <- x * 2  # O que a função faz
+  return(resultado)   # O que ela entrega de volta
+}
+```
+
+#### Como pedir ajuda sobre uma função?
+
+  O R Studio tem um sistema de ajuda integrado. Se você não sabe o que uma função faz ou quais argumentos ela aceita, basta digitar um ponto de interrogação antes do nome no console:
+
+  ``?ggplot`` ou ``?read.csv2``
+
+Isso abrirá a aba Help com toda a documentação técnica da função.
+
+
+Para conhecermos os atributos do nosso objeto, utilizamos os seguintes funções na aba **Console**:
 
 **Modo**
 ```{r}
@@ -138,7 +216,7 @@ typeof(x)
 ```{r}
 length(x)
 ```
- Existem diversas outras funções para se determinar diversos atributos de objetos, exploradas no curso do professor Ben Dêivide.
+ Existem diversas outras funções para se determinar diversos atributos de objetos, que são exploradas no curso Documentação em R @deivide2026docr, do professor Ben Dêivide.
  
 ### Estrutura de dados
 
@@ -177,13 +255,13 @@ is.matrix(y)
  **Objeto**: É qualquer utensílio ou ingrediente que você nomeia (o "pote de sal", a "geladeira", a "receita").
 
  **Estrutura de Dados**: É o formato do recipiente. Um Vetor é como uma cartela de ovos (só cabe ovo).Um Data Frame é como uma prateleira organizada com etiquetas (cada coluna tem sua regra).Uma Lista é como uma caixa de mudança (você joga o que quiser dentro dela).
- **Dica de ouro**: No RStudio, sempre que quiser saber a estrutura de um objeto, use o comando **str(nome_do_objeto)**. Ele te dará o "raio-x" completo da estrutura.
+ **Dica de ouro**: No RStudio, sempre que quiser saber a estrutura de um objeto, use o comando ``str(nome_do_objeto)``. Ele te dará o "raio-x" completo da estrutura.
 
   
 
 ## 🧠 Considerações finais
  
- Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo tambem o curso de Documentaçao em R, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados dentro do R Studio.
+ Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo o curso de Documentaçao em R @deivide2026docr, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados dentro do R Studio.
  
 
 
