@@ -152,16 +152,21 @@ Objeto: Unidade dentro do R contendo informações com a capacidade de interpret
 
 
 
-  A Estrutura de uma Função.Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).``Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)``
+  A Estrutura de uma Função: Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).``Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)``
   
   
-  **Nome:** Identifica o que a função faz Exemplo: **mean** para média, **plot** para gráfico.
+  **Nome:** Identifica o que a função faz. 
+  
+  Exemplo: **mean** para média, **plot** para gráfico.
  
  
  **Argumentos:** São os valores ou configurações que a função precisa para trabalhar.
  
  
  **Corpo:** O código interno que executa a tarefa ,fica "escondido" quando você apenas usa a função.
+ 
+ 
+ 
  
 #### Tipos de Funções no R
   
@@ -170,7 +175,10 @@ Objeto: Unidade dentro do R contendo informações com a capacidade de interpret
   
   
   
-  **A) Funções Nativa (Built-in):** São as que já vêm instaladas no R. Exemplos que você usou ou usará: ``sum(dados)``: Soma valores.
+  **A) Funções Nativa (Built-in):** São as que já vêm instaladas no R. Exemplos:
+  
+  
+  ``sum(dados)``: Soma valores.
   
  
   ``mean(dados)``: Calcula a média aritmética.
@@ -199,7 +207,18 @@ minha_funcao <- function(x) {
 
   ``?ggplot`` ou ``?read.csv2``
 
+
 Isso abrirá a aba Help com toda a documentação técnica da função.
+
+
+Imagine a função como um liquidificador:
+
+Input (Argumentos): As frutas.
+
+Processamento (Corpo): As lâminas girando (o código).
+
+Output (Resultado): O suco.
+
 
 
 Para conhecermos os atributos do nosso objeto, utilizamos os seguintes funções na aba **Console**:

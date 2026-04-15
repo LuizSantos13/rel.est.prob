@@ -159,7 +159,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15/04/2026, 10:21</p>
+      <p class="date">15/04/2026, 10:31</p>
     </div>
   </div>
   
@@ -264,14 +264,16 @@ div.csl-indent {
 </section>
 <section id="funções-no-r" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="funções-no-r"><span class="header-section-number">6.2</span> Funções no R</h3>
-<p>A Estrutura de uma Função.Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).<code>Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)</code></p>
-<p><strong>Nome:</strong> Identifica o que a função faz Exemplo: <strong>mean</strong> para média, <strong>plot</strong> para gráfico.</p>
+<p>A Estrutura de uma Função: Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).<code>Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)</code></p>
+<p><strong>Nome:</strong> Identifica o que a função faz.</p>
+<p>Exemplo: <strong>mean</strong> para média, <strong>plot</strong> para gráfico.</p>
 <p><strong>Argumentos:</strong> São os valores ou configurações que a função precisa para trabalhar.</p>
 <p><strong>Corpo:</strong> O código interno que executa a tarefa ,fica “escondido” quando você apenas usa a função.</p>
 <section id="tipos-de-funções-no-r" class="level4" data-number="6.2.1">
 <h4 data-number="6.2.1" class="anchored" data-anchor-id="tipos-de-funções-no-r"><span class="header-section-number">6.2.1</span> Tipos de Funções no R</h4>
 <p>As funções no R se dividem em 3 subgrupos e elas são fundamentais para evitar que você tenha que repetir o mesmo código várias vezes.Seguem os tipos de funções no R:</p>
-<p><strong>A) Funções Nativa (Built-in):</strong> São as que já vêm instaladas no R. Exemplos que você usou ou usará: <code>sum(dados)</code>: Soma valores.</p>
+<p><strong>A) Funções Nativa (Built-in):</strong> São as que já vêm instaladas no R. Exemplos:</p>
+<p><code>sum(dados)</code>: Soma valores.</p>
 <p><code>mean(dados)</code>: Calcula a média aritmética.</p>
 <p><code>read.csv("arquivo.csv")</code>: Lê um arquivo de dados.</p>
 <p><strong>B) Funções de Pacotes:</strong> Muitas vezes a comunidade cria funções mais avançadas e as agrupa em pacotes como o <code>ggplot2</code> que usamos para o seu gráfico. Para usá-las, você precisa instalar o pacote e carregá-lo com <code>library()</code>.</p>
@@ -291,6 +293,10 @@ div.csl-indent {
 <p>O R Studio tem um sistema de ajuda integrado. Se você não sabe o que uma função faz ou quais argumentos ela aceita, basta digitar um ponto de interrogação antes do nome no console:</p>
 <p><code>?ggplot</code> ou <code>?read.csv2</code></p>
 <p>Isso abrirá a aba Help com toda a documentação técnica da função.</p>
+<p>Imagine a função como um liquidificador:</p>
+<p>Input (Argumentos): As frutas.</p>
+<p>Processamento (Corpo): As lâminas girando (o código).</p>
+<p>Output (Resultado): O suco.</p>
 <p>Para conhecermos os atributos do nosso objeto, utilizamos os seguintes funções na aba <strong>Console</strong>:</p>
 <p><strong>Modo</strong></p>
 <div class="cell">
@@ -1017,120 +1023,139 @@ DEIVIDE, B. <strong>Documentação com <span>R</span></strong>, 2026. Disponíve
 <span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>  A Estrutura de uma Função.Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).``Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)``</span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>  A Estrutura de uma Função: Para usar uma função, você geralmente escreve o nome dela seguido de parênteses. Dentro dos parênteses, você coloca os argumentos (os ingredientes).``Resultado = \text{função}(\text{argumento1}, \text{argumento2}, \dots)``</span>
 <span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a>  **Nome:** Identifica o que a função faz Exemplo: **mean** para média, **plot** para gráfico.</span>
-<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a> **Argumentos:** São os valores ou configurações que a função precisa para trabalhar.</span>
+<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a>  **Nome:** Identifica o que a função faz. </span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a>  Exemplo: **mean** para média, **plot** para gráfico.</span>
+<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a> **Corpo:** O código interno que executa a tarefa ,fica "escondido" quando você apenas usa a função.</span>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a> **Argumentos:** São os valores ou configurações que a função precisa para trabalhar.</span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tipos de Funções no R</span></span>
-<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a>  As funções no R se dividem em 3 subgrupos e elas são fundamentais para evitar que você tenha que repetir o mesmo código várias vezes.Seguem os tipos de funções no R:</span>
-<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a> **Corpo:** O código interno que executa a tarefa ,fica "escondido" quando você apenas usa a função.</span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tipos de Funções no R</span></span>
 <span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a>  **A) Funções Nativa (Built-in):** São as que já vêm instaladas no R. Exemplos que você usou ou usará: ``sum(dados)``: Soma valores.</span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a>  As funções no R se dividem em 3 subgrupos e elas são fundamentais para evitar que você tenha que repetir o mesmo código várias vezes.Seguem os tipos de funções no R:</span>
 <span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a>  ``mean(dados)``: Calcula a média aritmética.</span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a>  ``read.csv("arquivo.csv")``: Lê um arquivo de dados.</span>
+<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a>  **A) Funções Nativa (Built-in):** São as que já vêm instaladas no R. Exemplos:</span>
+<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a>  **B) Funções de Pacotes:** Muitas vezes a comunidade cria funções mais avançadas e as agrupa em pacotes como o ``ggplot2`` que usamos para o seu gráfico. Para usá-las, você precisa instalar o pacote e carregá-lo com ``library()``.</span>
-<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a>  ``sum(dados)``: Soma valores.</span>
+<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a>  ``mean(dados)``: Calcula a média aritmética.</span>
 <span id="cb23-189"><a href="#cb23-189" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a>  **C) Funções Criadas pelo Usuário:** Você pode criar sua própria função se precisar de algo muito específico. A sintaxe é:</span>
-<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-192"><a href="#cb23-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a>minha_funcao <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># O que a função faz</span></span>
-<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)   <span class="co"># O que ela entrega de volta</span></span>
-<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-201"><a href="#cb23-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-202"><a href="#cb23-202" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Como pedir ajuda sobre uma função?</span></span>
-<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a>  O R Studio tem um sistema de ajuda integrado. Se você não sabe o que uma função faz ou quais argumentos ela aceita, basta digitar um ponto de interrogação antes do nome no console:</span>
-<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-206"><a href="#cb23-206" aria-hidden="true" tabindex="-1"></a>  ``?ggplot`` ou ``?read.csv2``</span>
-<span id="cb23-207"><a href="#cb23-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a>Isso abrirá a aba Help com toda a documentação técnica da função.</span>
+<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a>  ``read.csv("arquivo.csv")``: Lê um arquivo de dados.</span>
+<span id="cb23-192"><a href="#cb23-192" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-193"><a href="#cb23-193" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-194"><a href="#cb23-194" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a>  **B) Funções de Pacotes:** Muitas vezes a comunidade cria funções mais avançadas e as agrupa em pacotes como o ``ggplot2`` que usamos para o seu gráfico. Para usá-las, você precisa instalar o pacote e carregá-lo com ``library()``.</span>
+<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a>  **C) Funções Criadas pelo Usuário:** Você pode criar sua própria função se precisar de algo muito específico. A sintaxe é:</span>
+<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a>minha_funcao <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># O que a função faz</span></span>
+<span id="cb23-206"><a href="#cb23-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(resultado)   <span class="co"># O que ela entrega de volta</span></span>
+<span id="cb23-207"><a href="#cb23-207" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb23-209"><a href="#cb23-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a>Para conhecermos os atributos do nosso objeto, utilizamos os seguintes funções na aba **Console**:</span>
-<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a>**Modo**</span>
-<span id="cb23-216"><a href="#cb23-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a> <span class="fu">mode</span>(x)</span>
-<span id="cb23-218"><a href="#cb23-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a>**Tipo**</span>
-<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a>**Tamanho**</span>
-<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
-<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-231"><a href="#cb23-231" aria-hidden="true" tabindex="-1"></a> Existem diversas outras funções para se determinar diversos atributos de objetos, que são exploradas no curso Documentação em R @deivide2026docr, do professor Ben Dêivide.</span>
-<span id="cb23-232"><a href="#cb23-232" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-233"><a href="#cb23-233" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estrutura de dados</span></span>
-<span id="cb23-234"><a href="#cb23-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a> A estrutura de dados relaciona a forma como declaramos o objeto no software (memória interna) com a forma como o objeto é apresentado pelo software para o usuário (memória externa), relação entre o **Código** e a **Compilação**:</span>
-<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-240"><a href="#cb23-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
-<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Como pedir ajuda sobre uma função?</span></span>
+<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a>  O R Studio tem um sistema de ajuda integrado. Se você não sabe o que uma função faz ou quais argumentos ela aceita, basta digitar um ponto de interrogação antes do nome no console:</span>
+<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-214"><a href="#cb23-214" aria-hidden="true" tabindex="-1"></a>  ``?ggplot`` ou ``?read.csv2``</span>
+<span id="cb23-215"><a href="#cb23-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-216"><a href="#cb23-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a>Isso abrirá a aba Help com toda a documentação técnica da função.</span>
+<span id="cb23-218"><a href="#cb23-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-220"><a href="#cb23-220" aria-hidden="true" tabindex="-1"></a>Imagine a função como um liquidificador:</span>
+<span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a>Input (Argumentos): As frutas.</span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a>Processamento (Corpo): As lâminas girando (o código).</span>
+<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a>Output (Resultado): O suco.</span>
+<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a>Para conhecermos os atributos do nosso objeto, utilizamos os seguintes funções na aba **Console**:</span>
+<span id="cb23-231"><a href="#cb23-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-232"><a href="#cb23-232" aria-hidden="true" tabindex="-1"></a>**Modo**</span>
+<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a> <span class="fu">mode</span>(x)</span>
+<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-238"><a href="#cb23-238" aria-hidden="true" tabindex="-1"></a>**Tipo**</span>
+<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
 <span id="cb23-243"><a href="#cb23-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-246"><a href="#cb23-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(x)</span>
-<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-251"><a href="#cb23-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-252"><a href="#cb23-252" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(x)</span>
-<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb23-262"><a href="#cb23-262" aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb23-263"><a href="#cb23-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(y)</span>
-<span id="cb23-268"><a href="#cb23-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(y)</span>
-<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-277"><a href="#cb23-277" aria-hidden="true" tabindex="-1"></a> Até o presente momento existem 24 tipos de objetos datados. Em resumo:</span>
-<span id="cb23-278"><a href="#cb23-278" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-279"><a href="#cb23-279" aria-hidden="true" tabindex="-1"></a> **Objeto**: É qualquer utensílio ou ingrediente que você nomeia (o "pote de sal", a "geladeira", a "receita").</span>
-<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a> **Estrutura de Dados**: É o formato do recipiente. Um Vetor é como uma cartela de ovos (só cabe ovo).Um Data Frame é como uma prateleira organizada com etiquetas (cada coluna tem sua regra).Uma Lista é como uma caixa de mudança (você joga o que quiser dentro dela).</span>
-<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a> **Dica de ouro**: No RStudio, sempre que quiser saber a estrutura de um objeto, use o comando ``str(nome_do_objeto)``. Ele te dará o "raio-x" completo da estrutura.</span>
-<span id="cb23-283"><a href="#cb23-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-284"><a href="#cb23-284" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-285"><a href="#cb23-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-288"><a href="#cb23-288" aria-hidden="true" tabindex="-1"></a> Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo o curso de Documentaçao em R @deivide2026docr, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados dentro do R Studio.</span>
-<span id="cb23-289"><a href="#cb23-289" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb23-244"><a href="#cb23-244" aria-hidden="true" tabindex="-1"></a>**Tamanho**</span>
+<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
+<span id="cb23-249"><a href="#cb23-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-250"><a href="#cb23-250" aria-hidden="true" tabindex="-1"></a> Existem diversas outras funções para se determinar diversos atributos de objetos, que são exploradas no curso Documentação em R @deivide2026docr, do professor Ben Dêivide.</span>
+<span id="cb23-251"><a href="#cb23-251" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-252"><a href="#cb23-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estrutura de dados</span></span>
+<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a> A estrutura de dados relaciona a forma como declaramos o objeto no software (memória interna) com a forma como o objeto é apresentado pelo software para o usuário (memória externa), relação entre o **Código** e a **Compilação**:</span>
+<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-259"><a href="#cb23-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb23-262"><a href="#cb23-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-265"><a href="#cb23-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(x)</span>
+<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-270"><a href="#cb23-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(x)</span>
+<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-279"><a href="#cb23-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a>y</span>
+<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-285"><a href="#cb23-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(y)</span>
+<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(y)</span>
+<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-293"><a href="#cb23-293" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-294"><a href="#cb23-294" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-295"><a href="#cb23-295" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-296"><a href="#cb23-296" aria-hidden="true" tabindex="-1"></a> Até o presente momento existem 24 tipos de objetos datados. Em resumo:</span>
+<span id="cb23-297"><a href="#cb23-297" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-298"><a href="#cb23-298" aria-hidden="true" tabindex="-1"></a> **Objeto**: É qualquer utensílio ou ingrediente que você nomeia (o "pote de sal", a "geladeira", a "receita").</span>
+<span id="cb23-299"><a href="#cb23-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-300"><a href="#cb23-300" aria-hidden="true" tabindex="-1"></a> **Estrutura de Dados**: É o formato do recipiente. Um Vetor é como uma cartela de ovos (só cabe ovo).Um Data Frame é como uma prateleira organizada com etiquetas (cada coluna tem sua regra).Uma Lista é como uma caixa de mudança (você joga o que quiser dentro dela).</span>
+<span id="cb23-301"><a href="#cb23-301" aria-hidden="true" tabindex="-1"></a> **Dica de ouro**: No RStudio, sempre que quiser saber a estrutura de um objeto, use o comando ``str(nome_do_objeto)``. Ele te dará o "raio-x" completo da estrutura.</span>
+<span id="cb23-302"><a href="#cb23-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-303"><a href="#cb23-303" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-304"><a href="#cb23-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-305"><a href="#cb23-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb23-306"><a href="#cb23-306" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-307"><a href="#cb23-307" aria-hidden="true" tabindex="-1"></a> Finalizamos este curso com o domínio das ferramentas essenciais do R. graças à metodologia do Professor Ben Dêivide, saímos com uma base sólida em objetos, funções e lógica de scripts. Estamos prontos para aplicar esses conhecimentos em nossos projetos e continuar explorando o vasto ecossistema de pacotes que o R oferece para a pesquisa e o mercado. Recomendo o curso de Documentaçao em R @deivide2026docr, também ministrado pelo professor Ben Dêivide, afim de conhecer a ferramenta Rmarkdown, essencial para melhor documentação, análise e interpretação estatística de dados dentro do R Studio.</span>
+<span id="cb23-308"><a href="#cb23-308" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-309"><a href="#cb23-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-310"><a href="#cb23-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-311"><a href="#cb23-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
