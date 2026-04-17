@@ -8,8 +8,14 @@ links:
     url: "Luizinhost47@gmail.com"
   - label: Relatórios
     url: "./relatorio/index.html"
+  - label: Linkedin
+    url: "https://www.linkedin.com/in/luiz-santos-8b1421203/"
+  - label: Facebook
+    url: "https://www.facebook.com/luizgustavo.santos.54390"
+    
+      
 output:
   postcards::jolla
 ---
  
-Aluno de engenharia civil!
+Aluno de engenharia civil na Universidade Federal de São João del rei (UFSJ)!
