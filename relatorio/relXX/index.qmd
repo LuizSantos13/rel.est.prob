@@ -144,6 +144,124 @@ $$ P(160≤X≤185)=0,9332−0,1587=0,7745$$
  
 **COMO FAZER UTILIZANDO O RSTUDIO??**
 
+```{r}
+# ============================================================
+#  Distribuição Normal — Cálculo e Visualização
+#  Exemplo: X ~ N(μ = 170, σ = 10)
+#  Objetivo: P(160 ≤ X ≤ 185)
+# ============================================================
+
+# --- Parâmetros (altere aqui) --------------------------------
+mu    <- 170   # média
+sigma <- 10    # desvio padrão
+a     <- 160   # limite inferior
+b     <- 185   # limite superior
+# ------------------------------------------------------------
+
+
+# ============================================================
+# 1. CÁLCULO ANALÍTICO
+# ============================================================
+
+z1 <- (a - mu) / sigma
+z2 <- (b - mu) / sigma
+
+phi_z1 <- pnorm(z1)   # Φ(z1)
+phi_z2 <- pnorm(z2)   # Φ(z2)
+
+prob <- phi_z2 - phi_z1
+
+cat("======================================\n")
+cat("  Distribuição Normal: N(μ =", mu, ", σ =", sigma, ")\n")
+cat("======================================\n")
+cat(sprintf("  Intervalo : [%.1f, %.1f]\n", a, b))
+cat(sprintf("  z₁ = (%.1f - %.1f) / %.1f = %.4f\n", a, mu, sigma, z1))
+cat(sprintf("  z₂ = (%.1f - %.1f) / %.1f = %.4f\n", b, mu, sigma, z2))
+cat(sprintf("  Φ(z₁) = %.4f\n", phi_z1))
+cat(sprintf("  Φ(z₂) = %.4f\n", phi_z2))
+cat("--------------------------------------\n")
+cat(sprintf("  P(%.1f ≤ X ≤ %.1f) = %.4f  (%.2f%%)\n", a, b, prob, prob * 100))
+cat("======================================\n\n")
+
+
+# ============================================================
+# 2. APROXIMAÇÃO NUMÉRICA — Regra de Simpson
+# ============================================================
+
+simpson <- function(f, lower, upper, n = 100) {
+  if (n %% 2 != 0) n <- n + 1          # n deve ser par
+  h  <- (upper - lower) / n
+  xi <- seq(lower, upper, by = h)
+  yi <- f(xi)
+  coef <- c(1, rep(c(4, 2), (n - 2) / 2), 4, 1)
+  (h / 3) * sum(coef * yi)
+}
+
+pdf_normal <- function(x) dnorm(x, mean = mu, sd = sigma)
+
+prob_simpson <- simpson(pdf_normal, a, b, n = 100)
+
+cat("--------------------------------------\n")
+cat("  Aproximação via Regra de Simpson\n")
+cat(sprintf("  P(%.1f ≤ X ≤ %.1f) ≈ %.4f  (%.2f%%)\n",
+            a, b, prob_simpson, prob_simpson * 100))
+cat(sprintf("  Erro absoluto: %.2e\n", abs(prob - prob_simpson)))
+cat("--------------------------------------\n\n")
+
+
+# ============================================================
+# 3. GRÁFICO
+# ============================================================
+
+x_seq <- seq(mu - 4 * sigma, mu + 4 * sigma, length.out = 500)
+y_seq <- dnorm(x_seq, mean = mu, sd = sigma)
+
+# Região sombreada
+x_shade <- seq(a, b, length.out = 300)
+y_shade <- dnorm(x_shade, mean = mu, sd = sigma)
+
+# Cores
+col_curve  <- "#534AB7"
+col_fill   <- "#AFA9EC"
+col_lines  <- "#D85A30"
+col_text   <- "#3C3489"
+
+# Plot base
+plot(x_seq, y_seq,
+     type = "l", lwd = 2.5, col = col_curve,
+     xlab = "x", ylab = "f(x)",
+     main = bquote(bold("Distribuição Normal") ~
+                     "  " ~ mu == .(mu) ~ ", " ~ sigma == .(sigma)),
+     las = 1, bty = "l",
+     panel.first = grid(col = "gray92", lty = 1))
+
+# Área sombreada
+polygon(c(a, x_shade, b),
+        c(0, y_shade, 0),
+        col  = adjustcolor(col_fill, alpha.f = 0.5),
+        border = NA)
+
+# Linhas dos limites
+abline(v = c(a, b), lty = 2, col = col_lines, lwd = 1.5)
+
+# Anotações z
+mtext(sprintf("z₁ = %.2f", z1), side = 1, at = a,
+      line = 2, cex = 0.8, col = col_lines)
+mtext(sprintf("z₂ = %.2f", z2), side = 1, at = b,
+      line = 2, cex = 0.8, col = col_lines)
+
+# Probabilidade na área
+x_mid <- (a + b) / 2
+y_mid <- dnorm(x_mid, mean = mu, sd = sigma) * 0.55
+text(x_mid, y_mid,
+     labels = sprintf("P = %.2f%%", prob * 100),
+     col = col_text, cex = 1.1, font = 2)
+
+# Curva por cima da sombra
+lines(x_seq, y_seq, lwd = 2.5, col = col_curve)
+
+
+```
 
 
 
