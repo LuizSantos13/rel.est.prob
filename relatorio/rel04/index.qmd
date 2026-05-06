@@ -142,7 +142,7 @@ $$ P(160≤X≤185)=0,9332−0,1587=0,7745$$
  Ou seja, aproximadamente 77,5% das pessoas têm entre 160 cm e 185 cm.
  
  
-**COMO FAZER UTILIZANDO O RSTUDIO??**
+**Como fazer utilizando o Rstudio??**
 
 ```{r}
 # ============================================================
