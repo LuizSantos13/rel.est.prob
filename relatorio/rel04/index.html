@@ -184,7 +184,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">6 de maio de 2026</p>
+      <p class="date">7 de maio de 2026</p>
     </div>
   </div>
   
@@ -221,7 +221,7 @@ window.Quarto = {
 <section id="distribuição-normal-ou-gaussiana" class="level4" data-number="3.1.1">
 <h4 data-number="3.1.1" class="anchored" data-anchor-id="distribuição-normal-ou-gaussiana"><span class="header-section-number">3.1.1</span> Distribuição normal ou Gaussiana</h4>
 <p>Distribuição Normal (Gaussiana) — a famosa <strong>“curva em sino”</strong>. Simétrica em torno da média, descreve fenômenos naturais como altura, peso e erros de medição. É central na estatística por causa do Teorema do Limite Central.</p>
-<p>Como calcular?</p>
+<p><strong>Como calcular?</strong></p>
 <p><strong>A) A distribuição normal é definida pela sua função de densidade de probabilidade (PDF):</strong></p>
 <p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\]</span></p>
 <p>onde μé a média e σ é o desvio padrão.</p>
@@ -478,7 +478,57 @@ window.Quarto = {
 </section>
 <section id="distribuição-binomial" class="level4" data-number="3.1.2">
 <h4 data-number="3.1.2" class="anchored" data-anchor-id="distribuição-binomial"><span class="header-section-number">3.1.2</span> Distribuição Binomial</h4>
-<p>Distribuição Binomial — modela o número de sucessos em nn n tentativas independentes, cada uma com probabilidade pp p de sucesso. Exemplo clássico: quantas caras saem em 10 lançamentos de moeda.</p>
+<p>Distribuição Binomial — modela o número de sucessos em n tentativas independentes, cada uma com probabilidade p de sucesso. No fundo ela responde a uma pergunta bem simples da vida real:</p>
+<p>“Se eu tentar algo várias vezes, quantas vezes vou conseguir?”</p>
+<p>A matemática usa o conceito de combinações para contar de quantas formas os sucessos podem se arranjar dentro das tentativas, multiplicando pela probabilidade de cada arranjo acontecer. É uma conta que parece difícil, mas que no fundo só está somando possibilidades. A distribuição binomial é uma ferramenta para quantificar a incerteza em situações repetitivas, transformando intuição em probabilidade concreta. Simples na essência, poderosa na prática. A fórmula para calcular é:</p>
+<p><span class="math display">\[P(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}\]</span></p>
+<p>onde:</p>
+<p><span class="math inline">\(n = número\)</span> <span class="math inline">\(total\)</span> <span class="math inline">\(de\)</span> <span class="math inline">\(tentativas\)</span></p>
+<p><span class="math inline">\(k = número\)</span> <span class="math inline">\(de\)</span> <span class="math inline">\(sucessos\)</span> <span class="math inline">\(desejados\)</span> <span class="math inline">\((0 ≤ k ≤ n)\)</span></p>
+<p><span class="math inline">\(p = probabilidade\)</span> <span class="math inline">\(de\)</span> <span class="math inline">\(sucesso\)</span> <span class="math inline">\(em\)</span> <span class="math inline">\(cada\)</span> <span class="math inline">\(tentativa\)</span></p>
+<p><span class="math inline">\((1 − p) = probabilidade\)</span> <span class="math inline">\(de\)</span> <span class="math inline">\(fracasso\)</span></p>
+<p><span class="math inline">\(( n / k ) = combinação de ((n k) a k) = n! / [ k! · (n−k)! ]\)</span></p>
+<p><strong>Na prática</strong></p>
+<p><strong>Passo 1 — Verifique as 4 condições</strong></p>
+<p>Antes de qualquer cálculo, confirme que o seu problema satisfaz todas as condições da distribuição binomial:</p>
+<p><strong>A)</strong> Número fixo de tentativas — você sabe quantas vezes o experimento se repete (n).</p>
+<p><strong>B)</strong> Apenas dois resultados — cada tentativa termina em sucesso ou fracasso.</p>
+<p><strong>C)</strong> Probabilidade constante — a chance de sucesso (p) é a mesma em todas as tentativas.</p>
+<p><strong>D)</strong> Tentativas independentes — o resultado de uma não influencia as demais.</p>
+<p><strong>Passo 2 — Identifique n, k e p</strong></p>
+<p><strong>A)</strong> n = número total de tentativas</p>
+<p><strong>B)</strong> k = número de sucessos que você quer calcular a probabilidade</p>
+<p><strong>C)</strong> p = probabilidade de sucesso em cada tentativa (entre 0 e 1)</p>
+<p><strong>Passo 3 — Calcule o coeficiente binomial C(n, k)</strong></p>
+<p>O coeficiente binomial conta de quantas formas os k sucessos podem se distribuir entre as n tentativas:</p>
+<p><span class="math display">\[C(n, k) = n! / [ k! × (n − k)! ]\]</span></p>
+<p><strong>Passo 4 — Calcule as probabilidades <span class="math inline">\(p^k\)</span> e <span class="math inline">\((1−p)^(n−k)\)</span></strong></p>
+<p>Agora calcule a chance de obter exatamente k sucessos e (n−k) fracassos em uma sequência específica:</p>
+<p><span class="math display">\[1) p^k\]</span><br>
+<span class="math display">\[2) (1−p)^(n−k)\]</span></p>
+<p><strong>Passo 5 — Multiplique tudo e obtenha P(X = k)</strong></p>
+<p>Junte os três componentes na fórmula final:</p>
+<p><span class="math display">\[P(X = k) = C(n,k) × p^k × (1−p)^(n−k)\]</span></p>
+<p><strong>Exemplo resolvido</strong></p>
+<p><strong>Aplicações da distribuição Binomial</strong></p>
+<p><strong>1. Controle de Qualidade (Indústria)</strong></p>
+<p>Esta é talvez a aplicação mais comum. As empresas utilizam a binomial para prever a taxa de defeitos em um lote de produção.</p>
+<p>Exemplo: Se uma fábrica sabe que 2% das lâmpadas produzidas são defeituosas, a distribuição binomial ajuda a calcular a probabilidade de encontrar exatamente 5 lâmpadas ruins em uma caixa com 100.</p>
+<p><strong>2. Marketing e Vendas</strong></p>
+<p>Utilizada para medir a eficácia de campanhas e taxas de conversão.</p>
+<p>Teste A/B: Se você envia 1.000 e-mails marketing, qual a chance de pelo menos 50 pessoas clicarem no link, dado que a taxa histórica de cliques é de 4%?</p>
+<p>Pesquisas de Opinião: Determinar a probabilidade de um número específico de eleitores apoiar um candidato em uma amostra aleatória.</p>
+<p><strong>3. Medicina e Saúde</strong></p>
+<p>Fundamental em testes clínicos e estudos epidemiológicos.</p>
+<p>Eficácia de Medicamentos: Se um remédio tem 80% de taxa de cura, qual a probabilidade de ele curar 8 de 10 pacientes em um grupo de teste?</p>
+<p>Genética: Calcular a probabilidade de um descendente herdar um gene específico (ex: 25% de chance de olhos azuis).</p>
+<p><strong>4. Finanças e Seguros</strong></p>
+<p>Ajuda na modelagem de riscos e inadimplência.</p>
+<p>Risco de Crédito: Qual a probabilidade de que 3 entre 50 tomadores de empréstimo atrasem o pagamento?</p>
+<p>Investimentos: Modelar a movimentação de preços de ativos em modelos simplificados (como o Modelo Binomial de Precificação de Opções).</p>
+<p><strong>5. Esportes</strong></p>
+<p>Para prever desempenhos baseados em médias históricas.</p>
+<p>Exemplo: Se um batedor de pênaltis tem 90% de aproveitamento, qual a chance de ele acertar todos os próximos 5 chutes?</p>
 <p><strong>Colocar o exemplo,tanto analítico quanto em r</strong></p>
 </section>
 <section id="distribuição-de-poisson" class="level4" data-number="3.1.3">
@@ -1095,7 +1145,7 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>Distribuição Normal (Gaussiana) — a famosa **"curva em sino"**. Simétrica em torno da média, descreve fenômenos naturais como altura, peso e erros de medição. É central na estatística por causa do Teorema do Limite Central.</span>
 <span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>Como calcular?</span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>**Como calcular?**</span>
 <span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>**A) A distribuição normal é definida pela sua função de densidade de probabilidade (PDF):**</span>
 <span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a></span>
@@ -1304,87 +1354,236 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb36-273"><a href="#cb36-273" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-274"><a href="#cb36-274" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Distribuição Binomial</span></span>
 <span id="cb36-275"><a href="#cb36-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-276"><a href="#cb36-276" aria-hidden="true" tabindex="-1"></a>Distribuição Binomial — modela o número de sucessos em nn</span>
-<span id="cb36-277"><a href="#cb36-277" aria-hidden="true" tabindex="-1"></a>n tentativas independentes, cada uma com probabilidade pp</span>
-<span id="cb36-278"><a href="#cb36-278" aria-hidden="true" tabindex="-1"></a>p de sucesso. Exemplo clássico: quantas caras saem em 10 lançamentos de moeda.</span>
+<span id="cb36-276"><a href="#cb36-276" aria-hidden="true" tabindex="-1"></a>Distribuição Binomial — modela o número de sucessos em n tentativas independentes, cada uma com probabilidade p de sucesso. No fundo ela responde a uma pergunta bem simples da vida real:</span>
+<span id="cb36-277"><a href="#cb36-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-278"><a href="#cb36-278" aria-hidden="true" tabindex="-1"></a>"Se eu tentar algo várias vezes, quantas vezes vou conseguir?"</span>
 <span id="cb36-279"><a href="#cb36-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-280"><a href="#cb36-280" aria-hidden="true" tabindex="-1"></a>**Colocar o exemplo,tanto analítico quanto em r**</span>
-<span id="cb36-281"><a href="#cb36-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-282"><a href="#cb36-282" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Distribuição de Poisson</span></span>
-<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-284"><a href="#cb36-284" aria-hidden="true" tabindex="-1"></a>Distribuição de Poisson — conta eventos raros em um intervalo de tempo ou espaço fixo. Útil para modelar chegadas de clientes, falhas de equipamento, etc.</span>
-<span id="cb36-285"><a href="#cb36-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-280"><a href="#cb36-280" aria-hidden="true" tabindex="-1"></a>A matemática usa o conceito de combinações para contar de quantas formas os sucessos podem se arranjar dentro das tentativas, multiplicando pela probabilidade de cada arranjo acontecer. É uma conta que parece difícil, mas que no fundo só está somando possibilidades. A distribuição binomial é uma ferramenta para quantificar a incerteza em situações repetitivas, transformando intuição em probabilidade concreta. Simples na essência, poderosa na prática.</span>
+<span id="cb36-281"><a href="#cb36-281" aria-hidden="true" tabindex="-1"></a>A fórmula para calcular é: </span>
+<span id="cb36-282"><a href="#cb36-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-283"><a href="#cb36-283" aria-hidden="true" tabindex="-1"></a>$$P(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}$$</span>
+<span id="cb36-284"><a href="#cb36-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-285"><a href="#cb36-285" aria-hidden="true" tabindex="-1"></a>onde:</span>
 <span id="cb36-286"><a href="#cb36-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-287"><a href="#cb36-287" aria-hidden="true" tabindex="-1"></a>**Colocar o exemplo,tanto analítico quanto em r**</span>
-<span id="cb36-288"><a href="#cb36-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-287"><a href="#cb36-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-288"><a href="#cb36-288" aria-hidden="true" tabindex="-1"></a>$n = número$ $total$ $de$ $tentativas$ </span>
 <span id="cb36-289"><a href="#cb36-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-290"><a href="#cb36-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-290"><a href="#cb36-290" aria-hidden="true" tabindex="-1"></a>$k = número$ $de$ $sucessos$ $desejados$ $(0 ≤ k ≤ n)$</span>
 <span id="cb36-291"><a href="#cb36-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-294"><a href="#cb36-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-295"><a href="#cb36-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-296"><a href="#cb36-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-297"><a href="#cb36-297" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb36-292"><a href="#cb36-292" aria-hidden="true" tabindex="-1"></a>$p = probabilidade$ $de$ $sucesso$ $em$ $cada$ $tentativa$ </span>
+<span id="cb36-293"><a href="#cb36-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-294"><a href="#cb36-294" aria-hidden="true" tabindex="-1"></a>$(1 − p) = probabilidade$ $de$ $fracasso$</span>
+<span id="cb36-295"><a href="#cb36-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-296"><a href="#cb36-296" aria-hidden="true" tabindex="-1"></a>$( n / k ) = combinação de ((n k) a k) = n! / <span class="co">[</span><span class="ot"> k! · (n−k)! </span><span class="co">]</span>$</span>
+<span id="cb36-297"><a href="#cb36-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-298"><a href="#cb36-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-299"><a href="#cb36-299" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb36-299"><a href="#cb36-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-300"><a href="#cb36-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-301"><a href="#cb36-301" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb36-302"><a href="#cb36-302" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb36-303"><a href="#cb36-303" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb36-301"><a href="#cb36-301" aria-hidden="true" tabindex="-1"></a>**Na prática**</span>
+<span id="cb36-302"><a href="#cb36-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-303"><a href="#cb36-303" aria-hidden="true" tabindex="-1"></a>**Passo 1 — Verifique as 4 condições**</span>
 <span id="cb36-304"><a href="#cb36-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-305"><a href="#cb36-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb36-306"><a href="#cb36-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb36-307"><a href="#cb36-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
+<span id="cb36-305"><a href="#cb36-305" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-306"><a href="#cb36-306" aria-hidden="true" tabindex="-1"></a> Antes de qualquer cálculo, confirme que o seu problema satisfaz todas as condições da distribuição binomial:</span>
+<span id="cb36-307"><a href="#cb36-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-308"><a href="#cb36-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-309"><a href="#cb36-309" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb36-310"><a href="#cb36-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-311"><a href="#cb36-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb36-312"><a href="#cb36-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-313"><a href="#cb36-313" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
+<span id="cb36-309"><a href="#cb36-309" aria-hidden="true" tabindex="-1"></a> **A)** Número fixo de tentativas — você sabe quantas vezes o experimento se repete (n).</span>
+<span id="cb36-310"><a href="#cb36-310" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-311"><a href="#cb36-311" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-312"><a href="#cb36-312" aria-hidden="true" tabindex="-1"></a> **B)** Apenas dois resultados — cada tentativa termina em sucesso ou fracasso.</span>
+<span id="cb36-313"><a href="#cb36-313" aria-hidden="true" tabindex="-1"></a>     </span>
 <span id="cb36-314"><a href="#cb36-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-315"><a href="#cb36-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb36-316"><a href="#cb36-316" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb36-317"><a href="#cb36-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb36-318"><a href="#cb36-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb36-319"><a href="#cb36-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-320"><a href="#cb36-320" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
+<span id="cb36-315"><a href="#cb36-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-316"><a href="#cb36-316" aria-hidden="true" tabindex="-1"></a> **C)** Probabilidade constante — a chance de sucesso (p) é a mesma em todas as tentativas.</span>
+<span id="cb36-317"><a href="#cb36-317" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb36-318"><a href="#cb36-318" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-319"><a href="#cb36-319" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-320"><a href="#cb36-320" aria-hidden="true" tabindex="-1"></a> **D)** Tentativas independentes — o resultado de uma não influencia as demais.</span>
 <span id="cb36-321"><a href="#cb36-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-322"><a href="#cb36-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb36-323"><a href="#cb36-323" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb36-324"><a href="#cb36-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb36-325"><a href="#cb36-325" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
+<span id="cb36-322"><a href="#cb36-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-323"><a href="#cb36-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-324"><a href="#cb36-324" aria-hidden="true" tabindex="-1"></a>**Passo 2 — Identifique n, k e p**</span>
+<span id="cb36-325"><a href="#cb36-325" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-326"><a href="#cb36-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-327"><a href="#cb36-327" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
+<span id="cb36-327"><a href="#cb36-327" aria-hidden="true" tabindex="-1"></a>**A)** n = número total de tentativas</span>
 <span id="cb36-328"><a href="#cb36-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-329"><a href="#cb36-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb36-330"><a href="#cb36-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-331"><a href="#cb36-331" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb36-329"><a href="#cb36-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-330"><a href="#cb36-330" aria-hidden="true" tabindex="-1"></a>**B)** k = número de sucessos que você quer calcular a probabilidade</span>
+<span id="cb36-331"><a href="#cb36-331" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-332"><a href="#cb36-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-333"><a href="#cb36-333" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb36-334"><a href="#cb36-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb36-333"><a href="#cb36-333" aria-hidden="true" tabindex="-1"></a>**C)** p = probabilidade de sucesso em cada tentativa (entre 0 e 1)</span>
+<span id="cb36-334"><a href="#cb36-334" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-335"><a href="#cb36-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-336"><a href="#cb36-336" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb36-337"><a href="#cb36-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-340"><a href="#cb36-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-341"><a href="#cb36-341" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb36-342"><a href="#cb36-342" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb36-343"><a href="#cb36-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb36-344"><a href="#cb36-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-345"><a href="#cb36-345" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb36-336"><a href="#cb36-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-337"><a href="#cb36-337" aria-hidden="true" tabindex="-1"></a>**Passo 3 — Calcule o coeficiente binomial C(n, k)**</span>
+<span id="cb36-338"><a href="#cb36-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-339"><a href="#cb36-339" aria-hidden="true" tabindex="-1"></a>O coeficiente binomial conta de quantas formas os k sucessos podem se distribuir entre as n tentativas:</span>
+<span id="cb36-340"><a href="#cb36-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-341"><a href="#cb36-341" aria-hidden="true" tabindex="-1"></a>$$C(n, k) = n! / <span class="co">[</span><span class="ot"> k! × (n − k)! </span><span class="co">]</span>$$</span>
+<span id="cb36-342"><a href="#cb36-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-343"><a href="#cb36-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-344"><a href="#cb36-344" aria-hidden="true" tabindex="-1"></a>**Passo 4 — Calcule as probabilidades $p^k$ e $(1−p)^(n−k)$**</span>
+<span id="cb36-345"><a href="#cb36-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-346"><a href="#cb36-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-347"><a href="#cb36-347" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb36-347"><a href="#cb36-347" aria-hidden="true" tabindex="-1"></a>Agora calcule a chance de obter exatamente k sucessos e (n−k) fracassos em uma sequência específica:</span>
 <span id="cb36-348"><a href="#cb36-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-349"><a href="#cb36-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb36-350"><a href="#cb36-350" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb36-351"><a href="#cb36-351" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb36-352"><a href="#cb36-352" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb36-349"><a href="#cb36-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-350"><a href="#cb36-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-351"><a href="#cb36-351" aria-hidden="true" tabindex="-1"></a>$$1) p^k$$      </span>
+<span id="cb36-352"><a href="#cb36-352" aria-hidden="true" tabindex="-1"></a>$$2) (1−p)^(n−k)$$</span>
 <span id="cb36-353"><a href="#cb36-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-354"><a href="#cb36-354" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb36-355"><a href="#cb36-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-356"><a href="#cb36-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb36-354"><a href="#cb36-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-355"><a href="#cb36-355" aria-hidden="true" tabindex="-1"></a>**Passo 5 — Multiplique tudo e obtenha P(X = k)**</span>
+<span id="cb36-356"><a href="#cb36-356" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-357"><a href="#cb36-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-358"><a href="#cb36-358" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb36-358"><a href="#cb36-358" aria-hidden="true" tabindex="-1"></a>Junte os três componentes na fórmula final:</span>
 <span id="cb36-359"><a href="#cb36-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-360"><a href="#cb36-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb36-360"><a href="#cb36-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-361"><a href="#cb36-361" aria-hidden="true" tabindex="-1"></a>$$P(X = k) = C(n,k) × p^k × (1−p)^(n−k)$$</span>
+<span id="cb36-362"><a href="#cb36-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-363"><a href="#cb36-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-364"><a href="#cb36-364" aria-hidden="true" tabindex="-1"></a>**Exemplo resolvido**</span>
+<span id="cb36-365"><a href="#cb36-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-366"><a href="#cb36-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-367"><a href="#cb36-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-368"><a href="#cb36-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-369"><a href="#cb36-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-370"><a href="#cb36-370" aria-hidden="true" tabindex="-1"></a>**Aplicações da distribuição Binomial**</span>
+<span id="cb36-371"><a href="#cb36-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-372"><a href="#cb36-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-373"><a href="#cb36-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-374"><a href="#cb36-374" aria-hidden="true" tabindex="-1"></a>**1. Controle de Qualidade (Indústria)**</span>
+<span id="cb36-375"><a href="#cb36-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-376"><a href="#cb36-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-377"><a href="#cb36-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-378"><a href="#cb36-378" aria-hidden="true" tabindex="-1"></a>Esta é talvez a aplicação mais comum. As empresas utilizam a binomial para prever a taxa de defeitos em um lote de produção.</span>
+<span id="cb36-379"><a href="#cb36-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-380"><a href="#cb36-380" aria-hidden="true" tabindex="-1"></a>Exemplo: Se uma fábrica sabe que 2% das lâmpadas produzidas são defeituosas, a distribuição binomial ajuda a calcular a probabilidade de encontrar exatamente 5 lâmpadas ruins em uma caixa com 100.</span>
+<span id="cb36-381"><a href="#cb36-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-382"><a href="#cb36-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-383"><a href="#cb36-383" aria-hidden="true" tabindex="-1"></a>**2. Marketing e Vendas**</span>
+<span id="cb36-384"><a href="#cb36-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-385"><a href="#cb36-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-386"><a href="#cb36-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-387"><a href="#cb36-387" aria-hidden="true" tabindex="-1"></a>Utilizada para medir a eficácia de campanhas e taxas de conversão.</span>
+<span id="cb36-388"><a href="#cb36-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-389"><a href="#cb36-389" aria-hidden="true" tabindex="-1"></a>Teste A/B: Se você envia 1.000 e-mails marketing, qual a chance de pelo menos 50 pessoas clicarem no link, dado que a taxa histórica de cliques é de 4%?</span>
+<span id="cb36-390"><a href="#cb36-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-391"><a href="#cb36-391" aria-hidden="true" tabindex="-1"></a>Pesquisas de Opinião: Determinar a probabilidade de um número específico de eleitores apoiar um candidato em uma amostra aleatória.</span>
+<span id="cb36-392"><a href="#cb36-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-393"><a href="#cb36-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-394"><a href="#cb36-394" aria-hidden="true" tabindex="-1"></a>**3. Medicina e Saúde**</span>
+<span id="cb36-395"><a href="#cb36-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-396"><a href="#cb36-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-397"><a href="#cb36-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-398"><a href="#cb36-398" aria-hidden="true" tabindex="-1"></a>Fundamental em testes clínicos e estudos epidemiológicos.</span>
+<span id="cb36-399"><a href="#cb36-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-400"><a href="#cb36-400" aria-hidden="true" tabindex="-1"></a>Eficácia de Medicamentos: Se um remédio tem 80% de taxa de cura, qual a probabilidade de ele curar 8 de 10 pacientes em um grupo de teste?</span>
+<span id="cb36-401"><a href="#cb36-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-402"><a href="#cb36-402" aria-hidden="true" tabindex="-1"></a>Genética: Calcular a probabilidade de um descendente herdar um gene específico (ex: 25% de chance de olhos azuis).</span>
+<span id="cb36-403"><a href="#cb36-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-404"><a href="#cb36-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-405"><a href="#cb36-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-406"><a href="#cb36-406" aria-hidden="true" tabindex="-1"></a>**4. Finanças e Seguros**</span>
+<span id="cb36-407"><a href="#cb36-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-408"><a href="#cb36-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-409"><a href="#cb36-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-410"><a href="#cb36-410" aria-hidden="true" tabindex="-1"></a>Ajuda na modelagem de riscos e inadimplência.</span>
+<span id="cb36-411"><a href="#cb36-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-412"><a href="#cb36-412" aria-hidden="true" tabindex="-1"></a>Risco de Crédito: Qual a probabilidade de que 3 entre 50 tomadores de empréstimo atrasem o pagamento?</span>
+<span id="cb36-413"><a href="#cb36-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-414"><a href="#cb36-414" aria-hidden="true" tabindex="-1"></a>Investimentos: Modelar a movimentação de preços de ativos em modelos simplificados (como o Modelo Binomial de Precificação de Opções).</span>
+<span id="cb36-415"><a href="#cb36-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-416"><a href="#cb36-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-417"><a href="#cb36-417" aria-hidden="true" tabindex="-1"></a>**5. Esportes**</span>
+<span id="cb36-418"><a href="#cb36-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-419"><a href="#cb36-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-420"><a href="#cb36-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-421"><a href="#cb36-421" aria-hidden="true" tabindex="-1"></a>Para prever desempenhos baseados em médias históricas.</span>
+<span id="cb36-422"><a href="#cb36-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-423"><a href="#cb36-423" aria-hidden="true" tabindex="-1"></a>Exemplo: Se um batedor de pênaltis tem 90% de aproveitamento, qual a chance de ele acertar todos os próximos 5 chutes?</span>
+<span id="cb36-424"><a href="#cb36-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-425"><a href="#cb36-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-426"><a href="#cb36-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-427"><a href="#cb36-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-428"><a href="#cb36-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-429"><a href="#cb36-429" aria-hidden="true" tabindex="-1"></a>**Colocar o exemplo,tanto analítico quanto em r**</span>
+<span id="cb36-430"><a href="#cb36-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-431"><a href="#cb36-431" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Distribuição de Poisson</span></span>
+<span id="cb36-432"><a href="#cb36-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-433"><a href="#cb36-433" aria-hidden="true" tabindex="-1"></a>Distribuição de Poisson — conta eventos raros em um intervalo de tempo ou espaço fixo. Útil para modelar chegadas de clientes, falhas de equipamento, etc.</span>
+<span id="cb36-434"><a href="#cb36-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-435"><a href="#cb36-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-436"><a href="#cb36-436" aria-hidden="true" tabindex="-1"></a>**Colocar o exemplo,tanto analítico quanto em r**</span>
+<span id="cb36-437"><a href="#cb36-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-438"><a href="#cb36-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-439"><a href="#cb36-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-440"><a href="#cb36-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-443"><a href="#cb36-443" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-444"><a href="#cb36-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-445"><a href="#cb36-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-446"><a href="#cb36-446" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb36-447"><a href="#cb36-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-448"><a href="#cb36-448" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb36-449"><a href="#cb36-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-450"><a href="#cb36-450" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb36-451"><a href="#cb36-451" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
+<span id="cb36-452"><a href="#cb36-452" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb36-453"><a href="#cb36-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-454"><a href="#cb36-454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
+<span id="cb36-455"><a href="#cb36-455" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
+<span id="cb36-456"><a href="#cb36-456" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
+<span id="cb36-457"><a href="#cb36-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-458"><a href="#cb36-458" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb36-459"><a href="#cb36-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-460"><a href="#cb36-460" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb36-461"><a href="#cb36-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-462"><a href="#cb36-462" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
+<span id="cb36-463"><a href="#cb36-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-464"><a href="#cb36-464" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
+<span id="cb36-465"><a href="#cb36-465" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
+<span id="cb36-466"><a href="#cb36-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
+<span id="cb36-467"><a href="#cb36-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
+<span id="cb36-468"><a href="#cb36-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-469"><a href="#cb36-469" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
+<span id="cb36-470"><a href="#cb36-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-471"><a href="#cb36-471" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
+<span id="cb36-472"><a href="#cb36-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
+<span id="cb36-473"><a href="#cb36-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
+<span id="cb36-474"><a href="#cb36-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
+<span id="cb36-475"><a href="#cb36-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-476"><a href="#cb36-476" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
+<span id="cb36-477"><a href="#cb36-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-478"><a href="#cb36-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
+<span id="cb36-479"><a href="#cb36-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-480"><a href="#cb36-480" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb36-481"><a href="#cb36-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-482"><a href="#cb36-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb36-483"><a href="#cb36-483" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb36-484"><a href="#cb36-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-485"><a href="#cb36-485" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb36-486"><a href="#cb36-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-489"><a href="#cb36-489" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-490"><a href="#cb36-490" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb36-491"><a href="#cb36-491" aria-hidden="true" tabindex="-1"></a>distancia</span>
+<span id="cb36-492"><a href="#cb36-492" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-493"><a href="#cb36-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-494"><a href="#cb36-494" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb36-495"><a href="#cb36-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-496"><a href="#cb36-496" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb36-497"><a href="#cb36-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-498"><a href="#cb36-498" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
+<span id="cb36-499"><a href="#cb36-499" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
+<span id="cb36-500"><a href="#cb36-500" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
+<span id="cb36-501"><a href="#cb36-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb36-502"><a href="#cb36-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-503"><a href="#cb36-503" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb36-504"><a href="#cb36-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-505"><a href="#cb36-505" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb36-506"><a href="#cb36-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-507"><a href="#cb36-507" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb36-508"><a href="#cb36-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-509"><a href="#cb36-509" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
