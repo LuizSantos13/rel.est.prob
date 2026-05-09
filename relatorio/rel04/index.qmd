@@ -461,7 +461,7 @@ $$P(X=3)=56×0,015625×0,2373≈0,2076​$$
 
 
 
-**Como fazer utilizando o Rstudio?"**
+**Como fazer utilizando o Rstudio?**
 
 ```{r}
 # ============================================
@@ -580,16 +580,48 @@ Para prever desempenhos baseados em médias históricas.
 Exemplo: Se um batedor de pênaltis tem 90% de aproveitamento, qual a chance de ele acertar todos os próximos 5 chutes?
 
 
+**Fórmula da distribuição Binomial**
 
+![Fórmula da distribuição Binomial](distr1.jpg)
 
-
-**Colocar o exemplo,tanto analítico quanto em r**
 
 #### Distribuição de Poisson
 
+A distribuição de Poisson foi introduzida em 1837 pelo matemático francês Siméon Denis Poisson (1781–1840) em sua obra "Recherches sur la probabilité des jugements en matière criminelle et en matière civile". Ela surgiu como uma forma de modelar a probabilidade de eventos raros ocorrerem em um intervalo fixo de tempo ou espaço, inicialmente aplicada a jogos de azar e condenações judiciais.
+
 Distribuição de Poisson — conta eventos raros em um intervalo de tempo ou espaço fixo. Útil para modelar chegadas de clientes, falhas de equipamento, etc.
 
+**A ideia central** — Imagine que você trabalha numa padaria e percebe que, em média, 4 clientes entram por hora. Você não sabe exatamente quando cada um vai chegar — pode vir 2 numa hora, pode vir 7 em outra. Mas ao longo do tempo, a média se mantém estável.
 
+
+A distribuição de Poisson responde à pergunta:
+
+"Se sei quantas vezes algo acontece em média, qual a chance de acontecer exatamente k vezes num intervalo?"
+
+A distribuição de Poisson está em todo lugar onde eventos acontecem de forma aleatória, mas com frequência média conhecida:
+
+**Aplicações**
+
+  **Hospitais:** Chegada de pacientes em determinado intervalo de tempo.
+  
+  
+  **Meteorologia:** Ligações recebidas em um determinado intervalo de tempo.
+  
+
+  **Trânsito:** Acidentes em uma rodovia num determinado intervalo de tempo.
+  
+
+**Como calcular?**  
+
+
+
+
+
+
+
+
+
+  
 **Colocar o exemplo,tanto analítico quanto em r**
 
 
