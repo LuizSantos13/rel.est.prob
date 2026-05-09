@@ -48,6 +48,23 @@ Demonstrar 3 tipos de distribuições de probabilidade, seu cálculo e suas apli
 
 ---
 
+
+## Classificação das variáveis aleatórias
+
+Antes de detalhar cada distribuição, é crucial entender a natureza da variável aleatória ($X$) envolvida:
+  
+  **A) Variáveis Aleatórias Discretas:** São aquelas cujos resultados podem ser contados (valores inteiros, geralmente). Você não tem "meio" sucesso ou "3,5" e-mails recebidos.
+  
+  
+  **Distribuições:** Binomial e Poisson.
+  
+  
+  **B) Variáveis Aleatórias Contínuas:** São aquelas que podem assumir qualquer valor dentro de um intervalo (números decimais, medidas). Elas dependem da precisão do instrumento de medida (peso, altura, tempo).
+  
+  
+  **Distribuição:** Normal.
+
+
 ## Distribuições de probabilidade 
 
 As distribuições de probabilidade descrevem como os valores de uma variável aleatória se distribuem, ou seja, qual a chance de cada resultado ocorrer.
@@ -59,7 +76,7 @@ Existem dois grandes tipos. As **distribuições discretas** lidam com variávei
 
 #### Distribuição normal ou Gaussiana
 
-Distribuição Normal (Gaussiana) — a famosa **"curva em sino"**. Simétrica em torno da média, descreve fenômenos naturais como altura, peso e erros de medição. É central na estatística por causa do Teorema do Limite Central.
+Distribuição Normal (Gaussiana) — a famosa **"curva em sino"**. Simétrica em torno da média, descreve fenômenos naturais como altura, peso e erros de medição. É central na estatística por causa do Teorema do Limite Central. É atribuída as variáveis aleatórias contínuas.
 
 
 **Como calcular?**
@@ -275,7 +292,9 @@ Distribuição Binomial — modela o número de sucessos em n tentativas indepen
 
 "Se eu tentar algo várias vezes, quantas vezes vou conseguir?"
 
-A matemática usa o conceito de combinações para contar de quantas formas os sucessos podem se arranjar dentro das tentativas, multiplicando pela probabilidade de cada arranjo acontecer. É uma conta que parece difícil, mas que no fundo só está somando possibilidades. A distribuição binomial é uma ferramenta para quantificar a incerteza em situações repetitivas, transformando intuição em probabilidade concreta. Simples na essência, poderosa na prática.
+A matemática usa o conceito de combinações para contar de quantas formas os sucessos podem se arranjar dentro das tentativas, multiplicando pela probabilidade de cada arranjo acontecer. É uma conta que parece difícil, mas que no fundo só está somando possibilidades. A distribuição binomial é uma ferramenta para quantificar a incerteza em situações repetitivas, transformando intuição em probabilidade concreta. Simples na essência, poderosa na prática. É atribuída as variáveis aleatórias discretas.
+
+
 A fórmula para calcular é: 
 
 $$P(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}$$
@@ -359,7 +378,147 @@ Junte os três componentes na fórmula final:
 $$P(X = k) = C(n,k) × p^k × (1−p)^(n−k)$$
 
 
-**Exemplo resolvido**
+**Exemplo de Aplicação**
+
+
+Uma prova de múltipla escolha tem 8 questões, cada uma com 4 alternativas (apenas uma correta). Um aluno chuta todas as respostas. Qual a probabilidade de ele acertar exatamente 3 questões?
+
+
+
+**Passo 1) Verificando as 4 condições:**
+ 
+
+A) Número fixo de tentativas: 8 questões
+ 
+B) Dois resultados: acertar ou errar
+
+C) Probabilidade constante: 0,25 em cada questão
+
+D) Independência: chutar uma não afeta as outras
+
+
+**Passo 2) Identificando os parâmetros**
+
+
+
+ **n**-(Número de questões) = $8$
+
+ **p**-(1 alternativa correta em 4)=  $1/4 = 0,25$
+
+ **k**-(Queremos 3 acertos)= $3$
+
+ **(1-p)**-(Probabilidade de erro da questão )= $0,75$
+
+
+
+
+
+**Passo 3) Aplicando a fórmula:** $$P(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}$$
+
+Substituindo $X∼B(8, 0,25)$:
+
+
+$$P(X = 3) = \binom{8}{3} (0,25)^3 (0,75)^5$$
+
+
+**Passo 3A) Calculando a combinação de "n" e "k":**
+
+$$C_{n,k} = \binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+
+
+
+
+Temos:
+
+$$\binom{8}{3} = \frac{8!}{3! \cdot 5!} = 56$$
+**Passo 3B) Probabilidades:**
+
+
+  $(0,25)^3=0,015625$
+  
+  
+  
+  
+  $(0,75)^5=0,2373$
+  
+  
+  
+**Passo 3C) Multiplicando:**
+  
+  
+$$P(X=3)=56×0,015625×0,2373≈0,2076​$$
+
+**Interpretação:**  O aluno chutando todas as respostas tem aproximadamente 20,76% de chance de acertar exatamente 3 questões.
+
+**Média e desvio padrão:**
+ 
+ 
+ $$μ=n⋅p=8×0,25=2$$
+ $$\sigma = \sqrt{8 \times 0,25 \times 0,75} = \sqrt{1,5} \approx 1,22$$
+  
+  Ou seja, chutando, o aluno acerta em média 2 questões, com desvio padrão de ±1,22.
+
+
+
+**Como fazer utilizando o Rstudio?"**
+
+```{r}
+# ============================================
+# Distribuição Binomial — Prova de Múltipla Escolha
+# ============================================
+
+# Parâmetros
+n <- 8        # número de questões
+p <- 0.25     # probabilidade de acertar (1 em 4 alternativas)
+k <- 3        # número de acertos desejados
+
+# ============================================
+# 1. P(X = 3) — probabilidade exata
+# ============================================
+prob_exata <- dbinom(k, size = n, prob = p)
+cat("P(X = 3) =", round(prob_exata, 4), "\n")
+
+# ============================================
+# 2. Média e Desvio Padrão
+# ============================================
+media <- n * p
+variancia <- n * p * (1 - p)
+desvio_padrao <- sqrt(variancia)
+
+cat("Média (μ):", media, "\n")
+cat("Variância (σ²):", variancia, "\n")
+cat("Desvio Padrão (σ):", round(desvio_padrao, 4), "\n")
+
+# ============================================
+# 3. Tabela de probabilidades (X = 0 até 8)
+# ============================================
+tabela <- data.frame(
+  k = 0:n,
+  Probabilidade = round(dbinom(0:n, size = n, prob = p), 4)
+)
+print(tabela)
+
+# ============================================
+# 4. Gráfico da distribuição
+# ============================================
+barplot(
+  dbinom(0:n, size = n, prob = p),
+  names.arg = 0:n,
+  col = ifelse(0:n == k, "tomato", "steelblue"),
+  main = "Distribuição Binomial B(8, 0.25)",
+  xlab = "Número de acertos (k)",
+  ylab = "P(X = k)",
+  ylim = c(0, 0.35)
+)
+abline(h = 0)
+legend("topright",
+       legend = c("k = 3 (desejado)", "outros valores"),
+       fill = c("tomato", "steelblue"))
+```
+
+
+
 
 
 
