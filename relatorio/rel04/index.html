@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -204,7 +224,7 @@ window.Quarto = {
 </section>
 <section id="distribuições-de-probabilidade" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="distribuições-de-probabilidade"><span class="header-section-number">4</span> Distribuições de probabilidade</h2>
-<p>As distribuições de probabilidade descrevem como os valores de uma variável aleatória se distribuem, ou seja, qual a chance de cada resultado ocorrer. Existem dois grandes tipos. As <strong>distribuições discretas</strong> lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As <strong>distribuições contínuas</strong> descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura.</p>
+<p>As distribuições de probabilidade descrevem como os valores de uma variável aleatória se distribuem, ou seja, qual a chance de cada resultado ocorrer. Existem dois grandes tipos. As <strong>distribuições discretas</strong> lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As <strong>distribuições contínuas</strong> descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura. Definições baseadas no livro <span class="citation" data-cites="dalgaard2008">Dalgaard (<a href="#ref-dalgaard2008" role="doc-biblioref">2008</a>)</span>.</p>
 <section id="tipos-de-distribuição-de-probabilidades" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="tipos-de-distribuição-de-probabilidades"><span class="header-section-number">4.1</span> Tipos de distribuição de probabilidades</h3>
 <section id="distribuição-normal-gaussiana" class="level4" data-number="4.1.1">
@@ -808,7 +828,7 @@ window.Quarto = {
 </section>
 <section id="metodologia" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">5</span> Metodologia</h2>
-<p>Neste relatório, foi utilizado o software Rstudio, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa.</p>
+<p>Neste relatório, foi utilizado o software Rstudio, os ensinamentos das aulas do curso <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span>, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa, como o livro <span class="citation" data-cites="dalgaard2008">Dalgaard (<a href="#ref-dalgaard2008" role="doc-biblioref">2008</a>)</span> e o livro <span class="citation" data-cites="custodio2024">Custódio e Batista (<a href="#ref-custodio2024" role="doc-biblioref">2024</a>)</span>.</p>
 <hr>
 </section>
 <section id="aprofundamento" class="level2" data-number="6">
@@ -825,7 +845,7 @@ window.Quarto = {
 <p><strong>Passo 1) Aplicação da fórmula:</strong></p>
 <p>A fórmula da estatística aplicada, baseada na Distribuição Normal, é:</p>
 <p><span class="math display">\[f_{ck} = f_m - 1,645 \cdot \sigma\]</span></p>
-<p><strong>Obs:</strong> O valor <span class="math inline">\(1,645\)</span> vem da Tabela Normal Padrão (<span class="math inline">\(Z\)</span>) . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).</p>
+<p><strong>Obs:</strong> O valor <span class="math inline">\(1,645\)</span> vem da Tabela Normal Padrão (<span class="math inline">\(Z\)</span>) disponível no site <span class="citation" data-cites="professorguru_normal">Guru (<a href="#ref-professorguru_normal" role="doc-biblioref">2026</a>)</span> . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).</p>
 <p>Passo a passo do cálculo:</p>
 <p><strong>Passo 2) Identificar os valores:</strong></p>
 <p><span class="math inline">\(f_m = 35\)</span></p>
@@ -1063,12 +1083,26 @@ window.Quarto = {
 <p>O estudo destas distribuições reforça que a variabilidade é uma característica inerente a qualquer projeto de engenharia. Reconhecer que materiais oscilam (Normal), que falhas podem ocorrer em série (Binomial) e que eventos raros batem à nossa porta (Poisson) é um exercício de humildade e responsabilidade. Dominar essas ferramentas não serve apenas para otimizar custos, mas, primordialmente, para garantir a segurança das pessoas que ocuparão os espaços que projetamos. A precisão dos números é, em última análise, o compromisso com a vida.</p>
 </section>
 <section id="referências" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="referências"><span class="header-section-number">8</span> Referências</h2>
+
 <!-- -->
+
 
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-Rbasico2022" class="csl-entry" role="listitem">
+BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+</div>
+<div id="ref-custodio2024" class="csl-entry" role="listitem">
+CUSTÓDIO, T. C.; BATISTA, B. D. O. <strong><a href="https://bendeivide.github.io/book-estbasica/">Estatística Básica Aplicada às Ciências Agrárias</a></strong>. Ouro Branco, MG: s.n., 2024.
+</div>
+<div id="ref-dalgaard2008" class="csl-entry" role="listitem">
+DALGAARD, P. <strong>Introductory Statistics with <span>R</span></strong>. 2. ed. New York: Springer, 2008.
+</div>
+<div id="ref-professorguru_normal" class="csl-entry" role="listitem">
+GURU, P. <strong>Tabela Normal Padrão</strong>. Disponível em: &lt;<a href="https://www.professorguru.com.br/estatistica/tabela-normal-padrao.html">https://www.professorguru.com.br/estatistica/tabela-normal-padrao.html</a>&gt;. Acesso em: 9 maio. 2026.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1591,7 +1625,7 @@ window.Quarto = {
 <span id="cb73-68"><a href="#cb73-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Distribuições de probabilidade </span></span>
 <span id="cb73-69"><a href="#cb73-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-70"><a href="#cb73-70" aria-hidden="true" tabindex="-1"></a>As distribuições de probabilidade descrevem como os valores de uma variável aleatória se distribuem, ou seja, qual a chance de cada resultado ocorrer.</span>
-<span id="cb73-71"><a href="#cb73-71" aria-hidden="true" tabindex="-1"></a>Existem dois grandes tipos. As **distribuições discretas** lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As **distribuições contínuas** descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura.</span>
+<span id="cb73-71"><a href="#cb73-71" aria-hidden="true" tabindex="-1"></a>Existem dois grandes tipos. As **distribuições discretas** lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As **distribuições contínuas** descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura. Definições baseadas no livro @dalgaard2008.</span>
 <span id="cb73-72"><a href="#cb73-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-73"><a href="#cb73-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-74"><a href="#cb73-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipos de distribuição de probabilidades</span></span>
@@ -2308,7 +2342,7 @@ window.Quarto = {
 <span id="cb73-791"><a href="#cb73-791" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-792"><a href="#cb73-792" aria-hidden="true" tabindex="-1"></a><span class="fu">##  Metodologia</span></span>
 <span id="cb73-793"><a href="#cb73-793" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-794"><a href="#cb73-794" aria-hidden="true" tabindex="-1"></a>Neste relatório, foi utilizado o software Rstudio, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa.</span>
+<span id="cb73-794"><a href="#cb73-794" aria-hidden="true" tabindex="-1"></a>Neste relatório, foi utilizado o software Rstudio, os ensinamentos das aulas do curso @Rbasico2022, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa, como o livro @dalgaard2008 e o livro @custodio2024.</span>
 <span id="cb73-795"><a href="#cb73-795" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-796"><a href="#cb73-796" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb73-797"><a href="#cb73-797" aria-hidden="true" tabindex="-1"></a></span>
@@ -2350,7 +2384,7 @@ window.Quarto = {
 <span id="cb73-833"><a href="#cb73-833" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-834"><a href="#cb73-834" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-835"><a href="#cb73-835" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-836"><a href="#cb73-836" aria-hidden="true" tabindex="-1"></a>**Obs:** O valor $1,645$ vem da Tabela Normal Padrão ($Z$) . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).</span>
+<span id="cb73-836"><a href="#cb73-836" aria-hidden="true" tabindex="-1"></a>**Obs:** O valor $1,645$ vem da Tabela Normal Padrão ($Z$) disponível no site  @professorguru_normal . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).</span>
 <span id="cb73-837"><a href="#cb73-837" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-838"><a href="#cb73-838" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-839"><a href="#cb73-839" aria-hidden="true" tabindex="-1"></a>Passo a passo do cálculo:</span>

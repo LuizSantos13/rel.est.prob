@@ -68,7 +68,7 @@ Antes de detalhar cada distribuição, é crucial entender a natureza da variáv
 ## Distribuições de probabilidade 
 
 As distribuições de probabilidade descrevem como os valores de uma variável aleatória se distribuem, ou seja, qual a chance de cada resultado ocorrer.
-Existem dois grandes tipos. As **distribuições discretas** lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As **distribuições contínuas** descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura.
+Existem dois grandes tipos. As **distribuições discretas** lidam com variáveis que assumem valores contáveis — como o número de caras em lançamentos de moeda. As **distribuições contínuas** descrevem variáveis que podem assumir qualquer valor em um intervalo, como altura ou temperatura. Definições baseadas no livro @dalgaard2008.
 
 
 ### Tipos de distribuição de probabilidades
@@ -785,7 +785,7 @@ legend("topright",
 
 ##  Metodologia
 
-Neste relatório, foi utilizado o software Rstudio, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa.
+Neste relatório, foi utilizado o software Rstudio, os ensinamentos das aulas do curso @Rbasico2022, as ferramentas de documentação Rmarkdown e Latex, além do material de pesquisa, como o livro @dalgaard2008 e o livro @custodio2024.
 
 ---
 
@@ -827,7 +827,7 @@ $$f_{ck} = f_m - 1,645 \cdot \sigma$$
 
 
 
-**Obs:** O valor $1,645$ vem da Tabela Normal Padrão ($Z$) . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).
+**Obs:** O valor $1,645$ vem da Tabela Normal Padrão ($Z$) disponível no site  @professorguru_normal . Ele representa o ponto na curva onde exatamente 5% da área está à esquerda (a zona de risco que queremos minimizar).
 
 
 Passo a passo do cálculo:
