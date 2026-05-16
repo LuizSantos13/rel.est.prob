@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática 03"
+author: "Luiz Gustavo dos Santos"
+title: "Relatório de Aula Prática 05"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -28,39 +28,258 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
-
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
 
 
+A aproximação de distribuições discretas (como a Binomial e a Poisson) pela distribuição Normal (contínua) é um dos resultados mais elegantes e práticos da estatística. Esse fenômeno é fundamentado pelo Teorema Central do Limite (TCL) e pelo Teorema de de Moivre-Laplace.
+
+Neste relatório, vamos entender como essas aproximações funcionam, as demonstrações matemáticas (usando Funções Geradoras de Momentos) e as aplicações práticas com a necessária correção de continuidade.
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Discorrer sobre como as distribuições Binomial e Poisson podem ser aproximadas à distribuição Normal.
+
+
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+Apresentar as demonstrações devidas, como também aplicações de como utilizá-las.
 
----
+##  Por que usar a aproximação Normal?
+Historicamente, antes dos computadores, calcular $(nk)pk(1−p)^(n−k)$ para n grande era inviável. A Normal oferecia tabelas acessíveis. Hoje, a aproximação ainda é útil porque:
+ 
+* Simplifica demonstrações teóricas em estatística inferencial;
 
-## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+* Fundamenta testes e intervalos de confiança (ex.: teste Z para proporções);
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+
+
+* Oferece intuição geométrica sobre a forma das distribuições;
+
+
+
+
+* Em contextos de grande volume de dados, os resultados assintóticos valem plenamente.
+
+
+
+Em resumo, a medida que os parâmetros crescem 
+$n→∞$ $ou$ $λ→∞$, tanto a Binomial quanto a Poisson "perdem" sua assimetria e se tornam indistinguíveis de uma curva Normal com mesma média e variância, uma manifestação elegante do Teorema Central do Limite.
+
+
+## Teorema Central do Limite
+
+O ponto de partida é o Teorema Central do Limite (TCL) ou Teorema do Limite Central(TLC), que afirma que a soma (ou média) de um grande número de variáveis aleatórias independentes e identicamente distribuídas tende a uma distribuição Normal, independentemente da distribuição original.
+
+Dadas $n$ variáveis aleatórias independentes $X1,X2,…,Xn$, todas com a mesma distribuição, média $μ$ e variância $σ²$ finitas, a soma (ou média) dessas variáveis, quando $n→∞n$ converge em distribuição para uma Normal:
+
+
+
+$$\bar{X}_n = \frac{1}{n} \sum_{i=1}^{n} X_i \xrightarrow{d} \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)$$
+Equivalentemente, a variável padronizada:
+
+
+$$Z_n = \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1)$$
+O resultado notável é que isso vale independentemente da distribuição original de cada $Xi$ — seja ela discreta, contínua, assimétrica ou multimodal.
+
+Algumas condições para que Teorema do Limite Central (TLC) possa ser aplicado: 
+
+
+   
+   * As variáveis devem ser independentes entre si.
+  
+ 
+   * Cada variável deve ter média $μ$ e variância $σ2²$ finitas.
+ 
+ 
+ 
+  * O número de observações $n$ deve ser suficientemente grande, em geral $n≥30n$ é uma regra prática, embora isso dependa da forma da distribuição original.
+
+
+Conforme somamos mais variáveis aleatórias independentes, a distribuição da soma vai se "suavizando" e se tornando cada vez mais simétrica e em forma de sino — a curva normal. Distribuições muito assimétricas exigem um nn
+n maior para que a aproximação seja boa.
+
+
+O Teorema Central do Limite (TCL) justifica o uso generalizado da distribuição normal em estatística:
+
+  * Inferência estatística: médias amostrais são aproximadamente normais para amostras grandes, o que sustenta intervalos de confiança e testes de hipótese.
+  * Controle de qualidade: médias de processos produtivos seguem distribuições aproximadamente normais.
+  * Ciências naturais e sociais: fenômenos que resultam da soma de muitos fatores independentes tendem a ser normalmente distribuídos (altura, erros de medição, etc.).
+
+
+
+
+## Aproximação da distribuição Binomial à Normal
+
+
+A distribuição binomial $B(n,p)$ descreve o número de sucessos em $n$ ensaios independentes, cada um com probabilidade $p$ de sucesso. Quando $n$ é suficientemente grande, calcular probabilidades binomiais exatas torna-se trabalhoso — o fatorial de números grandes é computacionalmente custoso. É nesse contexto que surge a aproximação pela distribuição normal: pelo Teorema Central do Limite, a soma de muitas variáveis aleatórias independentes e identicamente distribuídas tende a uma distribuição normal, e a binomial é exatamente isso — a soma de 
+$n$ variáveis de Bernoulli. Assim, para
+$n$ grande, $B(n,p)$ se comporta como uma normal $N(μ,σ2)$, com média $μ=np$ e desvio padrão $σ$:
+
+$$σ = [np(1−p)]^(1/2)$$  
+  
+
+Para aplicar a aproximação, a regra prática mais comum exige que $np≥5$ e $n(1−p)≥5$— sendo que muitos autores preferem o critério mais conservador de $np≥10$ e $n(1−p)≥10$ para garantir boa precisão. Satisfeita essa condição, calcula-se $μ$ e $σ$, padroniza-se a variável com $Z=(X−μ)/σ$ e consulta-se a tabela da normal padrão. Como a binomial é discreta e a normal é contínua, recomenda-se aplicar a correção de continuidade:
+
+
+
+Ao calcular $P(X=k)$ usa-se $P(k−0,5≤X≤k+0,5)$ para $P(X≤k)$, usa-se $P(X≤k+0,5)$ e para $P(X≥k)$ usa-se $P(X≥k−0,5)$. Essa correção reduz o erro introduzido pela transição do discreto para o contínuo.
+
+
+A qualidade da aproximação depende diretamente de $n$ e de quão próximo $p$ está de $0,5$. Quando $p$ é próximo de $0,5$, a binomial já é simétrica e a curva normal se ajusta bem mesmo para nn
+n moderados. Quando $p$ é extremo — próximo de $0$ ou de $1$ — a binomial é muito assimétrica e são necessários valores de $n$ muito maiores para que a aproximação seja adequada.
+
+
+
+
+Nesses casos extremos, pode ser preferível usar a aproximação de Poisson (para um $p$ pequeno e $n$ grande) em vez da normal. No geral, a aproximação normal é uma ferramenta poderosa e prática, amplamente usada em inferência estatística, intervalos de confiança e testes de hipóteses para proporções.
+
+### Exemplo de aplicação
+
+***Controle de Qualidade em uma Fábrica***
+
+Uma fábrica produz peças e sabe, por histórico, que 5% das peças são defeituosas. Em um lote de 200 peças, qual a probabilidade de encontrar mais de 15 peças defeituosas?
+
+
+**Passo 1 — Identificar o modelo:**
+
+
+$X∼B (n=200$,  $p=0,05)$
+
+***Obs: Calcular isso exatamente exigiria somar 185 termos binomiais. Usaremos a aproximação normal.***
+
+
+**Passo 2 — Verificar a condição de validade:**
+
+$$np=200×0,05 = 10   (≥5)$$ ***(Satisfaz)***
+
+
+$$n(1−p)=200×0,95=190  (≥5)$$ ***(Satisfaz)***
+
+
+
+
+
+**Passo 3 — Calcular a média μ e desvio padrão σ:**
+
+
+$$μ=np=10$$
+
+$$\sigma = \sqrt{np(1 - p)}$$
+$$\sigma = \sqrt{200 * 0,05 * 0,95}$$
+$$\sigma = \sqrt{9,5}$$
+$$\sigma \approx 3,08$$
+
+
+
+**Passo 4 — Aplicar a correção de continuidade:**
+
+
+Como queremos $P(X>15)$, isso equivale a $P(X≥16)$, então usamos $15,5$:
+
+
+
+$$P(X>15)≈P(Z>3,0815,5−10​)=P(Z>1,786)$$
+
+**Passo 5 — Consultar a tabela normal:**
+
+Podemos usar a @ para consultar os valores:
+
+$$P(Z>1,786)=1−Φ(1,786)≈1−0,9629=0,0371$$
+
+**Conclusão:**
+
+
+
+Há aproximadamente $3,7$% de chance de o lote conter mais de 15 peças defeituosas. Se esse risco for inaceitável para a fábrica, pode-se usar esse resultado para definir um plano de inspeção ou acionar um alerta de qualidade.
+
+O valor exato pela binomial é ≈ **3,9%** — a aproximação ficou muito próxima, com erro inferior a **0,2** pontos percentuais.
+
+
+
+## Aproximação da distribuição de Poisson a Normal
+
+
+A distribuição de Poisson $P(λ)$ modela o número de ocorrências de um evento em um intervalo fixo de tempo ou espaço, onde $λ$ representa a taxa média de ocorrências. Para valores pequenos de $λ$, a distribuição é assimétrica e os cálculos exatos são viáveis. Porém, à medida que $λ$ cresce, a distribuição vai se tornando cada vez mais simétrica e com formato de sino — exatamente o comportamento de uma normal. Isso ocorre porque a Poisson pode ser interpretada como a soma de muitas variáveis aleatórias independentes de Poisson com taxas pequenas, e pelo Teorema Central do Limite (TCL) essa soma converge para uma distribuição normal. Assim, para $λ$ suficientemente grande, $P(λ)$ se comporta como $N(μ,σ²)$, com a elegante propriedade de que média e variância coincidem: $μ=λ$ e $σ²=λ$.
+
+Para aplicar a aproximação, a condição geralmente exigida é $λ≥10$ — quanto maior $λ$, melhor o ajuste. Com essa condição satisfeita, calcula-se $μ=λ$ e $σ=λ$, padroniza-se com $Z=(X−λ)/λ$ e consulta-se a tabela da normal padrão. 
+
+
+
+Assim como na aproximação da binomial, aplica-se a correção de continuidade, pois a Poisson é discreta e a normal é contínua: para 
+$P(X=k)$ usa-se $P(k−0,5≤X≤k+0,5)$; para $P(X≤k)$; usa-se $P(X≤k+0,5)$; e para $P(X≥k)$; usa-se $P(X≥k−0,5)$. Essa correção melhora consideravelmente a precisão, especialmente para $λ$ próximo do limiar mínimo.
+
+
+
+A grande vantagem prática dessa aproximação está na simplificação dos cálculos: probabilidades acumuladas de Poisson para $λ$ grande envolvem somas de muitos termos com exponenciais e fatoriais, enquanto a normal reduz tudo a uma única padronização e consulta de tabela. A aproximação é especialmente útil em áreas como epidemiologia (número de casos de uma doença), telecomunicações (chegada de chamadas em uma central), controle de qualidade (defeitos por unidade produzida) e física (decaimento radioativo). Vale lembrar que, diferentemente da binomial, a Poisson não tem um nn
+n explícito — a aproximação depende exclusivamente do valor de $λ$, o que torna o critério de validade ainda mais simples de verificar.
+
+
+
+### Exemplo de aplicação
+
+***Central Telefônica***
+
+
+Uma central telefônica recebe, em média, $λ = 25$ chamadas por minuto. Qual a probabilidade de receber entre $20$ e $30$ chamadas em um determinado minuto?
+
+
+**Passo 1 — Identificar o modelo:**
+
+$X∼P(λ=25)$
+
+**Obs: Calcular isso exatamente exigiria somar 11 termos com exponenciais e fatoriais grandes. Usamos a aproximação normal.**
+
+
+**Passo 2 — Verificar a condição de validade:**
+
+
+
+$$λ=25≥10$$
+**(Satisfaz)**
+
+**Passo 3 — Calcular a média μ e desvio padrão σ:**
+
+$$μ=λ=25$$
+$$\sigma = \sqrt{λ}$$
+$$\sigma = \sqrt{25}$$
+$$\sigma = 5 $$
+**Passo 4 — Aplicar a correção de continuidade:**
+
+
+Como queremos $P(20≤X≤30)$, expandimos meio ponto em cada extremo:
+
+
+$$P(20 \le X \le 30) \approx P\left( \frac{19,5 - 25}{5} \le Z \le \frac{30,5 - 25}{5} \right)$$
+
+$$=P(−1,10≤Z≤1,10)$$
+
+
+**Passo 5 — Consultar a tabela normal:**
+
+
+
+
+
+Consultando na tabela normal padrão, temos:
+
+$$P(−1,10≤Z≤1,10)=Φ(1,10)−Φ(−1,10)$$
+
+$$=0,8643−0,1357=0,7286$$
+**Conclusão**
+
+Há aproximadamente 72,9% de chance de a central receber entre 20 e 30 chamadas em um minuto. Esse resultado pode ser usado para dimensionar o número de atendentes necessários — garantindo, por exemplo, que em pelo menos 70% dos minutos a equipe consiga atender toda a demanda sem sobrecarga.
+
+
+O valor exato pela Poisson é ≈72,4% — a aproximação ficou a menos de 0,5 ponto percentual do valor real, demonstrando excelente precisão.
+
+
+
+
+
 
 ---
 
