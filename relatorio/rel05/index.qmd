@@ -280,6 +280,445 @@ O valor exato pela Poisson é ≈72,4% — a aproximação ficou a menos de 0,5 
 
 
 
+## Aprofundamento
+
+Neste tópico trarei exemplos de aplicação dessa aproximação na área da Engenharia civil, curso que estou cursando, assim como a aplicação do conceito de aproximação dentro do Rstudio.
+
+
+### Aproximação da distribuição Binomial a Normal
+
+
+
+***Resistência do concreto***
+
+
+Um laboratório de controle tecnológico ensaia corpos de prova de concreto de uma obra. Com base em dados históricos, sabe-se que a probabilidade de um corpo de prova não atingir a resistência característica $fck$ é de 12%. Em uma concretagem, são coletados 150 corpos de prova. Qual é a probabilidade de que mais de 25 deles apresentem resistência abaixo do $fck$?
+
+**Passo 1 — Modelagem e verificação:**
+
+X = (Número de Corpos de prova não adequados) ~ $B(150;0,12)$
+
+$$np=150×0,12=18≥5$$
+***(Satisfaz)***
+
+$$n(1−p)=150×0,88=132≥5$$
+A aproximação pela Normal é válida.
+
+
+
+***(Satisfaz)***
+
+
+
+
+
+
+
+**Passo 2 — Parâmetros da Normal equivalente:**
+
+
+$$μ=np=18$$
+
+
+
+$$σ=\sqrt{np(1−p)}$$
+
+$$σ=\sqrt{150 * 0,12 * 0,88} $$
+$$σ=\sqrt{15,84}$$
+$$σ \approx 3,980 $$
+**Passo 3 — Correção de continuidade:**
+
+
+
+$P(X>25)$ é discreta, logo usamos $P(Y>25,5)$ na Normal.
+
+
+**Passo 4 — Padronização:**
+
+$$Z = \frac{25,5 - 18}{3,980} = \frac{7,5}{3,980}\approx 1,884$$
+
+
+
+
+**Passo 5 — Cálculo da probabilidade:**
+
+
+$$P(X>25)≈P(Z>1,884)=1−Φ(1,884)=1−0,9702=0,0298$$
+***Interpretção do engenheiro***
+
+
+ Existe aproximadamente 3,0% de chance de mais de 25 corpos de prova não serem adequados. Segundo a ABNT NBR 12655, se essa probabilidade ultrapassasse 10% seria um sinal de alerta para revisão do traço do concreto — neste caso, o lote está dentro do aceitável.
+
+
+
+
+***Como resolver utilizando o Rstudio?***
+
+
+```{r}
+# ============================================================
+#  Aproximação Binomial à Normal — Controle de Qualidade
+#  de Concreto (ABNT NBR 12655)
+#
+#  Problema: n = 150 CPs, p = 0.12 (prob. não-conformidade)
+#  Pergunta: P(X > 25) = ?
+# ============================================================
+
+# --- Parâmetros do problema ---------------------------------
+n <- 150
+p <- 0.12
+
+# --- Verificação das condições de aproximação ---------------
+cat("=== Verificação das condições ===\n")
+cat("np    =", n * p, ifelse(n * p >= 5, "≥ 5 ✓", "< 5 ✗"), "\n")
+cat("n(1-p)=", n * (1 - p), ifelse(n * (1 - p) >= 5, "≥ 5 ✓", "< 5 ✗"), "\n\n")
+
+# --- Parâmetros da Normal equivalente -----------------------
+mu    <- n * p
+sigma <- sqrt(n * p * (1 - p))
+
+cat("=== Parâmetros da Normal ===\n")
+cat("μ = np        =", mu, "\n")
+cat("σ = √(np·q)   =", round(sigma, 4), "\n\n")
+
+# --- Correção de continuidade e padronização ----------------
+# P(X > 25) discreta  →  P(Y > 25.5) contínua
+limite <- 25.5
+Z <- (limite - mu) / sigma
+
+cat("=== Padronização ===\n")
+cat("Limite com correção de continuidade: ", limite, "\n")
+cat("Z = (25.5 - μ) / σ = (", limite, "-", mu, ") /", round(sigma, 4),
+    "=", round(Z, 4), "\n\n")
+
+# --- Probabilidade via Normal (aproximação) -----------------
+prob_normal <- pnorm(limite, mean = mu, sd = sigma, lower.tail = FALSE)
+
+cat("=== Resultado pela aproximação Normal ===\n")
+cat("P(X > 25) ≈ P(Z >", round(Z, 4), ") =", round(prob_normal, 6),
+    "→", round(prob_normal * 100, 2), "%\n\n")
+
+# --- Valor exato pela Binomial (para comparação) ------------
+prob_exata <- pbinom(25, size = n, prob = p, lower.tail = FALSE)
+
+cat("=== Valor exato pela Binomial ===\n")
+cat("P(X > 25) exato =", round(prob_exata, 6),
+    "→", round(prob_exata * 100, 2), "%\n\n")
+
+cat("=== Erro da aproximação ===\n")
+cat("Diferença absoluta:", round(abs(prob_normal - prob_exata), 6), "\n")
+cat("Erro relativo:     ", round(abs(prob_normal - prob_exata) / prob_exata * 100, 2), "%\n\n")
+
+# --- Interpretação técnica (NBR 12655) ----------------------
+cat("=== Interpretação (ABNT NBR 12655) ===\n")
+if (prob_normal < 0.10) {
+  cat("Lote APROVADO: probabilidade de não-conformidade excessiva (",
+      round(prob_normal * 100, 2), "%) < limite de alerta de 10%\n")
+} else {
+  cat("ALERTA: probabilidade de não-conformidade excessiva (",
+      round(prob_normal * 100, 2), "%) ≥ 10% — revisar traço!\n")
+}
+
+# ============================================================
+#  Gráfico: Binomial (barras) + Normal (curva) + região crítica
+# ============================================================
+library(ggplot2)
+
+# Suporte da Binomial (valores relevantes)
+k_seq  <- seq(max(0, floor(mu - 5 * sigma)), min(n, ceiling(mu + 5 * sigma)))
+binom_df <- data.frame(
+  k    = k_seq,
+  prob = dbinom(k_seq, size = n, prob = p),
+  tipo = ifelse(k_seq > 25, "crítico", "normal")
+)
+
+# Curva Normal contínua
+x_seq   <- seq(mu - 5 * sigma, mu + 5 * sigma, length.out = 500)
+normal_df <- data.frame(
+  x = x_seq,
+  y = dnorm(x_seq, mean = mu, sd = sigma)
+)
+
+# Área sombreada sob a curva Normal (cauda direita)
+cauda_df <- subset(normal_df, x >= 25.5)
+
+ggplot() +
+  # Barras da Binomial
+  geom_col(data = binom_df,
+           aes(x = k, y = prob, fill = tipo),
+           width = 0.8, alpha = 0.65) +
+  scale_fill_manual(
+    values = c("normal" = "#85B7EB", "crítico" = "#F09595"),
+    labels = c("normal" = "P(X ≤ 25)", "crítico" = "P(X > 25)"),
+    name = "Binomial B(150; 0,12)"
+  ) +
+
+  # Área sombreada da Normal (cauda)
+  geom_area(data = cauda_df,
+            aes(x = x, y = y),
+            fill = "#E24B4A", alpha = 0.25) +
+
+  # Curva Normal
+  geom_line(data = normal_df,
+            aes(x = x, y = y, linetype = "Normal N(μ, σ²)"),
+            color = "#185FA5", linewidth = 1.2) +
+  scale_linetype_manual(values = c("Normal N(μ, σ²)" = "solid"),
+                        name = NULL) +
+
+  # Linha vertical no limite (correção de continuidade)
+  geom_vline(xintercept = 25.5, color = "#D85A30",
+             linetype = "dashed", linewidth = 0.8) +
+  annotate("text", x = 26.2, y = max(normal_df$y) * 0.85,
+           label = "25,5\n(corr. cont.)",
+           color = "#993C1D", size = 3.2, hjust = 0) +
+
+  # Anotação da probabilidade
+  annotate("text", x = 30, y = max(normal_df$y) * 0.45,
+           label = paste0("P(X > 25)\n≈ ", round(prob_normal * 100, 2), "%"),
+           color = "#A32D2D", size = 3.5, fontface = "bold", hjust = 0) +
+
+  # Linha de μ
+  geom_vline(xintercept = mu, color = "#444441",
+             linetype = "dotted", linewidth = 0.7) +
+  annotate("text", x = mu + 0.4, y = max(normal_df$y) * 1.01,
+           label = paste0("μ = ", mu), size = 3.2,
+           color = "#444441", hjust = 0) +
+
+  labs(
+    title    = "Controle de qualidade do concreto",
+    subtitle = paste0("X ~ B(150; 0,12)  |  μ = ", mu,
+                      "  |  σ = ", round(sigma, 3),
+                      "  |  P(X > 25) ≈ ", round(prob_normal * 100, 2), "%"),
+    x = "Número de corpos de prova não conformes (k)",
+    y = "Probabilidade / Densidade"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title    = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(color = "gray40", size = 11),
+    legend.position = "bottom",
+    legend.box    = "vertical",
+    panel.grid.minor = element_blank()
+  )
+
+# Salvar o gráfico
+ggsave("concreto_binomial_normal.png", width = 9, height = 5.5, dpi = 150)
+cat("\nGráfico salvo em: concreto_binomial_normal.png\n")
+```
+
+
+
+### Aproximação da distribuição de Poisson a Normal
+
+***Hidráulica urbana***
+
+
+Em uma rede de drenagem urbana, o número de ocorrências de alagamentos em um bairro segue uma distribuição de Poisson com média de 20 alagamentos por ano. Qual é a probabilidade de ocorrerem entre 15 e 25 alagamentos em um determinado ano?
+
+**Passo 1 — Verificar a condição de aproximação:**
+
+
+
+$$λ=20≥10$$
+
+***(Aproximação pela Normal válida.)***
+
+
+**Passo 2 — Parâmetros da Normal equivalente:**
+
+
+$$μ=λ=20$$
+
+
+$$σ=\sqrt{λ} = \sqrt{20} \approx4,472 $$
+
+
+**Passo 3 — Correção de continuidade:**
+
+$$P(15≤X≤25) discreta ⟶ P(14,5≤Y≤25,5) contínua.$$
+**Passo 4 — Padronização:**
+
+
+$$Z_1 = \frac{14,5 - 20}{4,472} = \frac{-5,5}{4,472} \approx -1,230$$
+
+$$Z_2 = \frac{25,5 - 20}{4,472} = \frac{5,5}{4,472} \approx 1,230$$
+
+**Passo 5 — Probabilidade:**
+
+$$P(15≤X≤25)≈Φ(1,230)−Φ(−1,230)=0,8907−0,1093=0,7814$$
+
+***Interpretação do engenheiro***
+
+
+
+
+Existem aproximadamente 78,1% de chance de o bairro registrar entre 15 e 25 alagamentos no ano. Esse tipo de análise embasa o dimensionamento de bacias de detenção e o planejamento de equipes de manutenção preventiva conforme a NBR 9649 (redes de esgoto) e diretrizes do Plano Diretor de Drenagem Urbana.
+ 
+
+***Como resolver utilizando o Rstudio?***
+
+```{r}
+# ============================================================
+#  Aproximação Poisson à Normal — Drenagem Urbana
+#
+#  Problema: X ~ Poisson(λ = 20) alagamentos/ano
+#  Pergunta: P(15 ≤ X ≤ 25) = ?
+# ============================================================
+
+# --- Parâmetro do problema ----------------------------------
+lambda <- 20
+
+# --- Verificação da condição de aproximação ----------------
+cat("=== Verificação da condição ===\n")
+cat("λ =", lambda, ifelse(lambda >= 10, "≥ 10 ✓  aproximação válida\n\n",
+                          "< 10  ✗  aproximação fraca\n\n"))
+
+# --- Parâmetros da Normal equivalente ----------------------
+mu    <- lambda
+sigma <- sqrt(lambda)
+
+cat("=== Parâmetros da Normal equivalente ===\n")
+cat("μ = λ      =", mu, "\n")
+cat("σ = √λ     =", round(sigma, 4), "\n\n")
+
+# --- Correção de continuidade e padronização ---------------
+# P(15 ≤ X ≤ 25) discreta  →  P(14.5 ≤ Y ≤ 25.5) contínua
+lo_cc <- 15 - 0.5
+hi_cc <- 25 + 0.5
+
+Z1 <- (lo_cc - mu) / sigma
+Z2 <- (hi_cc - mu) / sigma
+
+cat("=== Padronização (com correção de continuidade) ===\n")
+cat("Limite inferior: ", lo_cc, "  →  Z₁ =", round(Z1, 4), "\n")
+cat("Limite superior: ", hi_cc, "  →  Z₂ =", round(Z2, 4), "\n\n")
+
+# --- Probabilidade via Normal (aproximação) ----------------
+prob_normal <- pnorm(hi_cc, mean = mu, sd = sigma) -
+               pnorm(lo_cc, mean = mu, sd = sigma)
+
+cat("=== Resultado pela aproximação Normal ===\n")
+cat("P(15 ≤ X ≤ 25) ≈ Φ(", round(Z2,4), ") - Φ(", round(Z1,4), ")\n")
+cat("               =", round(prob_normal, 6),
+    "→", round(prob_normal * 100, 2), "%\n\n")
+
+# --- Valor exato pela Poisson (para comparação) ------------
+prob_exata <- ppois(25, lambda = lambda) - ppois(14, lambda = lambda)
+
+cat("=== Valor exato pela Poisson ===\n")
+cat("P(15 ≤ X ≤ 25) exato =", round(prob_exata, 6),
+    "→", round(prob_exata * 100, 2), "%\n\n")
+
+cat("=== Erro da aproximação ===\n")
+cat("Diferença absoluta:", round(abs(prob_normal - prob_exata), 6), "\n")
+cat("Erro relativo:     ",
+    round(abs(prob_normal - prob_exata) / prob_exata * 100, 2), "%\n\n")
+
+# --- Tempo de retorno (contexto de drenagem urbana) --------
+cat("=== Análise complementar: tempo de retorno ===\n")
+prob_excede <- 1 - ppois(25, lambda = lambda)
+cat("P(X > 25) =", round(prob_excede * 100, 2), "%\n")
+cat("Tempo de retorno T = 1/P(X > 25) =",
+    round(1 / prob_excede, 1), "anos\n\n")
+
+# ============================================================
+#  Gráfico: Poisson (barras) + Normal (curva) + intervalo
+# ============================================================
+library(ggplot2)
+
+# Suporte da Poisson
+k_seq <- seq(max(0, floor(mu - 5 * sigma)), ceiling(mu + 5 * sigma))
+
+pois_df <- data.frame(
+  k    = k_seq,
+  prob = dpois(k_seq, lambda = lambda),
+  tipo = ifelse(k_seq >= 15 & k_seq <= 25, "intervalo", "fora")
+)
+
+# Curva Normal contínua
+x_seq <- seq(mu - 5 * sigma, mu + 5 * sigma, length.out = 600)
+norm_df <- data.frame(
+  x = x_seq,
+  y = dnorm(x_seq, mean = mu, sd = sigma)
+)
+
+# Área sombreada sob a Normal (entre os limites com correção)
+area_df <- subset(norm_df, x >= lo_cc & x <= hi_cc)
+
+ggplot() +
+
+  # Área sob a curva Normal no intervalo
+  geom_area(data = area_df,
+            aes(x = x, y = y),
+            fill = "#85B7EB", alpha = 0.30) +
+
+  # Barras da Poisson
+  geom_col(data = pois_df,
+           aes(x = k, y = prob, fill = tipo),
+           width = 0.75, alpha = 0.75) +
+  scale_fill_manual(
+    values  = c("intervalo" = "#185FA5", "fora" = "#B4B2A9"),
+    labels  = c("intervalo" = "P(15 ≤ X ≤ 25)", "fora" = "Fora do intervalo"),
+    name    = "Poisson(λ = 20)"
+  ) +
+
+  # Curva Normal
+  geom_line(data = norm_df,
+            aes(x = x, y = y, linetype = "N(μ, σ²)"),
+            color = "#D85A30", linewidth = 1.2) +
+  scale_linetype_manual(
+    values = c("N(μ, σ²)" = "solid"),
+    name   = NULL
+  ) +
+
+  # Linhas verticais nos limites (correção de continuidade)
+  geom_vline(xintercept = c(lo_cc, hi_cc),
+             color = "#993C1D", linetype = "dashed", linewidth = 0.7) +
+  annotate("text", x = lo_cc - 0.3, y = max(norm_df$y) * 0.78,
+           label = "14,5", color = "#993C1D", size = 3.2, hjust = 1) +
+  annotate("text", x = hi_cc + 0.3, y = max(norm_df$y) * 0.78,
+           label = "25,5", color = "#993C1D", size = 3.2, hjust = 0) +
+
+  # Linha de μ
+  geom_vline(xintercept = mu,
+             color = "#444441", linetype = "dotted", linewidth = 0.7) +
+  annotate("text", x = mu + 0.4, y = max(norm_df$y) * 1.01,
+           label = paste0("μ = ", mu),
+           color = "#444441", size = 3.2, hjust = 0) +
+
+  # Anotação da probabilidade
+  annotate("text", x = mu, y = max(norm_df$y) * 0.55,
+           label = paste0("P(15 ≤ X ≤ 25)\n≈ ",
+                          round(prob_normal * 100, 2), "%"),
+           color = "#0C447C", size = 3.8, fontface = "bold", hjust = 0.5) +
+
+  labs(
+    title    = "Drenagem urbana — alagamentos anuais",
+    subtitle = paste0(
+      "X ~ Poisson(λ = 20)  |  μ = ", mu,
+      "  |  σ = ", round(sigma, 3),
+      "  |  P(15 ≤ X ≤ 25) ≈ ", round(prob_normal * 100, 2), "%"
+    ),
+    x = "Número de alagamentos por ano (k)",
+    y = "Probabilidade / Densidade"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title       = element_text(face = "bold", size = 14),
+    plot.subtitle    = element_text(color = "gray40", size = 11),
+    legend.position  = "bottom",
+    legend.box       = "vertical",
+    panel.grid.minor = element_blank()
+  )
+
+# Salvar o gráfico
+ggsave("drenagem_poisson_normal.png", width = 9, height = 5.5, dpi = 150)
+cat("Gráfico salvo em: drenagem_poisson_normal.png\n")
+```
+
+
+
+
 
 ---
 
@@ -295,48 +734,25 @@ Descreva como o experimento foi realizado.
 
 ---
 
-## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
-```
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+O relatório demonstrou que as aproximações da distribuição Binomial e da distribuição de Poisson à distribuição Normal constituem ferramentas estatísticas de grande relevância prática, especialmente em contextos de engenharia onde o volume de dados e a complexidade dos cálculos exigem métodos eficientes e confiáveis.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+
+
+
+As aproximações estudadas encontram aplicação direta em diversas áreas da engenharia civil. No controle tecnológico de materiais, a aproximação Binomial permite avaliar a probabilidade de lotes de concreto, aço ou solo não atenderem às especificações normativas, subsidiando decisões de aceitação ou rejeição com base em critérios probabilísticos objetivos. Na hidrologia e drenagem urbana, a aproximação de Poisson viabiliza o cálculo de probabilidades associadas à frequência de eventos extremos, como alagamentos e cheias, fundamentando o dimensionamento de obras com base em tempos de retorno. Em ambos os casos, a substituição de cálculos combinatórios complexos — especialmente onerosos para n ou λ elevados — pela simples consulta à tabela Z representa ganho expressivo de operacionalidade sem comprometer a precisão da análise.
+
+
+
+
+Conclui-se, portanto, que o domínio dessas aproximações é competência fundamental para o engenheiro civil, integrando o arsenal de métodos probabilísticos que sustentam projetos seguros, econômicos e em conformidade com as normas técnicas brasileiras vigentes. A validação por comparação com os valores exatos computados em R reforça a confiabilidade das aproximações e demonstra a importância da verificação numérica no exercício profissional.
+
+
+
 
 ## Aprenda Quarto
 
