@@ -26,7 +26,7 @@ execute:
 ---
 
 
-## 📌 Introdução
+##  Introdução
 
 
 
@@ -34,7 +34,7 @@ A aproximação de distribuições discretas (como a Binomial e a Poisson) pela 
 
 Neste relatório, vamos entender como essas aproximações funcionam, as demonstrações matemáticas (usando Funções Geradoras de Momentos) e as aplicações práticas com a necessária correção de continuidade.
 
-## 🎯 Objetivos
+##  Objetivos
 
 ### Objetivo geral
 
@@ -47,7 +47,7 @@ Discorrer sobre como as distribuições Binomial e Poisson podem ser aproximadas
 Apresentar as demonstrações devidas, como também aplicações de como utilizá-las.
 
 ##  Por que usar a aproximação Normal?
-Historicamente, antes dos computadores, calcular $(nk)pk(1−p)^(n−k)$ para n grande era inviável. A Normal oferecia tabelas acessíveis. Hoje, a aproximação ainda é útil porque:
+Historicamente, antes dos computadores, calcular a distribuição Binomial $P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$ para um "n" grande era inviável. A Normal oferecia tabelas acessíveis. Hoje, a aproximação ainda é útil porque:
  
 * Simplifica demonstrações teóricas em estatística inferencial;
 
@@ -66,13 +66,29 @@ Historicamente, antes dos computadores, calcular $(nk)pk(1−p)^(n−k)$ para n 
 
 
 
+* Sem a aproximação: É uma conta absurdamente longa (e que antigamente, antes dos computadores, era simplesmente impossível de fazer à mão).
+
+
+
+
+
+* Com a aproximação Normal: Você calcula a média, o desvio padrão e faz uma única conta rápida usando a tabela Z (ou uma linha de código).
+
+
+
+
+
+
+
+
+
 Em resumo, a medida que os parâmetros crescem 
 $n→∞$ $ou$ $λ→∞$, tanto a Binomial quanto a Poisson "perdem" sua assimetria e se tornam indistinguíveis de uma curva Normal com mesma média e variância, uma manifestação elegante do Teorema Central do Limite.
 
 
 ## Teorema Central do Limite
 
-O ponto de partida é o Teorema Central do Limite (TCL) ou Teorema do Limite Central(TLC), que afirma que a soma (ou média) de um grande número de variáveis aleatórias independentes e identicamente distribuídas tende a uma distribuição Normal, independentemente da distribuição original.
+O ponto de partida segundo @durrett2019 é o Teorema Central do Limite (TCL) ou Teorema do Limite Central(TLC), que afirma que a soma (ou média) de um grande número de variáveis aleatórias independentes e identicamente distribuídas tende a uma distribuição Normal, independentemente da distribuição original.
 
 Dadas $n$ variáveis aleatórias independentes $X1,X2,…,Xn$, todas com a mesma distribuição, média $μ$ e variância $σ²$ finitas, a soma (ou média) dessas variáveis, quando $n→∞n$ converge em distribuição para uma Normal:
 
@@ -92,11 +108,11 @@ Algumas condições para que Teorema do Limite Central (TLC) possa ser aplicado:
    * As variáveis devem ser independentes entre si.
   
  
-   * Cada variável deve ter média $μ$ e variância $σ2²$ finitas.
+   * Cada variável deve ter média $μ$ e variância $σ²$ finitas.
  
  
  
-  * O número de observações $n$ deve ser suficientemente grande, em geral $n≥30n$ é uma regra prática, embora isso dependa da forma da distribuição original.
+  * O número de observações $n$ deve ser suficientemente grande, em geral $n≥30$ é uma regra prática, embora isso dependa da forma da distribuição original.
 
 
 Conforme somamos mais variáveis aleatórias independentes, a distribuição da soma vai se "suavizando" e se tornando cada vez mais simétrica e em forma de sino — a curva normal. Distribuições muito assimétricas exigem um nn
@@ -119,10 +135,10 @@ A distribuição binomial $B(n,p)$ descreve o número de sucessos em $n$ ensaios
 $n$ variáveis de Bernoulli. Assim, para
 $n$ grande, $B(n,p)$ se comporta como uma normal $N(μ,σ2)$, com média $μ=np$ e desvio padrão $σ$:
 
-$$σ = [np(1−p)]^(1/2)$$  
+$$\sigma = \sqrt{np(1-p)}$$
   
 
-Para aplicar a aproximação, a regra prática mais comum exige que $np≥5$ e $n(1−p)≥5$— sendo que muitos autores preferem o critério mais conservador de $np≥10$ e $n(1−p)≥10$ para garantir boa precisão. Satisfeita essa condição, calcula-se $μ$ e $σ$, padroniza-se a variável com $Z=(X−μ)/σ$ e consulta-se a tabela da normal padrão. Como a binomial é discreta e a normal é contínua, recomenda-se aplicar a correção de continuidade:
+Para aplicar a aproximação, a regra prática mais comum exige que $np≥5$ e $n(1−p)≥5$ — sendo que muitos autores preferem o critério mais conservador de $np≥10$ e $n(1−p)≥10$ para garantir boa precisão. Satisfeita essa condição, calcula-se $μ$ e $σ$, padroniza-se a variável com $Z=(X−μ)/σ$  e consulta-se a tabela da normal padrão. Como a binomial é discreta e a normal é contínua, recomenda-se aplicar a correção de continuidade:
 
 
 
@@ -182,11 +198,11 @@ Como queremos $P(X>15)$, isso equivale a $P(X≥16)$, então usamos $15,5$:
 
 
 
-$$P(X>15)≈P(Z>3,0815,5−10​)=P(Z>1,786)$$
+$$P(X>15)≈P(Z>3,08155−10​)=P(Z>1,786)$$
 
 **Passo 5 — Consultar a tabela normal:**
 
-Podemos usar a @ para consultar os valores:
+Podemos usar a Tabela Normal Padrão, disponível no @professorguru_normal para consultar os valores:
 
 $$P(Z>1,786)=1−Φ(1,786)≈1−0,9629=0,0371$$
 
@@ -196,11 +212,11 @@ $$P(Z>1,786)=1−Φ(1,786)≈1−0,9629=0,0371$$
 
 Há aproximadamente $3,7$% de chance de o lote conter mais de 15 peças defeituosas. Se esse risco for inaceitável para a fábrica, pode-se usar esse resultado para definir um plano de inspeção ou acionar um alerta de qualidade.
 
-O valor exato pela binomial é ≈ **3,9%** — a aproximação ficou muito próxima, com erro inferior a **0,2** pontos percentuais.
+O valor exato pela binomial é ≈ $3,9%$ — a aproximação ficou muito próxima, com erro inferior a $0,2$ pontos percentuais.
 
 
 
-## Aproximação da distribuição de Poisson a Normal
+## Aproximação da distribuição de Poisson à Normal
 
 
 A distribuição de Poisson $P(λ)$ modela o número de ocorrências de um evento em um intervalo fixo de tempo ou espaço, onde $λ$ representa a taxa média de ocorrências. Para valores pequenos de $λ$, a distribuição é assimétrica e os cálculos exatos são viáveis. Porém, à medida que $λ$ cresce, a distribuição vai se tornando cada vez mais simétrica e com formato de sino — exatamente o comportamento de uma normal. Isso ocorre porque a Poisson pode ser interpretada como a soma de muitas variáveis aleatórias independentes de Poisson com taxas pequenas, e pelo Teorema Central do Limite (TCL) essa soma converge para uma distribuição normal. Assim, para $λ$ suficientemente grande, $P(λ)$ se comporta como $N(μ,σ²)$, com a elegante propriedade de que média e variância coincidem: $μ=λ$ e $σ²=λ$.
@@ -282,10 +298,10 @@ O valor exato pela Poisson é ≈72,4% — a aproximação ficou a menos de 0,5 
 
 ## Aprofundamento
 
-Neste tópico trarei exemplos de aplicação dessa aproximação na área da Engenharia civil, curso que estou cursando, assim como a aplicação do conceito de aproximação dentro do Rstudio.
+Neste tópico trarei exemplos de aplicação dessa aproximação na área da Engenharia civil, curso que estou cursando, assim como a aplicação do conceito de aproximação à Normal dentro do Rstudio.
 
 
-### Aproximação da distribuição Binomial a Normal
+### Aproximação da distribuição Binomial à Normal
 
 
 
@@ -508,7 +524,7 @@ cat("\nGráfico salvo em: concreto_binomial_normal.png\n")
 
 
 
-### Aproximação da distribuição de Poisson a Normal
+### Aproximação da distribuição de Poisson à Normal
 
 ***Hidráulica urbana***
 
@@ -722,21 +738,19 @@ cat("Gráfico salvo em: drenagem_poisson_normal.png\n")
 
 ---
 
-## ⚙️ Metodologia
+##  Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+Para este relatório, foi utilizado o software Rstudio para a estruturação do relatório juntamente com os pacotes leem, Rmarkdown, gplot para plotagem de gráficos,o embasamento teórico foi desenvolvido a partir do @durrett2019, as aulas ministradas pelo professor Ben Dêivide no curso de estatística e probabilidade e o curso @Rbasico2022.
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+
+
+
 
 ---
 
 
 
-## 🧠 Considerações finais
+##  Considerações finais
 
 O relatório demonstrou que as aproximações da distribuição Binomial e da distribuição de Poisson à distribuição Normal constituem ferramentas estatísticas de grande relevância prática, especialmente em contextos de engenharia onde o volume de dados e a complexidade dos cálculos exigem métodos eficientes e confiáveis.
 
@@ -754,8 +768,5 @@ Conclui-se, portanto, que o domínio dessas aproximações é competência funda
 
 
 
-## Aprenda Quarto
 
-Acesse [Quarto](https://quarto.org/).
-
-## 📖 Referências
+##  Referências
