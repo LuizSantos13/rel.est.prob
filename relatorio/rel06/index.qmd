@@ -765,7 +765,79 @@ Veredito técnico: Há evidências estatísticas de que a variabilidade do concr
 
 ***Como resolver utilizando o Rstudio?***
 
+```{r}
+# ============================================================
+# TESTE DE HIPÓTESE PARA VARIÂNCIA - Qui-Quadrado
+# ============================================================
 
+# --- Dados do problema ---
+n        <- 21
+nu       <- n - 1
+S2       <- 7.5
+sigma2_0 <- 4.0
+alpha    <- 0.05
+
+# --- Estatística de teste ---
+chi2_calc   <- (nu * S2) / sigma2_0
+chi2_critico <- qchisq(1 - alpha, df = nu)
+p_valor     <- pchisq(chi2_calc, df = nu, lower.tail = FALSE)
+
+cat("=== ESTATÍSTICA DE TESTE ===\n")
+cat(sprintf("χ² calculado = %.4f\n", chi2_calc))
+cat(sprintf("χ² crítico   = %.4f\n", chi2_critico))
+cat(sprintf("p-valor      = %.6f\n", p_valor))
+
+if (chi2_calc > chi2_critico) {
+  cat("Decisão: REJEITA H0 — variância supera 4,0 MPa²\n")
+} else {
+  cat("Decisão: NÃO rejeita H0\n")
+}
+
+# --- Gráfico ---
+library(ggplot2)
+
+x_vals <- seq(0, 60, length.out = 500)
+df_plot <- data.frame(
+  x = x_vals,
+  y = dchisq(x_vals, df = nu)
+)
+
+ggplot(df_plot, aes(x, y)) +
+  geom_area(
+    data = subset(df_plot, x >= chi2_critico),
+    aes(x, y), fill = "#e74c3c", alpha = 0.5
+  ) +
+  geom_line(color = "#2c3e50", linewidth = 1.2) +
+  geom_vline(xintercept = chi2_critico, color = "#e74c3c",
+             linetype = "dashed", linewidth = 1) +
+  geom_vline(xintercept = chi2_calc, color = "#2980b9",
+             linetype = "solid", linewidth = 1.2) +
+  annotate("text", x = chi2_critico + 1, y = 0.055,
+           label = sprintf("χ²_crit\n= %.2f", chi2_critico),
+           color = "#e74c3c", hjust = 0, size = 3.5) +
+  annotate("text", x = chi2_calc + 1, y = 0.040,
+           label = sprintf("χ²_calc\n= %.2f", chi2_calc),
+           color = "#2980b9", hjust = 0, size = 3.5) +
+  labs(
+    title    = "Teste Qui-Quadrado para Variância",
+    subtitle = sprintf("H0: σ² ≤ %.1f MPa²  |  H1: σ² > %.1f MPa²  |  gl = %d",
+                       sigma2_0, sigma2_0, nu),
+    x        = "χ²",
+    y        = "Densidade",
+    caption  = sprintf("p-valor = %.4f  |  Decisão: %s H0",
+                       p_valor,
+                       ifelse(p_valor < alpha, "REJEITAR", "NÃO REJEITAR"))
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title    = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray40"),
+    plot.caption  = element_text(
+      face  = "bold",
+      color = ifelse(p_valor < alpha, "#e74c3c", "#27ae60")
+    )
+  )
+```
 
 
 
