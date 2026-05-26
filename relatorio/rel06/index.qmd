@@ -26,28 +26,41 @@ execute:
 ---
 
 
-## 📌 Introdução
+##  Introdução
 
-Descreva o contexto da prática e sua importância.
-
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+A estatística inferencial dispõe de um conjunto de distribuições de probabilidade fundamentais para a realização de testes de hipóteses e a construção de intervalos de confiança. Entre essas distribuições, destacam-se a distribuição qui-quadrado (χ²) e a distribuição F, amplamente empregadas na análise de dados em diversas áreas do conhecimento, como ciências exatas, biológicas, sociais e econômicas.
 
 
 
-## 🎯 Objetivos
+A distribuição qui-quadrado surge naturalmente quando se somam os quadrados de variáveis aleatórias normais padronizadas e independentes, sendo parametrizada pelo número de graus de liberdade. Suas principais aplicações incluem testes de aderência, testes de independência em tabelas de contingência e inferências sobre a variância populacional.
+
+
+
+A distribuição F, por sua vez, é definida como a razão entre duas variáveis qui-quadrado independentes, cada uma dividida pelos seus respectivos graus de liberdade. Essa distribuição ocupa papel central na Análise de Variância (ANOVA) e nos testes de igualdade de variâncias entre populações distintas, sendo essencial para a comparação de modelos estatísticos.
+
+
+
+O presente relatório tem como objetivo apresentar as principais propriedades teóricas dessas duas distribuições, discutir suas condições de aplicabilidade e ilustrar seu uso por meio de exemplos práticos. A compreensão aprofundada dessas ferramentas é indispensável para a correta interpretação de resultados estatísticos e para a tomada de decisões fundamentadas em evidências empíricas.
+
+
+##  Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+ Discorrer sobre as distribuições F e de Qui-quadrado.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+Apresentar como elas podem estar relacionadas a distribuições amostrais;
+Quais as funções da amostra que se relacionam com elas;
+Por fim, apresentar aplicações dessas distribuições em sua área de atuação.
+
+
+
 
 ---
+
+
 
 ##  Distribuição F de Snedecor-Fisher
 
@@ -76,7 +89,7 @@ Em 1934, Snedecor modificou a fórmula de Fisher. Em vez de calcular o logaritmo
 
 ### Conceito da distribuição F
 
-Formalmente, a Distribuição F descreve o comportamento da razão entre duas variáveis aleatórias independentes, cada uma seguindo uma distribuição Qui-quadrado ($\chi^2$), divididas pelos seus respectivos graus de liberdade ($d_1$ e $d_2$):
+Segundo @bussab2017estatistica, a Distribuição F descreve o comportamento da razão entre duas variáveis aleatórias independentes, cada uma seguindo uma distribuição Qui-quadrado ($\chi^2$), divididas pelos seus respectivos graus de liberdade ($d_1$ e $d_2$):
 
 
 
@@ -593,7 +606,7 @@ Hoje a distribuição qui-quadrado está em praticamente todas as áreas do conh
 A intuição é simples e bonita. Se você toma uma variável com distribuição normal padrão e a eleva ao quadrado, o resultado nunca pode ser negativo — e tende a ser pequeno quando a variável original está próxima de zero, com caudas longas quando ela se afasta. Somar vários desses quadrados produz uma distribuição que começa no zero, é fortemente assimétrica à direita com poucos termos, e vai se tornando progressivamente mais simétrica e parecida com uma curva normal à medida que se somam mais termos. O parâmetro que controla tudo isso é o número de termos somados, que chamamos de graus de liberdade.
 
 
-A distribuição qui-quadrado responde a uma pergunta simples: o que acontece quando você pega várias medidas com erro aleatório, eleva cada uma ao quadrado e soma tudo? O resultado dessa soma não segue uma distribuição normal — ele segue uma distribuição qui-quadrado.
+De acordo com @bussab2017estatistica, a distribuição qui-quadrado responde a uma pergunta simples: o que acontece quando você pega várias medidas com erro aleatório, eleva cada uma ao quadrado e soma tudo? O resultado dessa soma não segue uma distribuição normal — ele segue uma distribuição qui-quadrado.
 Mais formalmente: se você tem ν variáveis independentes, cada uma com distribuição normal padrão (média zero, variância um), e soma os quadrados de todas elas, o resultado segue uma distribuição qui-quadrado com ν graus de liberdade:
 
 
@@ -844,47 +857,33 @@ ggplot(df_plot, aes(x, y)) +
 
 ---
 
-## ⚙️ Metodologia
+##  Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+
+
+
+Para a elaboração deste relatório foram utilizados os materiais de pesquisa @bussab2017estatistica, @mood1974introduction e @casella2002statistical, para a parte de documentação, foi utilizado os aprendizados do @Rbasico2022, ministrado pelo professor Ben Dêivide alem dos conteudos ensinados em sala de aula. A parte de documentação foi feita utilizando o Rstudio, juntamente com o Rmarkdown e latex.
+
+
+
+
+
 
 ---
 
-## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+##  Considerações finais
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
+Ao longo deste relatório, foram exploradas as distribuições qui-quadrado e F, abordando desde seus fundamentos teóricos até suas relações com as funções de amostra que lhes dão origem. Essa análise conjunta permitiu compreender não apenas as propriedades intrínsecas de cada distribuição, mas também a profunda conexão que existe entre elas e os mecanismos de amostragem a partir de populações normais.
 
 
-## 🧠 Considerações finais
-
-Apresente uma síntese dos principais pontos observados no experimento.
-
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+No que diz respeito às funções de amostra, ficou evidente que a distribuição qui-quadrado emerge de forma natural como distribuição da variância amostral padronizada, enquanto a distribuição F se manifesta na comparação entre duas variâncias amostrais independentes. Essa ligação entre os estimadores amostrais e as distribuições teóricas é o que confere a ambas sua relevância prática: elas não são construções abstratas, mas reflexos diretos do comportamento de estatísticas calculadas a partir de dados reais.
 
 
-## 📖 Referências
+Do ponto de vista aplicado, as distribuições estudadas se mostram ferramentas indispensáveis da inferência estatística. A distribuição qui-quadrado fundamenta testes sobre variâncias populacionais e análises de associação entre variáveis categóricas, enquanto a distribuição F sustenta a Análise de Variância e os testes de comparação entre modelos, sendo ambas complementares em situações que envolvem a decomposição da variabilidade dos dados.
+
+
+Por fim, conclui-se que o domínio dessas distribuições e de suas respectivas funções de amostra associadas constitui um requisito fundamental para a prática estatística rigorosa. A correta identificação de quando e como aplicá-las garante maior confiabilidade nas inferências realizadas e contribui para interpretações mais precisas e fundamentadas dos fenômenos estudados.
+
+##  Referências
