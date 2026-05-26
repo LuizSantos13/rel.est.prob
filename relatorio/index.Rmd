@@ -169,7 +169,7 @@ Relatórios desenvolvidos:
 - [Relatório 03 (XX/XX/XXXX)](rel03/index.html){target="_blank"}
 - [Relatório 04 (09/05/2026)](rel04/index.html){target="_blank"}
 - [Relatório 05 (16/05/2026)](rel05/index.html){target="_blank"}
-- [Relatório 06 (26/05/2026)](rel06/index.html){target="_blank"}
+- [Relatório 06 (XX/XX/XXXX)](rel06/index.html){target="_blank"}
 - [Relatório 07 (XX/XX/XXXX)](rel07/index.html){target="_blank"}
 - [Relatório 08 (XX/XX/XXXX)](rel08/index.html){target="_blank"}
 - [Relatório 09 (XX/XX/XXXX)](rel09/index.html){target="_blank"}
