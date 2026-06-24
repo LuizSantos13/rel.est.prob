@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática 03"
+author: "Luiz Gustavo dos Santos"
+title: "Relatório de Aula Prática 08"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -28,9 +28,11 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O estudo do movimento de projéteis e da transferência de energia mecânica é um dos pilares clássicos da física e da engenharia. Historicamente utilizadas como ferramentas de cerco na Antiguidade e Idade Média, as catapultas operam sob o princípio da conservação e conversão de energia: a energia potencial elástica ou gravitacional armazenada no sistema é rapidamente convertida em energia cinética, impulsionando um objeto através do espaço em uma trajetória parabólica.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+No contexto experimental contemporâneo, a catapulta serve como um excelente modelo físico para a análise estatística de sistemas e melhoria de processos. O alcance horizontal de um arremesso não depende apenas da força aplicada, mas sim de uma complexa interação de variáveis controláveis (como o ângulo de liberação, a massa do projétil, a tensão dos elásticos e o comprimento do braço de alavanca) e de ruídos não controláveis (como a resistência do ar e o desgaste fadiga dos componentes).
+
+Para avaliar o impacto real dessas configurações no desempenho do sistema, faz-se necessária a aplicação do método estatístico. Ao modelar o comportamento das distâncias arremessadas por meio da Distribuição Normal, torna-se possível aplicar testes de hipóteses paramétricos para validar se as alterações nas variáveis de fato geram mudanças previsíveis e significativas ou se as variações observadas são meramente fruto do acaso.
 
 
 
@@ -38,29 +40,168 @@ Descreva o contexto da prática e sua importância.
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
 
-### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
 
----
+Este relatório tem como objetivo principal analisar e comparar o desempenho de arremesso de uma bolinha por meio de uma catapulta configurada sob duas condições distintas, denominadas Grupo 1 e Grupo 2. Através da coleta de 15 lançamentos em cada grupo, busca-se identificar estatisticamente qual combinação de variáveis garante, em média, a maior distância percorrida pelo projétil, fornecendo embasamento empírico para a otimização do dispositivo.
+
+### Objetivo específico
+
+
+
+Comparar dois grupos de populações.
+
+
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
+Seguem os dados coletados no dia 22/06/2026 :
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+**Grupo 1:**
+```{r}
+# 1.dados do Grupo 1
+dados_grupo1 <- data.frame(
+  Lancamento = 1:15,
+  Distancia = c(265.0, 262.2, 262.0, 240.5, 249.0, 249.0, 254.8, 
+                231.0, 241.5, 248.5, 248.7, 238.0, 258.0, 257.5, 254.5)
+)
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+# 2. Visualizar os dados do Grupo 1
+print("--- DADOS DO GRUPO 1 ---")
+print(dados_grupo1)
+
+# 3. Estatísticas Descritivas (Média, Desvio Padrão, Variância)
+media_g1 <- mean(dados_grupo1$Distancia)
+sd_g1 <- sd(dados_grupo1$Distancia)
+variancia_g1 <- var(dados_grupo1$Distancia)
+
+cat("\nMédia do Grupo 1:", media_g1, "cm")
+cat("\nDesvio Padrão do Grupo 1:", sd_g1, "cm")
+cat("\nVariância do Grupo 1:", variancia_g1, "\n")
+
+
+```
+
+
+
+
+**Grupo 2:**
+```{r}
+# 1. dados grupo 2
+dados_grupo2 <- data.frame(
+  Lancamento = 1:15,
+  Distancia = c(219.0, 222.0, 237.0, 222.0, 225.5, 232.0, 231.0, 
+                224.5, 230.5, 205.0, 231.5, 233.5, 235.0, 231.5, 222.0)
+)
+
+# 2. Visualizar os dados do Grupo 2
+print("--- DADOS DO GRUPO 2 ---")
+print(dados_grupo2)
+
+# 3. Estatísticas Descritivas (Média, Desvio Padrão, Variância)
+media_g2 <- mean(dados_grupo2$Distancia)
+sd_g2 <- sd(dados_grupo2$Distancia)
+variancia_g2 <- var(dados_grupo2$Distancia)
+
+cat("\nMédia do Grupo 2:", media_g2, "cm")
+cat("\nDesvio Padrão do Grupo 2:", sd_g2, "cm")
+cat("\nVariância do Grupo 2:", variancia_g2, "\n")
+
+
+```
+
+###  Quais as hipóteses complementares?
+
+
+
+Em testes de hipóteses estatísticas, trabalhamos com a Hipótese Nula ($H_0$) e a Hipótese Alternativa ($H_1$ ou $H_a$). Como o objetivo é comparar duas combinações (vamos chamá-las de Combinação A e Combinação B) para ver qual tem a maior média, configuramos um teste bicaudal (para ver se são apenas diferentes) ou unicaudal (se quisermos provar que uma é especificamente maior que a outra). Assumindo que vamos testar se a nova combinação (A) é igual à combinação (B):
+
+ * Hipótese Nula ($H_0$): $\mu_A = \mu_B$ (A distância média da Combinação A igual à da Combinação B. 
+ 
+ 
+ * Hipótese Alternativa ($H_1$): $\mu_1 \neq \mu_2$ (A distância média da Combinação A é diferente da distância média da  Combinação B).
+
+
+Usaremos o nível de significãncia $\alpha = 0,05$ (ou 5%). Como o teste agora é bicaudal, essa área de rejeição de $5\%$ é dividida igualmente nas duas extremidades da curva ($2,5\%$ para a esquerda e $2,5\%$ para a direita).
+
+
+## Estatística do teste de T de Student
+
+***Dados:***
+
+Grupo 1 ($n_1 = 15$): Média ($\bar{x}_1$) = $250,68\text{ cm}$ | Variância ($s_1^2$) = $96,277$
+
+
+Grupo 2 ($n_2 = 15$): Média ($\bar{x}_2$) = $226,80\text{ cm}$ | Variância ($s_2^2$) = $66,493$
+
+
+
+***Passo 1- Variância combinada:***
+
+$$s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}$$
+
+Como n1 = n2 = 15, simplificando temos:
+
+
+$$sp² = \frac{96,277 + 66,493}{2}$$
+
+$$sp² = \frac{162,77}{2}$$
+
+$$sp² = 81,385$$
+
+
+***Passo 2- T calculado:***
+
+
+$$t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{s_p^2 \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}$$
+
+$$t = \frac{250,68 - 226,80}{\sqrt{81,385 \left(\frac{1}{15} + \frac{1}{15}\right)}}$$
+
+$$= \frac{23,88}{\sqrt{81,385 \times 0,13333}} $$
+
+
+
+$$= \frac{23,88}{\sqrt{10,8513}} $$
+
+$$T = \frac{23,88}{3,2941}$$
+$$T \approx 7,25$$
+***Passo 3 - Região de Decisão e Critério de Rejeição:***
+
+
+
+Para encontrar os limites críticos na tabela t-Student:
+
+* Graus de liberdade ($gl$): $n_1 + n_2 - 2 = 15 + 15 - 2 = 28$
+
+
+* Nível de significância ($\alpha$): $0,05$ (distribuído em $2,5\%$ na cauda esquerda e $2,5\%$ na cauda direita).
+
+
+
+Consultando a tabela, o valor crítico para estes parâmetros é:
+
+
+$$\mathbf{t_{\text{crítico}} = \pm 2,048}$$
+
+***Passo 4 - Conclusão do Teste:***
+
+* Nosso $t_{\text{calculado}} = 7,25$.
+
+* Como $7,25 > 2,048$, ele ultrapassa com muita folga o limite da região crítica na cauda direita.
+
+**Decisão**: Rejeitamos a hipótese nula ($H_0$).
+
+**Interpretação:** Com $95\%$ de confiança, os novos valores confirmam que rejeitamos a igualdade entre as médias. A diferença observada de $23,88\text{ cm}$ entre as configurações da catapulta é estatisticamente significante, provando que as duas regulagens produzem alcances médios de arremesso genuinamente distintos.
+
+### Entre as combinações estudadas (O-,A+,A-,B+ ), qual a que proporciona maior distância arremessada pela bolinha?
+
+
+
+A **Combinação A (O-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL V))** é significativamente superior, garantindo uma vantagem média de 23,88 cm a mais no arremesso em comparação com a **Combinação B(0-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL VII))**. 
+
+Como o teste de hipóteses ($t = 7,25$, com $p < 0,05$) rejeitou a igualdade entre elas, podemos afirmar com 95% de confiança matemática que essa diferença não foi por sorte ou acaso; a configuração das variáveis na Combinação A realmente otimiza a transferência de energia da catapulta para a bolinha.
+
+
 
 ---
 
@@ -75,6 +216,15 @@ Descreva como o experimento foi realizado.
 - Número de repetições  
 
 ---
+
+## Quais melhorias poderia ser realizadas ao experimento?
+
+
+
+
+
+
+
 
 ## 🔍 Resultados e Discussão
 
