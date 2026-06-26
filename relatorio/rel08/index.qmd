@@ -241,7 +241,7 @@ Como o teste de hipóteses ($t = 7,25$, com $p < 0,05$) rejeitou a igualdade ent
 
 **Procedimento:**
 
-O experimento foi realizado por 3 alunos, enquanto um dos alunos ficou responsável pelo lançamento da bolinha utilizando a catapulta e a anotar as distâncias coletadas, os outros dois ficaram reponsáveis por medir a distância que a bolinha alcançava.
+O experimento foi realizado por 3 alunos, enquanto um dos alunos ficou responsável pelo lançamento da bolinha utilizando a catapulta e a anotar as distâncias coletadas, os outros dois ficaram reponsáveis por medir a distância que a bolinha alcançava.Foram realizados 15 lançamentos.
 
 **Processamento dos dados coletados**
 
@@ -252,26 +252,6 @@ Na estatística do teste, foi utilizado o teste de T de Student @student1908prob
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
-
----
 
 
 
@@ -354,16 +334,6 @@ A olho nu, uma diferença de $23,88 \text{ cm}$ parece grande, mas na ciência p
 
 
 
-
-
-
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
 
 
 ## 🧠 Considerações finais
