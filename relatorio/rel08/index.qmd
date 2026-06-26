@@ -58,6 +58,17 @@ Comparar dois grupos de populações.
 Seguem os dados coletados no dia 22/06/2026 :
 
 **Grupo 1:**
+
+
+
+**Configuração da catapulta:**
+
+
+
+**O-(Nível III), A+(Nível III), A-(Nível IV), B+(Nível V) **
+
+
+
 ```{r}
 # 1.dados do Grupo 1
 dados_grupo1 <- data.frame(
@@ -86,6 +97,15 @@ cat("\nVariância do Grupo 1:", variancia_g1, "\n")
 
 
 **Grupo 2:**
+
+
+
+**Configuração da catapulta:**
+
+
+**O-(Nível III), A+(Nível III), A-(Nível IV), B+(Nível VII)**
+
+
 ```{r}
 # 1. dados grupo 2
 dados_grupo2 <- data.frame(
@@ -126,6 +146,9 @@ Usaremos o nível de significãncia $\alpha = 0,05$ (ou 5%). Como o teste agora 
 
 
 ## Estatística do teste de T de Student
+
+
+A estrtutura do teste foi baseada no artigo @student1908probable.
 
 ***Dados:***
 
@@ -197,7 +220,7 @@ $$\mathbf{t_{\text{crítico}} = \pm 2,048}$$
 
 
 
-A **Combinação A (O-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL V))** é significativamente superior, garantindo uma vantagem média de 23,88 cm a mais no arremesso em comparação com a **Combinação B(0-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL VII))**. 
+A **Combinação A (Grupo 1 - O-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL V))** é significativamente superior, garantindo uma vantagem média de 23,88 cm a mais no arremesso em comparação com a **Combinação B (Grupo 2 - 0-(NÍVEL III),A+(NÍVEL III),A-(NÍVEL IV),B+(NÍVEL VII))**. 
 
 Como o teste de hipóteses ($t = 7,25$, com $p < 0,05$) rejeitou a igualdade entre elas, podemos afirmar com 95% de confiança matemática que essa diferença não foi por sorte ou acaso; a configuração das variáveis na Combinação A realmente otimiza a transferência de energia da catapulta para a bolinha.
 
@@ -206,6 +229,39 @@ Como o teste de hipóteses ($t = 7,25$, com $p < 0,05$) rejeitou a igualdade ent
 ---
 
 ## ⚙️ Metodologia
+
+**Materiais utilizados:**
+
+
+* Catapulta de madeira
+* Mesa 
+* Bolinha 
+* Trena
+* Papel e caneta
+
+**Procedimento:**
+
+O experimento foi realizado por 3 alunos, enquanto um dos alunos ficou responsável pelo lançamento da bolinha utilizando a catapulta e a anotar as distâncias coletadas, os outros dois ficaram reponsáveis por medir a distância que a bolinha alcançava.
+
+**Processamento dos dados coletados**
+
+Para processar os dados, utilizamos o software RStudio, onde colocamos como uma tabela utilizando os aprendizados do curso @Rbasico2022 ministrado pelo professor Ben Dêivide.Foi tambem utilizadas as ferramentas Rmarkdown e Látex , ensinadas pelo Professor Ben Dêivide em sala de aula.
+
+
+Na estatística do teste, foi utilizado o teste de T de Student @student1908probable para fazer a comparação dos dados e a rejeição ou não da hipótese $H_0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ::: {.callout-note}
 Descreva como o experimento foi realizado.
@@ -217,32 +273,90 @@ Descreva como o experimento foi realizado.
 
 ---
 
-## Quais melhorias poderia ser realizadas ao experimento?
-
-
-
-
 
 
 
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+Para avaliar o comportamento da catapulta e identificar qual configuração otimiza o alcance do projétil, os dados experimentais coletados para as duas combinações de variáveis (Grupo 1 e Grupo 2) foram submetidos à análise estatística descritiva e inferencial. Foram realizados 15 lançamentos válidos para cada cenário, sob a premissa de que as distâncias percorridas pela bolinha seguem uma distribuição normal.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+Seguem as principais métricas obtidas a partir das coletas:
 
-Procure não apenas descrever, mas **interpretar os dados**.
+
+Grupo 1 ($n_1 = 15$): Média ($\bar{x}_1$) = $250,68\text{ cm}$ | Variância ($s_1^2$) = $96,277$
+
+
+Grupo 2 ($n_2 = 15$): Média ($\bar{x}_2$) = $226,80\text{ cm}$ | Variância ($s_2^2$) = $66,493$
+
+
+
+Os resultados preliminares indicam uma diferença nominal de $23,88 \text{ cm}$ a favor do Grupo 1, que registrou a maior distância média ($250,68 \text{ cm}$). Sob a ótica da física mecânica, essa superioridade sugere que os parâmetros adotados na combinação do Grupo 1 (tais como maior ângulo de projeção, maior constante elástica ou maior braço de alavanca) resultaram em uma transferência mais eficiente de energia potencial (elástica ou gravitacional) em energia cinética inicial ($E_c = \frac{1}{2}mv^2$), maximizando o alcance horizontal do projétil.
+
+
+
+
+
+ **Desempenho e Eficiência Mecânica (Médias)**
+
+
+
+O Grupo 1 obteve uma distância média de $250,68 \text{ cm}$, enquanto o Grupo 2 alcançou $226,80 \text{ cm}$.
+
+* O que isso significa? A combinação de variáveis utilizada pelo Grupo 1 é mecanicamente superior para gerar alcance horizontal. Na física do lançamento oblíquo, a distância percorrida depende diretamente da velocidade inicial de saída ($v_0$) e do ângulo de disparo ($\theta$).
+
+
+* Conclusão prática: A configuração do Grupo 1 conseguiu armazenar mais energia potencial (seja por maior deformação do elástico/mola ou por um braço de alavanca mais longo) e transformá-la de forma mais eficiente em energia cinética no momento do disparo.
+
+
+
+**Confiabilidade ( Desvio Padrão)**
+
+O desvio padrão do Grupo 1 foi de $9,812 \text{ cm}$, enquanto o do Grupo 2 foi menor, $8,154 \text{ cm}$.
+
+
+
+* O que isso significa? O desvio padrão mede a dispersão ou a "variação" dos lançamentos ao redor da média. O Grupo 2, embora tenha alcançado distâncias menores, mostrou-se mais consistente e estável (os tiros foram mais agrupados próximos uns dos outros). Já o Grupo 1, apesar de ir mais longe, apresentou maior instabilidade e variação entre um tiro e outro.
+
+
+
+* Conclusão prática: Ganhou-se em distância (Grupo 1), mas perdeu-se um pouco em precisão/repetibilidade. Isso acende um alerta de que a configuração do Grupo 1 pode ser mais sensível a pequenos erros humanos no momento de soltar o gatilho.
+
+
+**Validação Científica (Teste t de Student)**
+
+A olho nu, uma diferença de $23,88 \text{ cm}$ parece grande, mas na ciência precisamos provar que isso não aconteceu por mera "sorte" ou acaso do vento.
+
+
+* O nosso $t_{\text{calculado}}$ foi de $7,25$, esmagando o limite crítico de $2,048$.
+
+
+* O que isso significa? A probabilidade dessa diferença entre os grupos ser fruto do acaso é praticamente zero (estatisticamente falando, o p-valor é extremamente baixo).
+
+* Conclusão prática: Rejeitar a hipótese nula ($H_0$) confirma com 95% de confiança que a alteração das variáveis entre o Grupo 1 e o Grupo 2 causou, de fato, um impacto real no sistema. Não foi uma oscilação aleatória; a configuração do Grupo 1 é estatisticamente e comprovadamente superior.
+
+**Quais melhorias poderia ser realizadas ao experimento?**
+
+
+
+* Padronização do Gatilho/Disparo: O desvio padrão do Grupo 1 ($9,812 \text{ cm}$) foi maior do que o do Grupo 2 ($8,154 \text{ cm}$). Isso indica que a configuração do Grupo 1 é mais instável. Implementar um sistema de gatilho mecânico fixo (em vez de soltar manualmente) reduziria o erro humano e essa variabilidade.
+
+
+* Controle de Variáveis Ambientais e Esfericidade: Pequenas variações no peso da bolinha ou na resistência do ar alteram a distância. Utilizar bolinhas calibradas de alta precisão e realizar os testes em ambiente fechado mitigaria o ruído dos dados.
+
+
+* Expansão para uma ANOVA (Análise de Variância): Como o experimento menciona "quatro combinações diferentes" para cada grupo (envolvendo provavelmente variáveis como ângulo, tensão do elástico, ou peso do projétil), o ideal para os próximos passos seria coletar os dados de todas as 4 combinações e aplicar um Delineamento de Experimentos (DOE) ou ANOVA, permitindo entender não apenas qual é a melhor isoladamente, mas também a interação entre as variáveis.
+
+
+
+
+
+
+
+
+
 
 ### 💬 Exemplo de como citar uma referência bibliográfica
 
@@ -251,26 +365,17 @@ Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
 - Segundo @Rbasico2022
 - Tudo é um objeto em R [@Rbasico2022]
 
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
-```
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+O presente experimento cumpriu com êxito o objetivo de analisar e comparar o desempenho de diferentes configurações de uma catapulta, utilizando a inferência estatística para determinar qual combinação otimiza o alcance horizontal de um projétil sob a premissa de normalidade dos dados.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+A aplicação do Teste t de Student para duas amostras independentes validou cientificamente que a alteração das variáveis operacionais causou um impacto real e significativo no sistema. A hipótese nula de igualdade entre as médias foi rejeitada, confirmando com alto nível de confiança que a discrepância de desempenho observada entre os grupos não foi fruto do acaso ou de flutuações aleatórias, mas sim uma consequência direta das modificações estruturais realizadas. Sob a ótica da física mecânica, o grupo de maior alcance demonstrou maior eficiência na transferência de energia potencial em energia cinética inicial no momento do disparo.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+Por outro lado, a análise de dispersão indicou que a configuração que atingiu o maior alcance também se mostrou a mais instável, apresentando menor reprodutibilidade entre os lançamentos. Em contrapartida, a configuração de menor alcance médio evidenciou um comportamento mais consistente e previsível, sugerindo que sistemas menos potentes podem oferecer maior controle de precisão e repetibilidade.
 
-## Aprenda Quarto
+Em suma, conclui-se que a escolha da melhor combinação depende do objetivo do projeto: deve-se optar pela primeira configuração para cenários que exijam alcance máximo, e pela segunda caso a prioridade seja o acerto repetido de alvos. Para desdobramentos futuros, recomenda-se a automação do sistema de gatilho para mitigar o erro humano na soltura e a expansão para um planejamento experimental completo (como a ANOVA), permitindo isolar o efeito individual e combinado de todas as variáveis no comportamento da catapulta.
 
-Acesse [Quarto](https://quarto.org/).
+
 
 ## 📖 Referências
