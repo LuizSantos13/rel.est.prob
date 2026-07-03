@@ -138,19 +138,14 @@ window.Quarto = {
   <li><a href="#objetivo-geral" id="toc-objetivo-geral" class="nav-link" data-scroll-target="#objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</a></li>
   <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</a></li>
   </ul></li>
-  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a>
-  <ul class="collapse">
-  <li><a href="#ajuste-linear" id="toc-ajuste-linear" class="nav-link" data-scroll-target="#ajuste-linear"><span class="header-section-number">3.1</span> Ajuste linear</a></li>
-  </ul></li>
+  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
+  <li><a href="#ajuste-linear" id="toc-ajuste-linear" class="nav-link" data-scroll-target="#ajuste-linear"><span class="header-section-number">5.1</span> Ajuste linear</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
-  <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
-  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">8</span> 📖 Referências</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">7</span> 📖 Referências</a></li>
   </ul>
 </nav>
 </div>
@@ -184,7 +179,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">02/07/2026, 10:12</p>
+      <p class="date">03/07/2026, 11:13</p>
     </div>
   </div>
   
@@ -223,8 +218,85 @@ window.Quarto = {
 <figcaption>Dados coletados</figcaption>
 </figure>
 </div>
-<section id="ajuste-linear" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="ajuste-linear"><span class="header-section-number">3.1</span> Ajuste linear</h3>
+<p><strong><em>Existe associação entre a distância percorrida pela bolinha e o ângulo escolhido na catapulta?</em></strong></p>
+<p>Sim, existe uma forte associação. Ao observar os dados, a distância percorrida não é constante e muda drasticamente conforme o ângulo varia. Ela começa em 284,5 cm (média para 90°), atinge um pico de 305,5 cm (em 100°), e depois cai progressivamente até chegar a apenas 34 cm (em 170°). Isso comprova que a distância é uma função direta do ângulo de lançamento.</p>
+<p><strong><em>Qual a forma do modelo de regressão?</em></strong></p>
+<p>Embora a regressão linear simples possa ser calculada para mostrar uma tendência geral de queda à medida que o ângulo aumenta, a forma real e matematicamente correta dessa associação é parabólica ou curvilínea (Regressão Polinomial de 2º Grau).</p>
+<p>Pela física do movimento parabólico e pelo comportamento dos dados (onde a distância sobe, atinge um ponto máximo por volta de 100° a 110° e depois cai acentuadamente), um modelo quadrático da forma <span class="math inline">\(y = ax^2 + bx + c\)</span> descreve perfeitamente o fenômeno. Se for exigido estritamente um modelo linear por simplificação didática, ele assumirá uma inclinação negativa (uma reta descendente), mas perderá a curvatura inicial do topo.</p>
+<p><strong><em>Quais hipóteses são estudadas para verificar se o modelo de regressão é significativo?</em></strong></p>
+<p>Para testar a validade de um Modelo Polinomial (Regressão Quadrática ou de 2º Grau), avaliamos se a curvatura adicionada ao modelo descreve os dados significativamente melhor do que uma simples reta.</p>
+<p>A equação geral do modelo polinomial de 2º grau é:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \beta_2 X^2\]</span> <strong>Passo 1: Formulação das Hipóteses</strong></p>
+<p>Baseado no <span class="citation" data-cites="fisher1925statistical">Fisher (<a href="#ref-fisher1925statistical" role="doc-biblioref">1925</a>)</span> temos:</p>
+<ul>
+<li><p>Hipótese Nula (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\beta_1 = \beta_2 = 0\)</span> (O modelo polinomial não é válido; o ângulo não afeta a distância de forma linear ou curvilínea).</p></li>
+<li><p>Hipótese Alternativa (<span class="math inline">\(H_1\)</span>): Pelo menos um dos coeficientes (<span class="math inline">\(\beta_1\)</span> ou <span class="math inline">\(\beta_2\)</span>) é diferente de zero (O modelo polinomial é válido e há um efeito curvilíneo ou linear significativo).</p></li>
+</ul>
+<p><strong>Passo 2: Ajuste do Modelo Polinomial (Cálculo dos Coeficientes)</strong></p>
+<p>Utilizando o método dos mínimos quadrados para uma parábola com os seus 9 pontos experimentais, a equação ajustada resultante é:</p>
+<p><span class="math display">\[\hat{Y} = -2421 + 51,57 \cdot X - 0,2402 \cdot X^2\]</span></p>
+<p>O que essa equação nos diz fisicamente? O sinal negativo antes do <span class="math inline">\(X^2\)</span> (<span class="math inline">\(-0,2402\)</span>) confirma matematicamente que a parábola tem concavidade voltada para baixo. Isso bate perfeitamente com a física do lançamento: a distância sobe até um ponto máximo e depois despenca.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="previsão.png" class="img-fluid figure-img"></p>
+<figcaption>Previsão da distância</figcaption>
+</figure>
+</div>
+<p><strong>Passo 3: Cálculo das Somas dos Quadrados (ANOVA)</strong></p>
+<p>Para preencher a tabela de Análise de Variância (ANOVA) do modelo polinomial, calculamos como a variação total dos dados (<span class="math inline">\(SQ_{Total} = 87.073,0\)</span>) é dividida:</p>
+<ul>
+<li>Soma dos Quadrados da Regressão (<span class="math inline">\(SQ_{Regressão}\)</span>): Mede o quanto da variação o modelo parabólico consegue explicar.</li>
+</ul>
+<p><span class="math display">\[SQ_{\text{Resíduo}} = 96,43 + 812,25 + 2503,00 + 730,08 + 32,72 + 511,66 + 3192,25 + 14261,14 + 44049,61\]</span></p>
+<p><span class="math display">\[SQ_{Regressão} = 66189,1\]</span></p>
+<ul>
+<li>Soma dos Quadrados dos Resíduos (<span class="math inline">\(SQ_{Resíduo}\)</span>): Mede o erro/desvio que sobrou e a parábola não conseguiu capturar.</li>
+</ul>
+<p><span class="math display">\[SQ_{\text{Resíduo}} = \sum (Y - \hat{Y})^2\]</span></p>
+<p>Como a variação total dos dados (<span class="math inline">\(SQ_{Total}\)</span>) é fixa em 87.073,0, a variação que a sua nova curva consegue explicar passa a ser:</p>
+<p><span class="math display">\[SQ_{Resíduo} = SQ_{Total} - SQ_{Regressão} = 87.073,0 - 66189,1 = 20883,9\]</span></p>
+<p><span class="math display">\[SQ_{Resíduo} \approx 20883,9\]</span></p>
+<p><strong>Passo 4: Montagem da Tabela ANOVA para o Teste F</strong></p>
+<p>Como existem 3 coeficientes na equação (<span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>), os Graus de Liberdade (GL) da Regressão passam a ser 2. Com 9 observações totais (<span class="math inline">\(n=9\)</span>), o GL do Resíduo passa a ser <span class="math inline">\(9 - 3 = \mathbf{6}\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Gl2.png" class="img-fluid figure-img"></p>
+<figcaption>Tabela</figcaption>
+</figure>
+</div>
+<p>O <span class="math inline">\(F_{calc}\)</span> é obtido dividindo o QM da Regressão pelo QM do Resíduo :</p>
+<p><span class="math display">\[F_{calc}=\frac{QM(Regressão)}{QM(Resíduo)}\]</span></p>
+<p><span class="math display">\[F_{calc}=\frac{43536,50}{3480,65} \approx 12,51 \]</span></p>
+<p><strong>Passo 5: Região Crítica (Valor de Tabela)</strong></p>
+<p>Considerando o nível de significância padrão de 5% (<span class="math inline">\(\alpha = 0,05\)</span>), vamos buscar na tabela da distribuição F o valor teórico limite usando os graus de liberdade <span class="math inline">\((2, 6)\)</span>:</p>
+<p><span class="math inline">\(F_{crítico} (0,05; 2, 6) =\)</span> 5,14</p>
+<p><strong>Passo 6: Tomada de Decisão e Conclusão</strong></p>
+<p>Regra de decisão:</p>
+<ul>
+<li><p>Se <span class="math inline">\(F_{calc} &gt; F_{crítico}\)</span>, rejeitamos <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>O <span class="math inline">\(F_{calc}\)</span> é 12,51 que é maior do que o <span class="math inline">\(F_{crítico}\)</span> de 5,14.</p></li>
+</ul>
+<p><strong>Decisão:</strong> O teste é válido.</p>
+<p>Isso significa que, mesmo que esses coeficientes específicos (<span class="math inline">\(\beta_0 = -2421\)</span>, <span class="math inline">\(\beta_1 = 51,57\)</span>, <span class="math inline">\(\beta_2 = -0,2402\)</span>) tenham gerado resíduos maiores nos ângulos finais, a parábola calculada ainda consegue explicar a variação dos dados de forma significativamente melhor do que uma linha reta horizontal (que representaria a total ausência de relação entre o ângulo e a distância).</p>
+</section>
+<section id="metodologia" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
+<ul>
+<li>Catapulta de madeira</li>
+<li>Mesa</li>
+<li>Bolinha</li>
+<li>Trena</li>
+<li>Papel e caneta</li>
+</ul>
+<p><strong>Procedimento:</strong></p>
+<p>O experimento foi realizado por 3 alunos, enquanto um dos alunos ficou responsável pelo lançamento da bolinha utilizando a catapulta e a anotar as distâncias coletadas, os outros dois ficaram reponsáveis por medir a distância que a bolinha alcançava.Foram realizados 15 lançamentos.</p>
+<p><strong>Processamento dos dados coletados</strong></p>
+<p>Para processar os dados, utilizamos o software RStudio, onde colocamos como uma tabela utilizando os aprendizados do curso <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span> ministrado pelo professor Ben Dêivide.Foi tambem utilizadas as ferramentas Rmarkdown e Látex , ensinadas pelo Professor Ben Dêivide em sala de aula.</p>
+</section>
+<section id="resultados-e-discussão" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
+<section id="ajuste-linear" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="ajuste-linear"><span class="header-section-number">5.1</span> Ajuste linear</h3>
 <p>Para analisar esses dados usando regressão linear, foi preciso fazer uma pequena pausa conceitual: a relação entre o ângulo de disparo e a distância de um projétil que não é uma linha reta (linear), mas sim uma curva, uma parábola (regressão polinomial de 2º grau). Vamos ajustar um Modelo Linear Polinomial (<span class="math inline">\(Y = \beta_0 + \beta_1 X + \beta_2 X^2\)</span>). Embora tenha uma curva, ele ainda é considerado um “modelo linear” na estatística porque os coeficientes são lineares.</p>
 <p>Para chegar ao ângulo de máxima distância, nós transformamos o problema físico do lançamento em um problema matemático clássico.</p>
 <p><strong>Passo 1: Comportamento dos Dados (A Parábola)</strong></p>
@@ -358,96 +430,57 @@ F-statistic: 705.2 on 2 and 15 DF,  p-value: 1.466e-15</code></pre>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="metodologia" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Descreva como o experimento foi realizado.</p>
-</div>
-</div>
+<p><strong><em>Os resultados estão de acordo com o esperado?</em></strong></p>
+<p>Os resultados estão perfeitamente de acordo com o esperado, tanto do ponto de vista estatístico quanto físico.</p>
+<p>O fato de a matemática encontrar o ponto máximo em 107,35° faz todo o sentido quando analisamos o comportamento do experimento.</p>
 <ul>
-<li>Materiais utilizados<br>
-</li>
-<li>Procedimento<br>
-</li>
-<li>Número de repetições</li>
+<li><p>Em 100°: a bolinha atingiu 305,5 cm (o maior valor medido).</p></li>
+<li><p>Em 110°: a bolinha atingiu 295,25 cm (o segundo maior valor).</p></li>
 </ul>
-<hr>
-</section>
-<section id="resultados-e-discussão" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
+<p>Como o alcance em 100° foi ligeiramente maior do que em 110°, a parábola naturalmente precisa “inclinar” o seu topo (vértice) um pouco mais para o lado do 100°. Encontrar o pico em 107,35° (que está entre 100° e 110°, mas puxando um pouco mais para o 100°) mostra que o modelo ajustou-se perfeitamente à assimetria real dos lançamentos.</p>
+<p>Isso valida o principal objetivo de se criar um modelo de regressão na ciência: a capacidade de interpolação.</p>
+<p>Mesmo que não tenha testado o ângulo de 107,35° na prática com fita métrica, a lei matemática contínua gerada a partir dos 18 lançamentos foi capaz de “enxergar” o comportamento do sistema e deduzir com precisão onde estaria o ápice de desempenho da catapulta. É um resultado excelente para o relatório.</p>
+<p><strong><em>Existem possíveis fontes de erro experimental?</em></strong></p>
+<p>Em qualquer experimento físico real — especialmente umenvolvendo uma catapulta artesanal ou didática —, existem diversas variáveis difíceis de isolar perfeitamente. Esses fatores geram variações que a matemática pura do modelo de regressão não consegue prever.</p>
+<p>Possiveis erros experimentais:</p>
+<p><strong><em>Fadiga e Elasticidade dos Materiais (Fator Tempo)</em></strong></p>
 <ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
+<li><p>O elástico no 1º lançamento (90°) está muito mais “tenso” e novo do que no 18º lançamento (170°).</p></li>
+<li><p>A medida que o elástico estica repetidas vezes, ele perde a capacidade de retornar exatamente à forma original com a mesma força, fazendo com que os lançamentos finais ganhem menos energia do que os primeiros.</p></li>
 </ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
+<p><strong><em>Variação no Posicionamento da Bolinha</em></strong></p>
 <ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
+<li>Se a bolinha ficar um milímetro mais para a frente ou para trás, o centro de massa muda, alterando o momento exato em que ela se desengata do braço da catapulta.</li>
 </ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
-<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
+<p><strong><em>Atrito e Resistência do Ar</em></strong></p>
 <ul>
-<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
-<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
+<li><p>Correntes de ar na sala (janelas abertas, ar-condicionado ou movimentação de pessoas) podem desviar a trajetória.</p></li>
+<li><p>O próprio atrito do eixo do braço da catapulta pode variar se o pino esquentar ou se mover ligeiramente com os impactos repetidos contra a barra de parada.</p></li>
 </ul>
-</section>
-<section id="análise-de-dados" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
-</div>
-</div>
+<p><strong><em>Erro de Medição (Leitura do Alcance)</em></strong></p>
+<ul>
+<li>A marcação na trena depende do olho do observador, o que pode gerar uma margem de erro de alguns centímetros para mais ou para menos na planilha de dados.</li>
+</ul>
 </section>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
-<p>Apresente uma síntese dos principais pontos observados no experimento.</p>
-<ul>
-<li>Retome o objetivo da prática e indique se ele foi alcançado.</li>
-<li>Destaque os principais aprendizados obtidos.</li>
-<li>Comente brevemente sobre a qualidade dos dados coletados.</li>
-<li>Sugira possíveis melhorias no procedimento experimental.</li>
-</ul>
-<p>Evite repetir apenas os resultados; foque nas <strong>conclusões e reflexões</strong> sobre a prática realizada.</p>
+<p>O experimento com a catapulta comprovou com sucesso a associação entre o ângulo de disparo e a distância percorrida pela bolinha. Através da modelagem por Regressão Linear de 2º Grau, foi possível traduzir os 18 lançamentos práticos em uma função matemática parabólica contínua, refletindo com precisão o comportamento físico esperado (onde o alcance cresce até um ápice e depois decai acentuadamente).</p>
+<p>A validade e a robustez dessa equação foram estatisticamente consolidadas pelo Teste de Hipóteses (Teste F), que rejeitou a hipótese nula com alta significância. A partir dessa curva validada, determinou-se que o rendimento máximo teórico da catapulta ocorreria no ângulo otimizado de 107,35°. Dessa forma, o modelo de regressão mostrou-se uma ferramenta preditiva indispensável, capaz de contornar as fontes inevitáveis de erro experimental e identificar o ponto ótimo de operação do sistema.</p>
 </section>
-<section id="aprenda-quarto" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</h2>
-<p>Acesse <a href="https://quarto.org/">Quarto</a>.</p>
-</section>
-<section id="referências" class="level2" data-number="8">
+<section id="referências" class="level2" data-number="7">
 
 <!-- -->
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-Rbasico2022" class="csl-entry" role="listitem">
 BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+</div>
+<div id="ref-fisher1925statistical" class="csl-entry" role="listitem">
+FISHER, R. A. <strong>Statistical Methods for Research Workers</strong>. Edinburgh: Oliver; Boyd, 1925.
 </div>
 </div></section></div></main>
 <!-- /main column -->
@@ -902,266 +935,401 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Luiz Gustavo dos Santos"</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 09"</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>No estudo da física mecânica e da balística, o lançamento de projéteis é governado por leis cinemáticas que determinam a trajetória e o alcance de um objeto disparado no espaço. Em condições ideais, fatores como a velocidade inicial e o ângulo de disparo são as principais variáveis que ditam a distância horizontal percorrida. Contudo, em experimentos práticos utilizando dispositivos como catapultas, variáveis do ambiente — como a resistência do ar, o atrito mecânico do equipamento e imperfeições nos projéteis — introduzem variações e ruídos nos dados coletados, distanciando os resultados da teoria pura.</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>Para compreender o comportamento real do sistema e mitigar o impacto dessas incertezas experimentais, a aplicação de ferramentas estatísticas torna-se indispensável. Dentre essas técnicas, destaca-se a modelagem por regressão linear. Embora o alcance de um projétil apresente uma natureza curvilínea e parabólica em relação ao ângulo de disparo, a estatística permite expandir o conceito de regressão linear simples para o campo polinomial (regressão quadrática). Essa abordagem possibilita o ajuste de uma curva contínua otimizada que melhor representa o conjunto de dados discretos obtidos no laboratório.</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>Frente a isso, este relatório tem como objetivo principal aplicar o estudo da regressão linear polinomial sobre os dados coletados em um experimento de catapulta, visando modelar matematicamente a relação entre o ângulo de disparo e a distância alcançada pela bolinha. Por meio do ajuste desse modelo e da análise do seu comportamento geométrico (determinação do vértice da parábola), busca-se inferir de forma exata qual ângulo ideal proporciona a máxima distância de lançamento, validando a precisão do modelo estatístico frente às observações empíricas.</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>Desejamos estudar a distância que a bolinha percorre arremessada pela catapulta em função do ângulo, níveis da variável B+.</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a> Estudo de regressão linear.Verificar se é possível informar qual o ângulo que leva a maior distância percorrida pela bolinha no experimento da catapulta.</span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>Seguem os dados coletados no experimento:</span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="al">![Dados coletados](dados9.png)</span></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ajuste linear</span></span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>Para analisar esses dados usando regressão linear, foi preciso fazer uma pequena pausa conceitual: a relação entre o ângulo de disparo e a distância de um projétil que não é uma linha reta (linear), mas sim uma curva, uma parábola (regressão polinomial de 2º grau). Vamos ajustar um Modelo Linear Polinomial ($Y = \beta_0 + \beta_1 X + \beta_2 X^2$). Embora tenha uma curva, ele ainda é considerado um "modelo linear" na estatística porque os coeficientes são lineares.</span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>Para chegar ao ângulo de máxima distância, nós transformamos o problema físico do lançamento em um problema matemático clássico.</span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>**Passo 1: Comportamento dos Dados (A Parábola)**</span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>Na física, o alcance horizontal de um projétil não cresce infinitamente com o ângulo. Ele sobe até certo ponto e depois começa a cair. Ao olharmos para os seus dados brutos, vemos exatamente isso:</span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A 90°, a distância média é de cerca de 284,5 cm.</span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A 100° e 120°, a distância sobe para a faixa dos 300 cm.</span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A partir de 130°, a distância cai drasticamente, chegando a 34 cm em 170°.</span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>Como os dados desenham uma curva em formato de "U" invertido, uma linha reta ($Y = \beta_0 + \beta_1 X$) seria incapaz de prever o topo. Por isso, usamos uma função quadrática (polinômio de segundo grau):</span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>$$Y = \beta_0 + \beta_1 X + \beta_2 X^2$$</span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>Onde:</span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$Y$ é a Distância que queremos prever.</span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$X$ é o Ângulo.</span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_0, \beta_1, \beta_2$ são os coeficientes que se precisa encontrar.</span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>**Passo 2: O Ajuste por Mínimos Quadrados**</span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>Quando o R executa o comando lm(Distancia ~ Angulo + I(Angulo^2)), ele utiliza o método dos Mínimos Quadrados.</span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>O software testa matematicamente infinitas curvas parabólicas possíveis contra os  18 pontos reais. A curva escolhida é aquela que minimiza a distância (o erro) entre os pontos reais coletados e a linha teórica da própria curva.</span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>Ao convergir, o modelo encontrou os seguintes valores aproximados para os coeficientes (equação da catapulta):</span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>$$\text{Distância} = -2421,7 + 51,57 \cdot (\text{Ângulo}) - 0,2402 \cdot (\text{Ângulo})^2$$</span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>O coeficiente do $\text{Ângulo}^2$ é negativo ($-0,2402$). Na matemática, um termo quadrático negativo garante que a parábola tenha a concavidade voltada para baixo, ou seja, ela possui um ponto máximo.</span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>**Passo 3: Cálculo do ponto Máximo**</span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>O ponto máximo de uma curva ocorre exatamente onde a inclinação da reta tangente (a derivada) é igual a zero.</span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Equação da distância:</span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>$$f(x) = -0,2402x^2 + 51,57x - 2421,7$$</span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Derivamos em relação a $x$ (ângulo):</span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>$$f'(x) = 2 \cdot (-0,2402)x + 51,57$$</span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>$$f'(x) = -0,4804x + 51,57$$</span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Igualamos a derivada a zero para encontrar o ponto crítico:</span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>$$-0,4804x + 51,57 = 0$$</span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a>$$51,57 = 0,4804x$$</span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>$$x = \frac{51,57}{0,4804} \approx 107,35^\circ$$</span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>A regressão linear múltipla/polinomial transformou os 18 lançamentos experimentais em uma lei matemática contínua. Usando as propriedades dessa curva (o vértice da parábola), descobrimos que, embora  tenhamos testado apenas os ângulos fechados de 100° e 110°, matematicamente o rendimento máximo da catapulta aconteceria se ela disparasse exatamente a 107,35°.</span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>***Código no Rstudio?***</span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.  dados exatos</span></span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>angulos     <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">110</span>, <span class="dv">120</span>, <span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">170</span>)</span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>distancias  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">277</span>, <span class="dv">292</span>, <span class="dv">305</span>, <span class="dv">306</span>, <span class="fl">295.5</span>, <span class="dv">295</span>, <span class="dv">313</span>, <span class="dv">290</span>, <span class="dv">277</span>, <span class="dv">279</span>, <span class="dv">233</span>, <span class="dv">234</span>, <span class="dv">174</span>, <span class="dv">159</span>, <span class="dv">105</span>, <span class="dv">106</span>, <span class="dv">47</span>, <span class="dv">21</span>)</span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Angulo =</span> angulos, <span class="at">Distancia =</span> distancias)</span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ajustar o modelo de Regressão Polinomial (2º Grau)</span></span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="co"># O I(Angulo^2) diz ao R para elevar o ângulo ao quadrado no modelo</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(Distancia <span class="sc">~</span> Angulo <span class="sc">+</span> <span class="fu">I</span>(Angulo<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> dados)</span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver o resumo estatístico do modelo</span></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calcular matematicamente o ponto máximo (Vértice da Parábola)</span></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="co"># A fórmula do vértice é: Xv = -b / (2 * a)</span></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">coef</span>(modelo)[<span class="dv">2</span>] <span class="co"># Coeficiente do Angulo</span></span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">coef</span>(modelo)[<span class="dv">3</span>] <span class="co"># Coeficiente do Angulo^2</span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>angulo_maximo <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>distancia_maxima_estimada <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Angulo =</span> angulo_maximo))</span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibir a resposta no console</span></span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">--- RESULTADO DA REGRESSÃO ---</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"O ângulo teórico para a maior distância é:"</span>, <span class="fu">round</span>(angulo_maximo, <span class="dv">2</span>), <span class="st">"graus.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A distância máxima estimada para esse ângulo é:"</span>, <span class="fu">round</span>(distancia_maxima_estimada, <span class="dv">2</span>), <span class="st">"cm.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Plotar o gráfico com a curva de regressão</span></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dados<span class="sc">$</span>Angulo, dados<span class="sc">$</span>Distancia, </span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Regressão Quadrática: Ângulo vs Distância"</span>,</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Ângulo (Graus)"</span>, <span class="at">ylab =</span> <span class="st">"Distância (cm)"</span>, </span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">180</span>))</span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="co"># Desenhar a linha do modelo</span></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">coef</span>(modelo)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(modelo)[<span class="dv">2</span>]<span class="sc">*</span>x <span class="sc">+</span> <span class="fu">coef</span>(modelo)[<span class="dv">3</span>]<span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>, </span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcar o ponto máximo no gráfico</span></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(angulo_maximo, distancia_maxima_estimada, <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(angulo_maximo, distancia_maxima_estimada <span class="sc">+</span> <span class="dv">15</span>, </span>
-<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">round</span>(angulo_maximo,<span class="dv">1</span>), <span class="st">"°"</span>), <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">font =</span> <span class="dv">2</span>)</span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Luiz Gustavo dos Santos"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 09"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>No estudo da física mecânica e da balística, o lançamento de projéteis é governado por leis cinemáticas que determinam a trajetória e o alcance de um objeto disparado no espaço. Em condições ideais, fatores como a velocidade inicial e o ângulo de disparo são as principais variáveis que ditam a distância horizontal percorrida. Contudo, em experimentos práticos utilizando dispositivos como catapultas, variáveis do ambiente — como a resistência do ar, o atrito mecânico do equipamento e imperfeições nos projéteis — introduzem variações e ruídos nos dados coletados, distanciando os resultados da teoria pura.</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>Para compreender o comportamento real do sistema e mitigar o impacto dessas incertezas experimentais, a aplicação de ferramentas estatísticas torna-se indispensável. Dentre essas técnicas, destaca-se a modelagem por regressão linear. Embora o alcance de um projétil apresente uma natureza curvilínea e parabólica em relação ao ângulo de disparo, a estatística permite expandir o conceito de regressão linear simples para o campo polinomial (regressão quadrática). Essa abordagem possibilita o ajuste de uma curva contínua otimizada que melhor representa o conjunto de dados discretos obtidos no laboratório.</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>Frente a isso, este relatório tem como objetivo principal aplicar o estudo da regressão linear polinomial sobre os dados coletados em um experimento de catapulta, visando modelar matematicamente a relação entre o ângulo de disparo e a distância alcançada pela bolinha. Por meio do ajuste desse modelo e da análise do seu comportamento geométrico (determinação do vértice da parábola), busca-se inferir de forma exata qual ângulo ideal proporciona a máxima distância de lançamento, validando a precisão do modelo estatístico frente às observações empíricas.</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>Desejamos estudar a distância que a bolinha percorre arremessada pela catapulta em função do ângulo, níveis da variável B+.</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a> Estudo de regressão linear.Verificar se é possível informar qual o ângulo que leva a maior distância percorrida pela bolinha no experimento da catapulta.</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>Seguem os dados coletados no experimento:</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="al">![Dados coletados](dados9.png)</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>***Existe associação entre a distância percorrida pela bolinha e o ângulo escolhido na catapulta?***</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>Sim, existe uma forte associação. Ao observar os dados, a distância percorrida não é constante e muda drasticamente conforme o ângulo varia. Ela começa em 284,5 cm (média para 90°), atinge um pico de 305,5 cm (em 100°), e depois cai progressivamente até chegar a apenas 34 cm (em 170°). Isso comprova que a distância é uma função direta do ângulo de lançamento.</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>***Qual a forma do modelo de regressão?***</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>Embora a regressão linear simples possa ser calculada para mostrar uma tendência geral de queda à medida que o ângulo aumenta, a forma real e matematicamente correta dessa associação é parabólica ou curvilínea (Regressão Polinomial de 2º Grau).</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>Pela física do movimento parabólico e pelo comportamento dos dados (onde a distância sobe, atinge um ponto máximo por volta de 100° a 110° e depois cai acentuadamente), um modelo quadrático da forma $y = ax^2 + bx + c$ descreve perfeitamente o fenômeno. Se for exigido estritamente um modelo linear por simplificação didática, ele assumirá uma inclinação negativa (uma reta descendente), mas perderá a curvatura inicial do topo.</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>***Quais hipóteses são estudadas para verificar se o modelo de regressão é significativo?***</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>Para testar a validade de um Modelo Polinomial (Regressão Quadrática ou de 2º Grau), avaliamos se a curvatura adicionada ao modelo descreve os dados significativamente melhor do que uma simples reta.</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>A equação geral do modelo polinomial de 2º grau é:</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>$$Y = \beta_0 + \beta_1 X + \beta_2 X^2$$</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>**Passo 1: Formulação das Hipóteses**</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>Baseado no @fisher1925statistical temos:</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Hipótese Nula ($H_0$): $\beta_1 = \beta_2 = 0$ (O modelo polinomial não é válido; o ângulo não afeta a distância de forma linear ou curvilínea).</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Hipótese Alternativa ($H_1$): Pelo menos um dos coeficientes ($\beta_1$ ou $\beta_2$) é diferente de zero (O modelo polinomial é válido e há um efeito curvilíneo ou linear significativo).</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>**Passo 2: Ajuste do Modelo Polinomial (Cálculo dos Coeficientes)**</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>Utilizando o método dos mínimos quadrados para uma parábola com os seus 9 pontos experimentais, a equação ajustada resultante é:</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>$$\hat{Y} = -2421 + 51,57 \cdot X - 0,2402 \cdot X^2$$</span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>O que essa equação nos diz fisicamente? O sinal negativo antes do $X^2$ ($-0,2402$) confirma matematicamente que a parábola tem concavidade voltada para baixo. Isso bate perfeitamente com a física do lançamento: a distância sobe até um ponto máximo e depois despenca.</span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="al">![Previsão da distância](previsão.png)</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>**Passo 3: Cálculo das Somas dos Quadrados (ANOVA)**</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>Para preencher a tabela de Análise de Variância (ANOVA) do modelo polinomial, calculamos como a variação total dos dados ($SQ_{Total} = 87.073,0$) é dividida:</span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Soma dos Quadrados da Regressão ($SQ_{Regressão}$): Mede o quanto da variação o modelo parabólico consegue explicar.</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>$$SQ_{\text{Resíduo}} = 96,43 + 812,25 + 2503,00 + 730,08 + 32,72 + 511,66 + 3192,25 + 14261,14 + 44049,61$$</span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>$$SQ_{Regressão} = 66189,1$$</span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Soma dos Quadrados dos Resíduos ($SQ_{Resíduo}$): Mede o erro/desvio que sobrou e a parábola não conseguiu capturar.</span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>$$SQ_{\text{Resíduo}} = \sum (Y - \hat{Y})^2$$</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>Como a variação total dos dados ($SQ_{Total}$) é fixa em 87.073,0, a variação que a sua nova curva consegue explicar passa a ser:</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>$$SQ_{Resíduo} = SQ_{Total} - SQ_{Regressão} = 87.073,0 - 66189,1 = 20883,9$$</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>$$SQ_{Resíduo} \approx 20883,9$$</span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>**Passo 4: Montagem da Tabela ANOVA para o Teste F**</span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>Como existem 3 coeficientes na equação ($\beta_0, \beta_1, \beta_2$), os Graus de Liberdade (GL) da Regressão passam a ser 2. Com 9 observações totais ($n=9$), o GL do Resíduo passa a ser $9 - 3 = \mathbf{6}$.</span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="al">![Tabela ](Gl2.png)</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>O $F_{calc}$ é obtido dividindo o QM da Regressão pelo QM do Resíduo :</span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>$$F_{calc}=\frac{QM(Regressão)}{QM(Resíduo)}$$</span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>$$F_{calc}=\frac{43536,50}{3480,65} \approx 12,51 $$</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>**Passo 5: Região Crítica (Valor de Tabela)**</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>Considerando o nível de significância padrão de 5% ($\alpha = 0,05$), vamos buscar na tabela da distribuição F o valor teórico limite usando os graus de liberdade $(2, 6)$:</span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>$F_{crítico} (0,05; 2, 6) =$ 5,14</span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>**Passo 6: Tomada de Decisão e Conclusão**</span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>Regra de decisão: </span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se $F_{calc} &gt; F_{crítico}$, rejeitamos $H_0$.</span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O $F_{calc}$ é 12,51 que é maior do que o $F_{crítico}$ de 5,14.</span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>**Decisão:** O teste é válido. </span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>Isso significa que, mesmo que esses coeficientes específicos ($\beta_0 = -2421$, $\beta_1 = 51,57$, $\beta_2 = -0,2402$) tenham gerado resíduos maiores nos ângulos finais, a parábola calculada ainda consegue explicar a variação dos dados de forma significativamente melhor do que uma linha reta horizontal (que representaria a total ausência de relação entre o ângulo e a distância).</span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Catapulta de madeira</span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Mesa </span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Bolinha </span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Trena</span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Papel e caneta</span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>**Procedimento:**</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>O experimento foi realizado por 3 alunos, enquanto um dos alunos ficou responsável pelo lançamento da bolinha utilizando a catapulta e a anotar as distâncias coletadas, os outros dois ficaram reponsáveis por medir a distância que a bolinha alcançava.Foram realizados 15 lançamentos.</span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>**Processamento dos dados coletados**</span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>Para processar os dados, utilizamos o software RStudio, onde colocamos como uma tabela utilizando os aprendizados do curso @Rbasico2022 ministrado pelo professor Ben Dêivide.Foi tambem utilizadas as ferramentas Rmarkdown e Látex , ensinadas pelo Professor Ben Dêivide em sala de aula.</span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ajuste linear</span></span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>Para analisar esses dados usando regressão linear, foi preciso fazer uma pequena pausa conceitual: a relação entre o ângulo de disparo e a distância de um projétil que não é uma linha reta (linear), mas sim uma curva, uma parábola (regressão polinomial de 2º grau). Vamos ajustar um Modelo Linear Polinomial ($Y = \beta_0 + \beta_1 X + \beta_2 X^2$). Embora tenha uma curva, ele ainda é considerado um "modelo linear" na estatística porque os coeficientes são lineares.</span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>Para chegar ao ângulo de máxima distância, nós transformamos o problema físico do lançamento em um problema matemático clássico.</span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>**Passo 1: Comportamento dos Dados (A Parábola)**</span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>Na física, o alcance horizontal de um projétil não cresce infinitamente com o ângulo. Ele sobe até certo ponto e depois começa a cair. Ao olharmos para os seus dados brutos, vemos exatamente isso:</span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A 90°, a distância média é de cerca de 284,5 cm.</span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A 100° e 120°, a distância sobe para a faixa dos 300 cm.</span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A partir de 130°, a distância cai drasticamente, chegando a 34 cm em 170°.</span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a>Como os dados desenham uma curva em formato de "U" invertido, uma linha reta ($Y = \beta_0 + \beta_1 X$) seria incapaz de prever o topo. Por isso, usamos uma função quadrática (polinômio de segundo grau):</span>
+<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-231"><a href="#cb10-231" aria-hidden="true" tabindex="-1"></a>$$Y = \beta_0 + \beta_1 X + \beta_2 X^2$$</span>
+<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-233"><a href="#cb10-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-234"><a href="#cb10-234" aria-hidden="true" tabindex="-1"></a>Onde:</span>
+<span id="cb10-235"><a href="#cb10-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$Y$ é a Distância que queremos prever.</span>
+<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$X$ é o Ângulo.</span>
+<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_0, \beta_1, \beta_2$ são os coeficientes que se precisa encontrar.</span>
+<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a>**Passo 2: O Ajuste por Mínimos Quadrados**</span>
+<span id="cb10-245"><a href="#cb10-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-246"><a href="#cb10-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-247"><a href="#cb10-247" aria-hidden="true" tabindex="-1"></a>Quando o R executa o comando lm(Distancia ~ Angulo + I(Angulo^2)), ele utiliza o método dos Mínimos Quadrados.</span>
+<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-249"><a href="#cb10-249" aria-hidden="true" tabindex="-1"></a>O software testa matematicamente infinitas curvas parabólicas possíveis contra os  18 pontos reais. A curva escolhida é aquela que minimiza a distância (o erro) entre os pontos reais coletados e a linha teórica da própria curva.</span>
+<span id="cb10-250"><a href="#cb10-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-251"><a href="#cb10-251" aria-hidden="true" tabindex="-1"></a>Ao convergir, o modelo encontrou os seguintes valores aproximados para os coeficientes (equação da catapulta):</span>
+<span id="cb10-252"><a href="#cb10-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-253"><a href="#cb10-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-254"><a href="#cb10-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-255"><a href="#cb10-255" aria-hidden="true" tabindex="-1"></a>$$\text{Distância} = -2421,7 + 51,57 \cdot (\text{Ângulo}) - 0,2402 \cdot (\text{Ângulo})^2$$</span>
+<span id="cb10-256"><a href="#cb10-256" aria-hidden="true" tabindex="-1"></a>O coeficiente do $\text{Ângulo}^2$ é negativo ($-0,2402$). Na matemática, um termo quadrático negativo garante que a parábola tenha a concavidade voltada para baixo, ou seja, ela possui um ponto máximo.</span>
+<span id="cb10-257"><a href="#cb10-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-258"><a href="#cb10-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-259"><a href="#cb10-259" aria-hidden="true" tabindex="-1"></a>**Passo 3: Cálculo do ponto Máximo**</span>
+<span id="cb10-260"><a href="#cb10-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-261"><a href="#cb10-261" aria-hidden="true" tabindex="-1"></a>O ponto máximo de uma curva ocorre exatamente onde a inclinação da reta tangente (a derivada) é igual a zero.</span>
+<span id="cb10-262"><a href="#cb10-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-263"><a href="#cb10-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-264"><a href="#cb10-264" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Equação da distância:</span>
+<span id="cb10-265"><a href="#cb10-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-266"><a href="#cb10-266" aria-hidden="true" tabindex="-1"></a>$$f(x) = -0,2402x^2 + 51,57x - 2421,7$$</span>
+<span id="cb10-267"><a href="#cb10-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-268"><a href="#cb10-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-269"><a href="#cb10-269" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Derivamos em relação a $x$ (ângulo):</span>
+<span id="cb10-270"><a href="#cb10-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-271"><a href="#cb10-271" aria-hidden="true" tabindex="-1"></a>$$f'(x) = 2 \cdot (-0,2402)x + 51,57$$</span>
+<span id="cb10-272"><a href="#cb10-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-273"><a href="#cb10-273" aria-hidden="true" tabindex="-1"></a>$$f'(x) = -0,4804x + 51,57$$</span>
+<span id="cb10-274"><a href="#cb10-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-275"><a href="#cb10-275" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Igualamos a derivada a zero para encontrar o ponto crítico:</span>
+<span id="cb10-276"><a href="#cb10-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-277"><a href="#cb10-277" aria-hidden="true" tabindex="-1"></a>$$-0,4804x + 51,57 = 0$$</span>
+<span id="cb10-278"><a href="#cb10-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-279"><a href="#cb10-279" aria-hidden="true" tabindex="-1"></a>$$51,57 = 0,4804x$$</span>
+<span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a>$$x = \frac{51,57}{0,4804} \approx 107,35^\circ$$</span>
+<span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a>A regressão linear múltipla/polinomial transformou os 18 lançamentos experimentais em uma lei matemática contínua. Usando as propriedades dessa curva (o vértice da parábola), descobrimos que, embora  tenhamos testado apenas os ângulos fechados de 100° e 110°, matematicamente o rendimento máximo da catapulta aconteceria se ela disparasse exatamente a 107,35°.</span>
+<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-286"><a href="#cb10-286" aria-hidden="true" tabindex="-1"></a>***Código no Rstudio?***</span>
+<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-290"><a href="#cb10-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-291"><a href="#cb10-291" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.  dados exatos</span></span>
+<span id="cb10-292"><a href="#cb10-292" aria-hidden="true" tabindex="-1"></a>angulos     <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">110</span>, <span class="dv">110</span>, <span class="dv">120</span>, <span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">170</span>)</span>
+<span id="cb10-293"><a href="#cb10-293" aria-hidden="true" tabindex="-1"></a>distancias  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">277</span>, <span class="dv">292</span>, <span class="dv">305</span>, <span class="dv">306</span>, <span class="fl">295.5</span>, <span class="dv">295</span>, <span class="dv">313</span>, <span class="dv">290</span>, <span class="dv">277</span>, <span class="dv">279</span>, <span class="dv">233</span>, <span class="dv">234</span>, <span class="dv">174</span>, <span class="dv">159</span>, <span class="dv">105</span>, <span class="dv">106</span>, <span class="dv">47</span>, <span class="dv">21</span>)</span>
+<span id="cb10-294"><a href="#cb10-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Angulo =</span> angulos, <span class="at">Distancia =</span> distancias)</span>
+<span id="cb10-296"><a href="#cb10-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ajustar o modelo de Regressão Polinomial (2º Grau)</span></span>
+<span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a><span class="co"># O I(Angulo^2) diz ao R para elevar o ângulo ao quadrado no modelo</span></span>
+<span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(Distancia <span class="sc">~</span> Angulo <span class="sc">+</span> <span class="fu">I</span>(Angulo<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> dados)</span>
+<span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver o resumo estatístico do modelo</span></span>
+<span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span>
+<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calcular matematicamente o ponto máximo (Vértice da Parábola)</span></span>
+<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a><span class="co"># A fórmula do vértice é: Xv = -b / (2 * a)</span></span>
+<span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">coef</span>(modelo)[<span class="dv">2</span>] <span class="co"># Coeficiente do Angulo</span></span>
+<span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">coef</span>(modelo)[<span class="dv">3</span>] <span class="co"># Coeficiente do Angulo^2</span></span>
+<span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-309"><a href="#cb10-309" aria-hidden="true" tabindex="-1"></a>angulo_maximo <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
+<span id="cb10-310"><a href="#cb10-310" aria-hidden="true" tabindex="-1"></a>distancia_maxima_estimada <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Angulo =</span> angulo_maximo))</span>
+<span id="cb10-311"><a href="#cb10-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-312"><a href="#cb10-312" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibir a resposta no console</span></span>
+<span id="cb10-313"><a href="#cb10-313" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">--- RESULTADO DA REGRESSÃO ---</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-314"><a href="#cb10-314" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"O ângulo teórico para a maior distância é:"</span>, <span class="fu">round</span>(angulo_maximo, <span class="dv">2</span>), <span class="st">"graus.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-315"><a href="#cb10-315" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"A distância máxima estimada para esse ângulo é:"</span>, <span class="fu">round</span>(distancia_maxima_estimada, <span class="dv">2</span>), <span class="st">"cm.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-316"><a href="#cb10-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-317"><a href="#cb10-317" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Plotar o gráfico com a curva de regressão</span></span>
+<span id="cb10-318"><a href="#cb10-318" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dados<span class="sc">$</span>Angulo, dados<span class="sc">$</span>Distancia, </span>
+<span id="cb10-319"><a href="#cb10-319" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Regressão Quadrática: Ângulo vs Distância"</span>,</span>
+<span id="cb10-320"><a href="#cb10-320" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Ângulo (Graus)"</span>, <span class="at">ylab =</span> <span class="st">"Distância (cm)"</span>, </span>
+<span id="cb10-321"><a href="#cb10-321" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">180</span>))</span>
+<span id="cb10-322"><a href="#cb10-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-323"><a href="#cb10-323" aria-hidden="true" tabindex="-1"></a><span class="co"># Desenhar a linha do modelo</span></span>
+<span id="cb10-324"><a href="#cb10-324" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">coef</span>(modelo)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(modelo)[<span class="dv">2</span>]<span class="sc">*</span>x <span class="sc">+</span> <span class="fu">coef</span>(modelo)[<span class="dv">3</span>]<span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>, </span>
+<span id="cb10-325"><a href="#cb10-325" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb10-326"><a href="#cb10-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-327"><a href="#cb10-327" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcar o ponto máximo no gráfico</span></span>
+<span id="cb10-328"><a href="#cb10-328" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(angulo_maximo, distancia_maxima_estimada, <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb10-329"><a href="#cb10-329" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(angulo_maximo, distancia_maxima_estimada <span class="sc">+</span> <span class="dv">15</span>, </span>
+<span id="cb10-330"><a href="#cb10-330" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">round</span>(angulo_maximo,<span class="dv">1</span>), <span class="st">"°"</span>), <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">font =</span> <span class="dv">2</span>)</span>
+<span id="cb10-331"><a href="#cb10-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-332"><a href="#cb10-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-333"><a href="#cb10-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-334"><a href="#cb10-334" aria-hidden="true" tabindex="-1"></a>***Os resultados estão de acordo com o esperado?***</span>
+<span id="cb10-335"><a href="#cb10-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-336"><a href="#cb10-336" aria-hidden="true" tabindex="-1"></a>Os resultados estão perfeitamente de acordo com o esperado, tanto do ponto de vista estatístico quanto físico.</span>
+<span id="cb10-337"><a href="#cb10-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-338"><a href="#cb10-338" aria-hidden="true" tabindex="-1"></a>O fato de a matemática encontrar o ponto máximo em 107,35° faz todo o sentido quando analisamos o comportamento do experimento.</span>
+<span id="cb10-339"><a href="#cb10-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-340"><a href="#cb10-340" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Em 100°: a bolinha atingiu 305,5 cm (o maior valor medido).</span>
+<span id="cb10-341"><a href="#cb10-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-342"><a href="#cb10-342" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Em 110°: a bolinha atingiu 295,25 cm (o segundo maior valor).</span>
+<span id="cb10-343"><a href="#cb10-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-344"><a href="#cb10-344" aria-hidden="true" tabindex="-1"></a>Como o alcance em 100° foi ligeiramente maior do que em 110°, a parábola naturalmente precisa "inclinar" o seu topo (vértice) um pouco mais para o lado do 100°. Encontrar o pico em 107,35° (que está entre 100° e 110°, mas puxando um pouco mais para o 100°) mostra que o modelo ajustou-se perfeitamente à assimetria real dos lançamentos.</span>
+<span id="cb10-345"><a href="#cb10-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-346"><a href="#cb10-346" aria-hidden="true" tabindex="-1"></a>Isso valida o principal objetivo de se criar um modelo de regressão na ciência: a capacidade de interpolação.</span>
+<span id="cb10-347"><a href="#cb10-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-348"><a href="#cb10-348" aria-hidden="true" tabindex="-1"></a>Mesmo que não tenha testado o ângulo de 107,35° na prática com fita métrica, a lei matemática contínua gerada a partir dos 18 lançamentos foi capaz de "enxergar" o comportamento do sistema e deduzir com precisão onde estaria o ápice de desempenho da catapulta. É um resultado excelente para o relatório.</span>
+<span id="cb10-349"><a href="#cb10-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-350"><a href="#cb10-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-351"><a href="#cb10-351" aria-hidden="true" tabindex="-1"></a>***Existem possíveis fontes de erro experimental?***</span>
+<span id="cb10-352"><a href="#cb10-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-353"><a href="#cb10-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-354"><a href="#cb10-354" aria-hidden="true" tabindex="-1"></a>Em qualquer experimento físico real — especialmente umenvolvendo uma catapulta artesanal ou didática —, existem diversas variáveis difíceis de isolar perfeitamente. Esses fatores geram variações que a matemática pura do modelo de regressão não consegue prever.</span>
+<span id="cb10-355"><a href="#cb10-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-356"><a href="#cb10-356" aria-hidden="true" tabindex="-1"></a>Possiveis erros experimentais:</span>
+<span id="cb10-357"><a href="#cb10-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-358"><a href="#cb10-358" aria-hidden="true" tabindex="-1"></a>***Fadiga e Elasticidade dos Materiais (Fator Tempo)***</span>
+<span id="cb10-359"><a href="#cb10-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-360"><a href="#cb10-360" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O elástico no 1º lançamento (90°) está muito mais "tenso" e novo do que no 18º lançamento (170°).</span>
+<span id="cb10-361"><a href="#cb10-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-362"><a href="#cb10-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-363"><a href="#cb10-363" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A medida que o elástico estica repetidas vezes, ele perde a capacidade de retornar exatamente à forma original com a mesma força, fazendo com que os lançamentos finais ganhem menos energia do que os primeiros.</span>
+<span id="cb10-364"><a href="#cb10-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-365"><a href="#cb10-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-366"><a href="#cb10-366" aria-hidden="true" tabindex="-1"></a>***Variação no Posicionamento da Bolinha***</span>
+<span id="cb10-367"><a href="#cb10-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-368"><a href="#cb10-368" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se a bolinha ficar um milímetro mais para a frente ou para trás, o centro de massa muda, alterando o momento exato em que ela se desengata do braço da catapulta.</span>
+<span id="cb10-369"><a href="#cb10-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-370"><a href="#cb10-370" aria-hidden="true" tabindex="-1"></a>***Atrito e Resistência do Ar***</span>
+<span id="cb10-371"><a href="#cb10-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-372"><a href="#cb10-372" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Correntes de ar na sala (janelas abertas, ar-condicionado ou movimentação de pessoas) podem desviar a trajetória.</span>
+<span id="cb10-373"><a href="#cb10-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-374"><a href="#cb10-374" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O próprio atrito do eixo do braço da catapulta pode variar se o pino esquentar ou se mover ligeiramente com os impactos repetidos contra a barra de parada.</span>
+<span id="cb10-375"><a href="#cb10-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-376"><a href="#cb10-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-377"><a href="#cb10-377" aria-hidden="true" tabindex="-1"></a>***Erro de Medição (Leitura do Alcance)***</span>
+<span id="cb10-378"><a href="#cb10-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-379"><a href="#cb10-379" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A marcação na trena depende do olho do observador, o que pode gerar uma margem de erro de alguns centímetros para mais ou para menos na planilha de dados.</span>
+<span id="cb10-380"><a href="#cb10-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-381"><a href="#cb10-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-382"><a href="#cb10-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-383"><a href="#cb10-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-384"><a href="#cb10-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-385"><a href="#cb10-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-386"><a href="#cb10-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-387"><a href="#cb10-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-388"><a href="#cb10-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-389"><a href="#cb10-389" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb10-390"><a href="#cb10-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-391"><a href="#cb10-391" aria-hidden="true" tabindex="-1"></a>O experimento com a catapulta comprovou com sucesso a associação entre o ângulo de disparo e a distância percorrida pela bolinha. Através da modelagem por Regressão Linear de 2º Grau, foi possível traduzir os 18 lançamentos práticos em uma função matemática parabólica contínua, refletindo com precisão o comportamento físico esperado (onde o alcance cresce até um ápice e depois decai acentuadamente).</span>
+<span id="cb10-392"><a href="#cb10-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-393"><a href="#cb10-393" aria-hidden="true" tabindex="-1"></a>A validade e a robustez dessa equação foram estatisticamente consolidadas pelo Teste de Hipóteses (Teste F), que rejeitou a hipótese nula com alta significância. A partir dessa curva validada, determinou-se que o rendimento máximo teórico da catapulta ocorreria no ângulo otimizado de 107,35°. Dessa forma, o modelo de regressão mostrou-se uma ferramenta preditiva indispensável, capaz de contornar as fontes inevitáveis de erro experimental e identificar o ponto ótimo de operação do sistema.</span>
+<span id="cb10-394"><a href="#cb10-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-395"><a href="#cb10-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-396"><a href="#cb10-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-397"><a href="#cb10-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
